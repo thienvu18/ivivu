@@ -3,10 +3,9 @@
 # Cấu trúc repo
 ```bash
 Root
-|_DB
-| |_models (Lưu model của CSDL)
-| |_scripts (Lưu các script liên quan đến CSDL)
-|_App (Lưu ứng dụng)
-|_Report (Lưu file báo cáo)
+|-DB
+| |-models (Lưu model của CSDL)
+| |-scripts (Lưu các script liên quan đến CSDL)
+|-App (Lưu ứng dụng)
+|-Report (Lưu file báo cáo)
 ```
-
