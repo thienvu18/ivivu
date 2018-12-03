@@ -1,7 +1,6 @@
-﻿<Application x:Class="ivivu.App"
+﻿<Application x:Class="ivivuApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ivivu"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

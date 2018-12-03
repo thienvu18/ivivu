@@ -1,0 +1,10 @@
+﻿<Window x:Class="ivivuApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Canvas>
+        <Button x:Name="admin_login" Width="125" Height="40" Content="Đăng nhập nhân viên" Click="login_admin_Click" Canvas.Left="35" Canvas.Top="130"/>
+        <Button x:Name="search" Width="108" Height="40" Content="Tìm kiếm phòng" Click="search_Click" Canvas.Left="201" Canvas.Top="130"/>
+        <Button x:Name="user_login" Width="106" Height="40" Content="Đăng nhập khách" Click="login_user_Click" Canvas.Left="359" Canvas.Top="130"/>
+    </Canvas>
+</Window>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ivivu.Properties
+namespace ivivuApp.Properties
 {
 
 

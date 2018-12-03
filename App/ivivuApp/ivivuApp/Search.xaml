@@ -1,0 +1,8 @@
+﻿<Window x:Class="ivivuApp.Search"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Search" Height="300" Width="300">
+    <Canvas>
+        <Button x:Name="book" Width="125" Height="40" Content="Đặt phòng" Click="book_Click" Canvas.Left="81" Canvas.Top="117"/>
+    </Canvas>
+</Window>
