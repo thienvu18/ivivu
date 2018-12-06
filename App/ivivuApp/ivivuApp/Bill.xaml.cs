@@ -15,21 +15,13 @@ using System.Windows.Shapes;
 namespace ivivuApp
 {
     /// <summary>
-    /// Interaction logic for Home_admin.xaml
+    /// Interaction logic for Bill.xaml
     /// </summary>
-    public partial class Home_admin : Window
+    public partial class Bill : Window
     {
-        public Home_admin()
+        public Bill()
         {
             InitializeComponent();
-        }
-
-        private void btn_create_bill_Click(object sender, RoutedEventArgs e)
-        {
-
-            var window = new Bill();
-            this.Close();
-            window.ShowDialog();
         }
     }
 }

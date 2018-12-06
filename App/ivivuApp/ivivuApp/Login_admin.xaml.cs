@@ -23,5 +23,12 @@ namespace ivivuApp
         {
             InitializeComponent();
         }
+
+        private void btn_login_admin_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Home_admin();
+            this.Close();
+            window.ShowDialog();
+        }
     }
 }

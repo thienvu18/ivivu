@@ -1,0 +1,13 @@
+﻿<Window x:Class="ivivuApp.Bill"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Bill" Height="500" Width="500">
+    <Canvas>
+        <StackPanel>
+            <Label Content="Mã đặt phòng" />
+            <TextBox x:Name="ID_book" Width="200" Height="30" FontSize="17"/>
+        </StackPanel>
+        <Button x:Name="btn_pre_bill" Canvas.Left="100">Xem hóa đơn</Button>
+        
+    </Canvas>
+</Window>
