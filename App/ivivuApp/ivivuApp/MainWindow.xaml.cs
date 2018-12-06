@@ -23,6 +23,7 @@ namespace ivivuApp
         public MainWindow()
         {
             InitializeComponent();
+            Database.init();
         }
 
         private void login_admin_Click(object sender, RoutedEventArgs e)
