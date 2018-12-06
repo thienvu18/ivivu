@@ -1,8 +1,13 @@
 ﻿<Window x:Class="ivivuApp.Login_user"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Login_user" Height="300" Width="300">
+        Title="Login_user" Height="400" Width="300">
     <Canvas>
-        <Button x:Name="btn_login_user" Width="125" Height="40" Content="Đăng nhập" Click="btn_login_user_Click" Canvas.Left="81" Canvas.Top="117"/>
+        <Button x:Name="btn_login_user" Width="125" Height="40" Content="Đăng nhập" Click="btn_login_user_Click" Canvas.Left="81" Canvas.Top="197"/>
+        <StackPanel Canvas.Left="81" Canvas.Top="271">
+            <TextBlock Text="Bạn chưa có tài khoản?" Margin="0 0 0 5"/>
+            <Button x:Name="btn_signup" Width="125" Height="35" Content="Đăng ký" Click="btn_signup_Click"/>
+        </StackPanel>
+
     </Canvas>
 </Window>

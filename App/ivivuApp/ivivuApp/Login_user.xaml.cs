@@ -30,5 +30,12 @@ namespace ivivuApp
             this.Close();
             window.ShowDialog();
         }
+
+        private void btn_signup_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new SignUp();
+            this.Close();
+            window.ShowDialog();
+        }
     }
 }
