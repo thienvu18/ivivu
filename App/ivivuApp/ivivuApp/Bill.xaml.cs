@@ -23,5 +23,10 @@ namespace ivivuApp
         {
             InitializeComponent();
         }
+
+        private void btn_pre_bill_Click(object sender, RoutedEventArgs e)
+        {
+            canv_bill_detail.Visibility = Visibility.Visible;
+        }
     }
 }
