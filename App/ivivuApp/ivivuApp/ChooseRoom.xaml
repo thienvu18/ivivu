@@ -19,12 +19,12 @@
           Name="lvRooms"
           Grid.Row="0">
             <ListView.View>
-                <GridView>
+                <GridView AllowsColumnReorder="False">
                     <GridViewColumn Header="Mã phòng" Width="100" DisplayMemberBinding="{Binding roomId}" />
-                    <GridViewColumn Header="Số phòng" Width="100" DisplayMemberBinding="{Binding roomNumber}" />
+                    <GridViewColumn Header="Số phòng" Width="70" DisplayMemberBinding="{Binding roomNumber}" />
                     <GridViewColumn Header="Loai phòng" Width="150" DisplayMemberBinding="{Binding roomType}" />
                     <GridViewColumn Header="Đơn giá" Width="100" DisplayMemberBinding="{Binding price}" />
-                    <GridViewColumn Header="Mô tả" Width="250" DisplayMemberBinding="{Binding description}" />
+                    <GridViewColumn Header="Mô tả" Width="250" DisplayMemberBinding="{Binding description}"/>
                     <GridViewColumn Header="Chọn" Width="80" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -38,19 +38,19 @@
         <DockPanel Grid.Row="1">
             <DatePicker
                 Name="dpStartDate"        
-                Width="100"
+                Width="150"
                 materialDesign:HintAssist.Hint="Ngày nhận phòng"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
             <DatePicker
                 Name="dpEndDate"
-                Width="100"
+                Width="150"
                 materialDesign:HintAssist.Hint="Ngày trả phòng"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
         </DockPanel>
         <Button
           Grid.Row="2"
             Style="{StaticResource MaterialDesignRaisedButton}"
-            Width="100"
+            Width="150"
             ToolTip="Resource name: MaterialDesignRaisedButton"
             Name="btDone" Click="BtDone_Click">
             ĐẶT PHÒNG

@@ -68,7 +68,7 @@ namespace ivivuApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string sql = "SELECT TOP (10) Phong.maPhong, Phong.soPhong , LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, LoaiPhong.moTa FROM Phong JOIN LoaiPhong on Phong.loaiPhong = LoaiPhong.maLoaiPhong WHERE LoaiPhong.maKS = " + _hotelId.ToString();
+            string sql = "SELECT Phong.maPhong, Phong.soPhong , LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, LoaiPhong.moTa FROM Phong JOIN LoaiPhong on Phong.loaiPhong = LoaiPhong.maLoaiPhong WHERE LoaiPhong.maKS = " + _hotelId.ToString();
             using (SqlCommand command = new SqlCommand(sql, Database.connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
