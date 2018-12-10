@@ -22,14 +22,14 @@
                 <GridView AllowsColumnReorder="False">
                     <GridViewColumn Header="Mã loại phòng" Width="100" DisplayMemberBinding="{Binding roomTypeId}" />
                     <GridViewColumn Header="Loại phòng" Width="70" DisplayMemberBinding="{Binding roomTypeName}" />
-                    <GridViewColumn Header="Mã khách sạn" Width="150" DisplayMemberBinding="{Binding hotelId}" />
+                    <GridViewColumn Header="Mã khách sạn" Width="70" DisplayMemberBinding="{Binding hotelId}" />
                     <GridViewColumn Header="Đơn giá" Width="100" DisplayMemberBinding="{Binding price}" />
                     <GridViewColumn Header="Mô tả" Width="250" DisplayMemberBinding="{Binding description}"/>
-                    <GridViewColumn Header="Số lượng trống" Width="250" DisplayMemberBinding="{Binding availableCount}"/>
+                    <GridViewColumn Header="Số lượng trống" Width="150" DisplayMemberBinding="{Binding availableCount}"/>
                     <GridViewColumn Header="Chọn" Width="80" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <RadioButton IsChecked="{Binding isChosen}" Click="RadioButton_Click"/>
+                                <RadioButton IsChecked="{Binding isChosen}" Checked="RadioButton_Checked"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

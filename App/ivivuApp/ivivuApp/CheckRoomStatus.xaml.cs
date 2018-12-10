@@ -40,15 +40,7 @@ namespace ivivuApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (Auth.isEmployeeLogged == false)
-            {
-                var loginWindows = new Login_admin();
-
-                MessageBox.Show("Vui lòng đăng nhập để sử dụng tính năng này");
-                this.Close();
-                loginWindows.ShowDialog();
-            } 
-            else
+            if (Auth.isEmployeeLogged != false)
             {
                 string sql = "SELECT * FROM LoaiPhong;";
                 using (SqlCommand command = new SqlCommand(sql, Database.connection))
@@ -67,10 +59,10 @@ namespace ivivuApp
                         {
                             roomTypeId = reader.GetInt32(0);
                             roomTypeName = reader.IsDBNull(1) ? "" : reader.GetString(1);
-                            hotelId = reader.IsDBNull(2)? -1:  reader.GetInt32(2);
-                            price = reader.IsDBNull(3)? -1 : reader.GetInt64(3);
-                            description = reader.IsDBNull(4) ? "": reader.GetString(4);
-                            availableCount = reader.IsDBNull(5)? -1 : reader.GetInt32(5);
+                            hotelId = reader.IsDBNull(2) ? -1 : reader.GetInt32(2);
+                            price = reader.IsDBNull(3) ? -1 : reader.GetInt64(3);
+                            description = reader.IsDBNull(4) ? "" : reader.GetString(4);
+                            availableCount = reader.IsDBNull(5) ? -1 : reader.GetInt32(5);
 
                             _roomsStatus.Add(new RoomStatus() { roomTypeId = roomTypeId, roomTypeName = roomTypeName, hotelId = hotelId, price = price, description = description, availableCount = availableCount, isChosen = isChosen });
                         }
@@ -78,17 +70,29 @@ namespace ivivuApp
                 }
                 lvRoomsStatus.ItemsSource = _roomsStatus;
             }
-            
+            else
+            {
+                var loginWindows = new Login_admin();
+
+                MessageBox.Show("Vui lòng đăng nhập để sử dụng tính năng này");
+                this.Close();
+                loginWindows.ShowDialog();
+            }
+
         }
 
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton bt = (RadioButton)sender;
+            int curentId = ((RoomStatus)bt.DataContext).roomTypeId;
 
             for (int i = 0; i < _roomsStatus.Count; i++)
             {
+                if (_roomsStatus[i].isChosen == true && _roomsStatus[i].roomTypeId != curentId)
                 _roomsStatus[i].isChosen = false;
             }
+
+            lvRoomsStatus.Items.Refresh();
         }
     }
 }
