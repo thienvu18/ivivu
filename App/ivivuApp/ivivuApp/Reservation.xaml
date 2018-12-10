@@ -1,8 +1,75 @@
-﻿<Window x:Class="ivivuApp.Reservation"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Reservation" Height="300" Width="300">
-    <Grid>
-        
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ivivuApp.Reservation"
+        Title="Reservation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+    Loaded="Window_Loaded">
+    <Grid
+        ShowGridLines="False"
+        Visibility="Hidden">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" ></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock  Grid.Row="0">
+            Tìm khách sạn hoặc chọn trong danh sách dưới
+        </TextBlock>
+        <ListView 
+            Grid.Row="1"
+            VerticalContentAlignment="Top"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            ScrollViewer.CanContentScroll="True">
+            <ListViewItem Selected="ListViewItem_Selected">
+                <materialDesign:Card
+                    Width="400"
+                    >
+                    <StackPanel Grid.Column="2" Margin="8 8 8 8">
+                        <TextBlock
+                            FontWeight="Bold"
+                            FontSize="40"
+                            Margin="0 0 0 4"
+                            Text="Hotel name"/>
+                        <TextBlock
+                                TextWrapping="Wrap"
+                                VerticalAlignment="Center"
+                            Margin="0 0 0 8">
+                                Đây là phần mô tả khách sạn
+                        </TextBlock>
+                        <materialDesign:RatingBar
+                            Value="3"
+                            x:Name="BasicRatingBar"
+                            Margin="0 0 0 16"/>
+                        <DockPanel>
+                            <materialDesign:PackIcon Kind="CurrencyUsd" Height="30" Width="30" Foreground="Red"/>
+                            <TextBlock
+                                TextWrapping="Wrap"
+                                VerticalAlignment="Center">
+                                500 000 VND
+                            </TextBlock>
+                        </DockPanel>
+                        <DockPanel>
+                            <materialDesign:PackIcon Kind="LocationOn" Height="30" Width="30" Foreground="Red"/>
+                            <TextBlock
+                                TextWrapping="Wrap"
+                                VerticalAlignment="Center">
+                                16/47 QL1A, Phường Linh Trung, Thủ Đức, Hồ Chí Minh, Vietnam
+                            </TextBlock>
+                        </DockPanel>
+                        <TextBlock Visibility="Hidden">
+                            -1
+                        </TextBlock>
+                    </StackPanel>
+                </materialDesign:Card>
+            </ListViewItem>
+        </ListView>
     </Grid>
 </Window>

@@ -43,7 +43,7 @@ namespace ivivuApp
             int id = (int)returnParameter.Value;
             if (id == 1)
             {
-                var window = new Home();
+                var window = new MainWindow();
                 Auth.isCustomerLogged = true;
                 this.Close();
                 window.ShowDialog();
