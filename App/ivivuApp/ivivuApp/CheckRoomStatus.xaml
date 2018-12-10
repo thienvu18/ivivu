@@ -1,0 +1,54 @@
+﻿<Window x:Class="ivivuApp.CheckRoomStatus"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:ivivuApp"
+        mc:Ignorable="d"
+        Title="CheckRoomStatus" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView
+          Margin="10"
+          Name="lvRoomsStatus"
+          Grid.Row="0">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn Header="Mã loại phòng" Width="100" DisplayMemberBinding="{Binding roomTypeId}" />
+                    <GridViewColumn Header="Loại phòng" Width="70" DisplayMemberBinding="{Binding roomTypeName}" />
+                    <GridViewColumn Header="Mã khách sạn" Width="150" DisplayMemberBinding="{Binding hotelId}" />
+                    <GridViewColumn Header="Đơn giá" Width="100" DisplayMemberBinding="{Binding price}" />
+                    <GridViewColumn Header="Mô tả" Width="250" DisplayMemberBinding="{Binding description}"/>
+                    <GridViewColumn Header="Số lượng trống" Width="250" DisplayMemberBinding="{Binding availableCount}"/>
+                    <GridViewColumn Header="Chọn" Width="80" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <RadioButton IsChecked="{Binding isChosen}" Click="RadioButton_Click"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <DatePicker
+            Grid.Row="1"
+            Name="dpStartDate"        
+            Width="150"
+            materialDesign:HintAssist.Hint="Ngày nhận phòng"
+            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+        <Button
+          Grid.Row="2"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            Width="150"
+            ToolTip="Resource name: MaterialDesignRaisedButton"
+            Name="btCheck">
+            Kiểm tra
+        </Button>
+    </Grid>
+</Window>

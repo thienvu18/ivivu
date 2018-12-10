@@ -104,8 +104,8 @@ namespace ivivuApp
             {
                 if (_rooms[i].isChosen)
                 {
-                    //TODO: Sửa customerId
-                    if (BookRoom(_rooms[i].roomId, 1, startDate, endDate, "") != 0)
+                    
+                    if (BookRoom(_rooms[i].roomId, Auth.user.maKH, startDate, endDate, "") != 0)
                     {
                         failRooms.Add(_rooms[i].roomId);
                     }

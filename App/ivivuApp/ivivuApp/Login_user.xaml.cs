@@ -45,7 +45,7 @@ namespace ivivuApp
             if (id == 1)
             {
                 SqlCommand cmdQuery = new SqlCommand("SELECT * FROM KhachHang WHERE tenDangNhap = @tenDangNhap", Database.connection);
-                cmdQuery.Parameters.Add("@tenDangNhap", username.Text);
+                cmdQuery.Parameters.AddWithValue("@tenDangNhap", username.Text);
                 
                 using (DbDataReader reader = cmdQuery.ExecuteReader())
                 {

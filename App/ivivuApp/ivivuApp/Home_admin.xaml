@@ -4,6 +4,8 @@
         Title="Home_admin" Height="300" Width="300">
 
     <Canvas>
-        <Button x:Name="btn_create_bill" Content="Lập hóa đơn" Canvas.Left="47" Canvas.Top="94" Click="btn_create_bill_Click" Height="30" Width="100"></Button>
+        <Button x:Name="btn_create_bill" Content="Lập hóa đơn" Canvas.Left="47" Canvas.Top="94" Click="btn_create_bill_Click" Height="30" Width="210"></Button>
+        <Button x:Name="btnCheckRoomStatus" Content="Kiểm tra trình trạng phòng" Canvas.Left="47" Canvas.Top="155" Click="BtnCheckRoomStatus_Click"  Height="30" Width="210" RenderTransformOrigin="0.75,5.667"></Button>
+
     </Canvas>
 </Window>
