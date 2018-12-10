@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.Common;
 
 
 namespace ivivuApp
@@ -43,9 +44,33 @@ namespace ivivuApp
             int id = (int)returnParameter.Value;
             if (id == 1)
             {
+                SqlCommand cmdQuery = new SqlCommand("SELECT * FROM KhachHang WHERE tenDangNhap = @tenDangNhap", Database.connection);
+                cmdQuery.Parameters.Add("@tenDangNhap", username.Text);
+                
+                using (DbDataReader reader = cmdQuery.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+
+                        while (reader.Read())
+                        {
+                            Auth.user.maKH = Convert.ToInt16(reader.GetValue(0));
+                            Auth.user.hoTen = reader.GetValue(1).ToString();
+                            Auth.user.tenDangNhap = reader.GetValue(2).ToString();
+                            Auth.user.matKhau = reader.GetValue(3).ToString();
+                            Auth.user.soCMND = reader.GetValue(4).ToString();
+                            Auth.user.diaChi = reader.GetValue(5).ToString();
+                            Auth.user.soDienThoai = reader.GetValue(6).ToString();
+                            Auth.user.moTa = reader.GetValue(7).ToString();
+                            Auth.user.email = reader.GetValue(8).ToString();
+                            break;
+                        }
+
+                    }
+                }
                 var window = new MainWindow();
                 Auth.isCustomerLogged = true;
-                this.Close();
+                    this.Close();
                 window.ShowDialog();
             }
             else

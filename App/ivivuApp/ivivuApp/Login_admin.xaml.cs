@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace ivivuApp
 {
@@ -41,7 +42,26 @@ namespace ivivuApp
             int id = (int)returnParameter.Value;
             if (id == 1)
             {
-                var window = new Home();
+                SqlCommand cmdQuery = new SqlCommand("SELECT * FROM NhanVien WHERE tenDangNhap = @tenDangNhap", Database.connection);
+                cmdQuery.Parameters.Add("@tenDangNhap", username.Text);
+
+                using (DbDataReader reader = cmdQuery.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Auth.employee.maNV = Convert.ToInt16(reader.GetValue(0));
+                            Auth.employee.hoTen = reader.GetValue(1).ToString();
+                            Auth.employee.tenDangNhap = reader.GetValue(2).ToString();
+                            Auth.employee.matKhau = reader.GetValue(3).ToString();
+                            Auth.employee.maKS = Convert.ToInt16(reader.GetValue(4));
+                            break;
+                        }
+                    }
+                }
+
+                    var window = new Home();
                 Auth.isEmployeeLogged = true;
                 this.Close();
                 window.ShowDialog();
