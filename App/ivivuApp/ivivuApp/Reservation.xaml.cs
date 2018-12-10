@@ -25,8 +25,17 @@ namespace ivivuApp
     /// </summary>
     public partial class Reservation : Window
     {
+        private int _hotelId;
+
         public Reservation()
         {
+            this._hotelId = -1;
+            InitializeComponent();
+        }
+
+        public Reservation(int hotelId)
+        {
+            this._hotelId = hotelId;
           InitializeComponent();
         }
 
@@ -66,7 +75,7 @@ namespace ivivuApp
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            if (Auth.isCustomerLogged != false)
+            if (Auth.isCustomerLogged == false)
             {
                 var loginWindows = new Login_user();
 
@@ -76,17 +85,14 @@ namespace ivivuApp
             }
             else
             {
-                var window = sender as Window;
-                var mainPanel = (Grid)window.Content;
+                var mainPanel = (Grid)this.Content;
                 var hotelList = (ListView)mainPanel.Children[1];
 
                 mainPanel.Visibility = Visibility.Visible;
 
                 ListViewItem sampleHotel = (ListViewItem)hotelList.Items.GetItemAt(0);
                 
-                int maKS = -1;
-
-                if (maKS == -1)
+                if (_hotelId == -1)
                 {
                     string sql = "SELECT TOP (10) * FROM KhachSan;";
                     using (SqlCommand command = new SqlCommand(sql, Database.connection))
@@ -118,18 +124,8 @@ namespace ivivuApp
                 }
                 else
                 {
-                    //string sql = "SELECT * FROM KhachSan;";
-                    //using (SqlCommand command = new SqlCommand(sql, connection))
-                    //{
-                    //    using (SqlDataReader reader = command.ExecuteReader())
-                    //    {
-
-                    //        while (reader.Read())
-                    //        {
-                    //            //Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
-                    //        }
-                    //    }
-                    //}
+                    var chooseRoom = new ChooseRoom(_hotelId);
+                    chooseRoom.ShowDialog();
                 }
             }
         }

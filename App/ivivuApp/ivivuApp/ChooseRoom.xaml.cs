@@ -111,7 +111,20 @@ namespace ivivuApp
                     }
                 }
             }
-            MessageBox.Show(failRooms.ToArray().ToString());
+
+            if (failRooms.Count > 0)
+            {
+                string msg = "Chưa đặt được các phòng: ";
+                for (int i = 0; i < failRooms.Count - 1; i++)
+                {
+                    msg += failRooms[i].ToString();
+                    msg += ", ";
+                }
+                msg += failRooms.Last<int>();
+
+                MessageBox.Show(msg);
+            }
+            else MessageBox.Show("Đặt phòng thành công");
         }
     }
 }
