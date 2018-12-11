@@ -58,12 +58,17 @@ namespace ivivuApp
             cmd.Parameters.Add(new SqlParameter("@NgayTraPhong", endDate.ToString("yyyy-MM-dd")));
             cmd.Parameters.Add(new SqlParameter("@MoTa", description));
 
-            SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
-            returnParameter.Direction = ParameterDirection.ReturnValue;
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
 
-            return (int)returnParameter.Value;
-            //return -1;
+                return -1;
+            }
+
+            return 0;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
