@@ -23,6 +23,12 @@ CREATE PROCEDURE proc_signUpUser
 	@Mail		VARCHAR(20)
 AS
 BEGIN
+	IF(EXISTS(	SELECT KH.tenDangNhap
+				FROM KhachHang KH
+				WHERE KH.tenDangNhap = @UserName)
+	)
+		RETURN 0;
+		
 	INSERT INTO dbo.KhachHang
 			( hoTen ,
 			tenDangNhap ,
@@ -40,9 +46,14 @@ BEGIN
 			@SDT , -- soDienThoai - varchar(15)
 			@Mail  -- email - varchar(20)
 			)
+	RETURN 1;
 END
 GO
 
+select	*
+from KhachHang kh
+where kh.tenDangNhap = 'nguyentu123'
+go
 
 
 /*

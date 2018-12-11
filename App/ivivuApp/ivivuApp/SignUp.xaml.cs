@@ -68,21 +68,24 @@ namespace ivivuApp
                 cmd.Parameters.Add(new SqlParameter("@SDT", txt_phone.Text));
                 cmd.Parameters.Add(new SqlParameter("@Address", txt_address.Text));
                 cmd.Parameters.Add(new SqlParameter("@Email", txt_email.Text));
-                cmd.Parameters.Add(new SqlParameter("@Description", ""));
 
-                SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.NVarChar);
+                SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
                 returnParameter.Direction = ParameterDirection.ReturnValue;
                 cmd.ExecuteNonQuery();
+                int id = (int)returnParameter.Value;
 
-                string rst = (string)returnParameter.Value;
+                if(id == 1)
+                {
+                    MessageBox.Show("Đăng ký thành công!");
 
-              
-
-                MessageBox.Show("Đăng ký thành công!");
-
-                var window = new Login_user();
-                this.Close();
-                window.ShowDialog();
+                    var window = new Login_user();
+                    this.Close();
+                    window.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Tên đăng nhập đã trùng. Mời bạn thử lại!");
+                }
             }
             else
             {
