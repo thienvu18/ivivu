@@ -1,45 +1,4 @@
-﻿/*
-FUNCTION: func_checkUserName
-INPUT: UserName VARCHAR(50)
-OUTPUT: True | False
-*/
-
-CREATE FUNCTION func_checkUserName(@UserName VARCHAR(50))
-RETURNS NVARCHAR(300)
-AS
-BEGIN
-	DECLARE @notify_st NVARCHAR(300);
-	IF(	LEN(@UserName) > 50 OR 
-		@UserName = N'' OR 
-		EXISTS(	SELECT KH.tenDangNhap
-				FROM KhachHang KH 
-				WHERE KH.tenDangNhap = @UserName)
-	)
-		SET @notify_st = N'False'
-	ELSE
-		SET @notify_st = N'True'
-	RETURN @notify_st;
-END
-GO
-/*
-FUNCTION: func_checkPass
-INPUT: Pass VARCHAR(20)
-OUTPUT: True | False
-*/
-
-CREATE FUNCTION func_checkPass(@Pass VARCHAR(20))
-RETURNS NVARCHAR(300)
-AS
-BEGIN
-	DECLARE @notify_st NVARCHAR(300);
-	IF(LEN(@Pass) > 50 OR @Pass = N'')
-		SET @notify_st = N'False'
-	ELSE
-		SET @notify_st = N'True'
-	RETURN @notify_st;
-END
-GO
-
+﻿
 /*
 PROCUEDURE: proc_signUpUser
 INPUT:	FullName	NVARCHAR(50),
@@ -48,11 +7,8 @@ INPUT:	FullName	NVARCHAR(50),
 		CMND		VARCHAR(15),
 		SDT		VARCHAR(15),
 		Address	NVARCHAR(50),
-		Description NVARCHAR(100),
-		Mail		VARCHAR(20),
-OUTPUT:	True | False
-	+) True: Notify True and insert a new record into KhachHang table
-	+) False: Notify Fasle
+		Mail		VARCHAR(20)
+OUTPUT:	Thêm 1 record trong table KhachHang
 */
 
 DROP PROCEDURE proc_signUpUser
@@ -64,72 +20,50 @@ CREATE PROCEDURE proc_signUpUser
 	@CMND		VARCHAR(15),
 	@SDT		VARCHAR(15),
 	@Address	NVARCHAR(50),
-	@Description NVARCHAR(100),
-	@Mail		VARCHAR(20),
-	@Notify		NVARCHAR(300) OUTPUT
+	@Mail		VARCHAR(20)
 AS
 BEGIN
-	SET	@Notify = dbo.func_checkUserName(@UserName)
-	IF (@Notify = N'True')
-		BEGIN
-			SET @Notify = dbo.func_checkUserName(@Pass)
-			IF(@Notify = N'True')
-				BEGIN
-					INSERT INTO dbo.KhachHang
-					        ( hoTen ,
-					          tenDangNhap ,
-					          matKhau ,
-					          soCMND ,
-					          diaChi ,
-					          soDienThoai ,
-					          moTa ,
-					          email
+	INSERT INTO dbo.KhachHang
+			( hoTen ,
+			tenDangNhap ,
+			matKhau ,
+			soCMND ,
+			diaChi ,
+			soDienThoai ,
+			email
 					        )
-					VALUES  ( @FullName , -- hoTen - nvarchar(50)
-					          @UserName , -- tenDangNhap - varchar(50)
-					          @Pass , -- matKhau - varchar(20)
-					          @CMND , -- soCMND - varchar(15)
-					          @Address , -- diaChi - nvarchar(50)
-					          @SDT , -- soDienThoai - varchar(15)
-					          @Description , -- moTa - nvarchar(100)
-					          @Mail  -- email - varchar(20)
-					        )
-				END
-		END
+	VALUES  ( @FullName , -- hoTen - nvarchar(50)
+			@UserName , -- tenDangNhap - varchar(50)
+			@Pass , -- matKhau - varchar(20)
+			@CMND , -- soCMND - varchar(15)
+			@Address , -- diaChi - nvarchar(50)
+			@SDT , -- soDienThoai - varchar(15)
+			@Mail  -- email - varchar(20)
+			)
 END
 GO
 
---Testing Example
-DECLARE @Notify NVARCHAR(300)
-EXEC proc_signUpUser N'Phạm Mai Hương', 'huonghuong', 'huong1', '1234567890', '0123456789', N'1A Lý Thường Kiệt phường 4 quận 10', N'Mô Tả', 'thanh@123.com', @Notify OUT
-PRINT @Notify
-GO
+
 
 /*
-PROCUEDURE: proc_signUpUser
+PROCEDURE: proc_setBill
 INPUT:	maDatPhong INT
-OUTPUT:	True | False 
-		+) True: Notify True and Insert a new record into HoaDon table
-		+) False: Notify Fasle
+OUTPUT:	Thêm 1 record trong table HoaDon
 */
 
 drop procedure proc_setBill
 go
 CREATE PROCEDURE proc_setBill
-	@maDatPhong INT,
-	@Notify NVARCHAR(100) OUTPUT
+	@maDatPhong INT
 AS
 BEGIN
 	IF(NOT EXISTS(	SELECT DP.maDP
 				FROM DatPhong DP
 				WHERE DP.maDP = @maDatPhong)
 	)
-		BEGIN
-			SET	@Notify = N'False'
-		END
+		RETURN 0;
 	ELSE
 		BEGIN
-			SET @Notify = N'True'
 			INSERT INTO dbo.HoaDon( ngayThanhToan, maDP )
 			VALUES  ( GETDATE(), -- ngayThanhToan - date
 					   @maDatPhong  -- maDP - int
@@ -140,20 +74,19 @@ BEGIN
 													WHERE DP.maDP = @maDatPhong
 											) AS DATE_PRICE
 									   )
+			RETURN 1;
 		END
 	
 END
 GO
 
--- Testing Example
-DECLARE @Notify1 NVARCHAR(100)
-EXEC  proc_setBill 1, @Notify1 out
-PRINT @Notify1
+
+EXEC  proc_setBill 3
 GO
 
 select *
 from HoaDon hd
-where hd.maDP = 1
+where hd.maDP = 3
 go
 
 	
