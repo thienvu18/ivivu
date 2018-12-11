@@ -83,6 +83,9 @@
     <Compile Include="Reservation.xaml.cs">
       <DependentUpon>Reservation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RoomDetails.xaml.cs">
+      <DependentUpon>RoomDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Search.xaml.cs">
       <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Reservation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RoomDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

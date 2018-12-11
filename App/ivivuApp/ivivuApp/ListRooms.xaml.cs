@@ -84,9 +84,8 @@ namespace ivivuApp
         private void LvRoomsStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RoomStatus roomStatus = lvRoomsStatus.SelectedItem as RoomStatus;
-
-            MessageBox.Show(roomStatus.roomId.ToString());
-            return;
+            var detailsScreen = new RoomDetails(roomStatus.roomId);
+            detailsScreen.ShowDialog();
         }
     }
 }
