@@ -6,7 +6,7 @@
         <TextBlock  Text="Tạo tài khoản" FontSize="20" FontWeight="Bold" Canvas.Left="181" Canvas.Top="10" />
         <StackPanel Canvas.Top="50" Canvas.Left="30" Width="180">
             <Label x:Name="lbl_fullname" Content="Họ và tên"/>
-            <TextBox Name="txt_fullname" Height="30"/>
+            <TextBox x:Name="txt_fullname" Height="30"/>
         </StackPanel>
         <StackPanel Canvas.Top="120" Canvas.Left="30" Width="180">
             <Label x:Name="lbl_cmnd" Content="CMND"/>
@@ -14,7 +14,7 @@
         </StackPanel>
         <StackPanel Canvas.Top="190" Canvas.Left="30" Width="180">
             <Label x:Name="lbl_phone" Content="Số điện thoại"/>
-            <TextBox Name="txt_phone" Height="30"/>
+            <TextBox x:Name="txt_phone" Height="30"/>
         </StackPanel>
         <StackPanel Canvas.Top="260" Canvas.Left="30" Width="180">
             <Label x:Name="lbl_address" Content="Địa chỉ"/>
@@ -22,19 +22,19 @@
         </StackPanel>
         <StackPanel Canvas.Top="50" Canvas.Left="280" Width="180">
             <Label x:Name="lbl_username" Content="Tên đăng nhập"/>
-            <TextBox Name="txt_username" Height="30"/>
+            <TextBox x:Name="txt_username" Height="30"/>
         </StackPanel>
         <StackPanel Canvas.Top="120" Canvas.Left="280" Width="180">
             <Label x:Name="lbl_pass" Content="Mật khẩu"/>
-            <TextBox Name="txt_pass" Height="30"/>
+            <PasswordBox x:Name="txt_pass" Canvas.Left="81" Canvas.Top="130" Height="24"/>
         </StackPanel>
         <StackPanel Canvas.Top="190" Canvas.Left="280" Width="180">
             <Label x:Name="lbl_retype_pass" Content="Xác nhận mật khẩu"/>
-            <TextBox Name="txt_retype_pass" Height="30"/>
+            <TextBox x:Name="txt_retype_pass" Height="30"/>
         </StackPanel>
         <StackPanel Canvas.Top="260" Canvas.Left="280" Width="180">
             <Label x:Name="lbl_email" Content="Email"/>
-            <TextBox Name="txt_email" Height="30"/>
+            <TextBox x:Name="txt_email" Height="30"/>
         </StackPanel>
 
         <Button Content="Xác nhận" Canvas.Top="368" Canvas.Left="195" Width="100" Height="40" FontSize="17" Click="btn_confirm_Click" ></Button>
