@@ -27,7 +27,7 @@ BEGIN
 				FROM KhachHang KH
 				WHERE KH.tenDangNhap = @UserName)
 	)
-		RETURN 0;
+		RETURN 0
 		
 	INSERT INTO dbo.KhachHang
 			( hoTen ,
@@ -46,7 +46,7 @@ BEGIN
 			@SDT , -- soDienThoai - varchar(15)
 			@Mail  -- email - varchar(20)
 			)
-	RETURN 1;
+	RETURN 1
 END
 GO
 

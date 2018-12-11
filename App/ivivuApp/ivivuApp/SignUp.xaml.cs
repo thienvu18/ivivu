@@ -55,7 +55,7 @@ namespace ivivuApp
             string notify = "";
             bool checkinput = checkInfo(ref notify);
 
-            if(checkinput)
+            if (checkinput)
             {
                 SqlCommand cmd = new SqlCommand("proc_signUpUser", Database.connection);
 
@@ -67,14 +67,14 @@ namespace ivivuApp
                 cmd.Parameters.Add(new SqlParameter("@CMND", txt_cmnd.Text));
                 cmd.Parameters.Add(new SqlParameter("@SDT", txt_phone.Text));
                 cmd.Parameters.Add(new SqlParameter("@Address", txt_address.Text));
-                cmd.Parameters.Add(new SqlParameter("@Email", txt_email.Text));
+                cmd.Parameters.Add(new SqlParameter("@Mail", txt_email.Text));
 
                 SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
                 returnParameter.Direction = ParameterDirection.ReturnValue;
                 cmd.ExecuteNonQuery();
                 int id = (int)returnParameter.Value;
 
-                if(id == 1)
+                if (id == 1)
                 {
                     MessageBox.Show("Đăng ký thành công!");
 
@@ -92,8 +92,8 @@ namespace ivivuApp
                 MessageBox.Show(notify + "Mời nhập lại thông tin không đúng!");
             }
 
-            
-            
+
+
         }
 
         private bool checkInfo(ref string notify)
@@ -101,7 +101,7 @@ namespace ivivuApp
             bool flag = true;
 
             //check fullName
-            if(txt_fullname.Text == "")
+            if (txt_fullname.Text == "")
             {
                 notify += "Họ tên không đúng. ";
                 c_fullname = false;
@@ -123,8 +123,8 @@ namespace ivivuApp
                 c_username = false;
                 flag = false;
             }
-            
-         
+
+
             //check passs
             if (txt_pass.Password == "" || txt_retype_pass.Password == "" ||
                 txt_pass.Password != txt_retype_pass.Password)
@@ -154,11 +154,11 @@ namespace ivivuApp
                     }
                 }
             }
-            
+
 
             //check cmnd
             string cmnd = txt_cmnd.Text;
-            if(cmnd == "")
+            if (cmnd == "")
             {
                 notify += "CMND không đúng. ";
                 flag = false;
@@ -175,10 +175,10 @@ namespace ivivuApp
                     }
                 }
             }
-            
+
 
             //check mail
-            if(txt_email.Text.IndexOf("@gmail.com") == -1)
+            if (txt_email.Text.IndexOf("@gmail.com") == -1)
             {
                 notify += "Email không đúng. ";
                 flag = false;
