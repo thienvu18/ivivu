@@ -1,0 +1,14 @@
+﻿<Window x:Class="ivivuApp.ReportRevenueByYearWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ivivuApp"
+        mc:Ignorable="d"
+        xmlns:my="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"
+        Title="ReportRevenueByYearWindow" Height="300" Width="300">
+    <Grid>
+        <my:CrystalReportsViewer HorizontalAlignment="Left" Name="crystalReportsViewer1"
+                                 VerticalAlignment="Top" />
+    </Grid>
+</Window>

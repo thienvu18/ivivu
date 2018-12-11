@@ -5,5 +5,6 @@
 
     <Canvas>
         <Button x:Name="btn_create_bill" Content="Lập hóa đơn" Canvas.Left="47" Canvas.Top="94" Click="btn_create_bill_Click" Height="30" Width="100"></Button>
+        <Button x:Name="button" Content="Thống Kê" Canvas.Left="173" Click="btn_report_click" Canvas.Top="94" Width="97" Height="30"></Button>
     </Canvas>
 </Window>

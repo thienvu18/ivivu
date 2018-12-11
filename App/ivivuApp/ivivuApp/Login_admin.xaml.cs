@@ -61,7 +61,7 @@ namespace ivivuApp
                     }
                 }
 
-                    var window = new Home();
+                var window = new Home_admin();
                 Auth.isEmployeeLogged = true;
                 this.Close();
                 window.ShowDialog();

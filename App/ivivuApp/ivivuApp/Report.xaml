@@ -1,0 +1,17 @@
+﻿<Window x:Class="ivivuApp.Report"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ivivuApp"
+        mc:Ignorable="d"
+        Title="Report" Height="400" Width="600">
+    <Grid>
+        <Button x:Name="button" Content="Báo cáo doanh thu theo tháng" HorizontalAlignment="Left" Click="button_Click1" Margin="146,45,0,0" VerticalAlignment="Top" Width="298"/>
+        <Button x:Name="button_Copy" Content="Báo cáo doanh thu theo năm" HorizontalAlignment="Left"  Click="button_Click2" Margin="146,101,0,0" VerticalAlignment="Top" Width="298"/>
+        <Button x:Name="button_Copy1" Content="Báo cáo doanh thu theo từng loại phòng" HorizontalAlignment="Left"  Click="button_Click3" Margin="146,156,0,0" VerticalAlignment="Top" Width="298"/>
+        <Button x:Name="button_Copy2" Content="Thống kê tình trạng phòng" HorizontalAlignment="Left" Click="button_Click4" Margin="146,215,0,0" VerticalAlignment="Top" Width="298"/>
+        <Button x:Name="button_Copy3" Content="Thống kê số lượng phòng trống" HorizontalAlignment="Left" Click="button_Click5" Margin="146,269,0,0" VerticalAlignment="Top" Width="298"/>
+
+    </Grid>
+</Window>

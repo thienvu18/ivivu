@@ -31,5 +31,13 @@ namespace ivivuApp
             this.Close();
             window.ShowDialog();
         }
+
+        private void btn_report_click(object sender, RoutedEventArgs e)
+        {
+            var window = new Report();
+            this.Close();
+            window.ShowDialog();
+        }
+
     }
 }
