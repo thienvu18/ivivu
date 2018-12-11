@@ -58,12 +58,17 @@ namespace ivivuApp
             cmd.Parameters.Add(new SqlParameter("@NgayTraPhong", endDate.ToString("yyyy-MM-dd")));
             cmd.Parameters.Add(new SqlParameter("@MoTa", description));
 
-            SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
-            returnParameter.Direction = ParameterDirection.ReturnValue;
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
 
-            return (int)returnParameter.Value;
-            //return -1;
+                return -1;
+            }
+
+            return 0;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -104,8 +109,8 @@ namespace ivivuApp
             {
                 if (_rooms[i].isChosen)
                 {
-                    //TODO: Sửa customerId
-                    if (BookRoom(_rooms[i].roomId, 1, startDate, endDate, "") != 0)
+                    
+                    if (BookRoom(_rooms[i].roomId, Auth.user.maKH, startDate, endDate, "") != 0)
                     {
                         failRooms.Add(_rooms[i].roomId);
                     }

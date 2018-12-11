@@ -6,7 +6,7 @@
         <Button x:Name="btn_login_admin" Width="125" Height="40" Content="Đăng nhập" Click="btn_login_admin_Click" Canvas.Left="81" Canvas.Top="197"/>
         <TextBox x:Name="username" Height="23" Canvas.Left="81" TextWrapping="Wrap" Text="" Canvas.Top="75" Width="125" RenderTransformOrigin="0.486,1.116"/>
         <PasswordBox x:Name="password" Canvas.Left="81" Canvas.Top="130" Width="125" Height="24"/>
-        <TextBlock x:Name="textBlock" Canvas.Left="81" TextWrapping="Wrap" Text="Tên Đăng Nhập" Canvas.Top="109"/>
-        <TextBlock x:Name="textBlock_Copy" Canvas.Left="81" TextWrapping="Wrap" Text="Mật Khẩu" Canvas.Top="54"/>
+        <TextBlock x:Name="textBlock" Canvas.Left="81" TextWrapping="Wrap" Text="Mật Khẩu" Canvas.Top="109"/>
+        <TextBlock x:Name="textBlock_Copy" Canvas.Left="81" TextWrapping="Wrap" Text="Tên Đăng Nhập" Canvas.Top="54"/>
     </Canvas>
 </Window>

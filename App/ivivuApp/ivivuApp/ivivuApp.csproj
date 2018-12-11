@@ -70,6 +70,9 @@
     <Compile Include="Bill.xaml.cs">
       <DependentUpon>Bill.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CheckRoomStatus.xaml.cs">
+      <DependentUpon>CheckRoomStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChooseRoom.xaml.cs">
       <DependentUpon>ChooseRoom.xaml</DependentUpon>
     </Compile>
@@ -127,9 +130,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportStatusRoom.rpt</DependentUpon>
       <SubType>Component</SubType>
+          </Compile>
+    <Compile Include="ListRooms.xaml.cs">
+      <DependentUpon>ListRooms.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reservation.xaml.cs">
       <DependentUpon>Reservation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RoomDetails.xaml.cs">
+      <DependentUpon>RoomDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Search.xaml.cs">
       <DependentUpon>Search.xaml</DependentUpon>
@@ -138,6 +147,10 @@
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
     <Page Include="Bill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CheckRoomStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Home_admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListRooms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -207,6 +224,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RoomDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Search.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -254,6 +275,7 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportStatusRoom.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -39,5 +39,11 @@ namespace ivivuApp
             window.ShowDialog();
         }
 
+        private void BtnCheckRoomStatus_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new CheckRoomStatus();
+            this.Close();
+            window.ShowDialog();
+        }
     }
 }
