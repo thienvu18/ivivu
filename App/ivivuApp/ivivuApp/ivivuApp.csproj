@@ -77,6 +77,9 @@
     <Compile Include="Home_admin.xaml.cs">
       <DependentUpon>Home_admin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListRooms.xaml.cs">
+      <DependentUpon>ListRooms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reservation.xaml.cs">
       <DependentUpon>Reservation.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Home_admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListRooms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

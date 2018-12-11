@@ -1,0 +1,26 @@
+﻿<Window x:Class="ivivuApp.ListRooms"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ivivuApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ListRooms" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid
+        ShowGridLines="False">
+        <ListView
+          Margin="10"
+          Name="lvRoomsStatus"
+          Grid.Row="0" SelectionChanged="LvRoomsStatus_SelectionChanged">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn Header="Mã phòng" Width="100" DisplayMemberBinding="{Binding roomId}" />
+                    <GridViewColumn Header="Số phòng" Width="70" DisplayMemberBinding="{Binding roomNumber}" />
+                    <GridViewColumn Header="Trạng thái" Width="100" DisplayMemberBinding="{Binding status}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

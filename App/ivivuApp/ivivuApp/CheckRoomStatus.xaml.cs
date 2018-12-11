@@ -20,7 +20,7 @@ namespace ivivuApp
     /// </summary>
     public partial class CheckRoomStatus : Window
     {
-        public class RoomStatus
+        public class RoomType
         {
             public int roomTypeId { get; set; }
             public string roomTypeName { get; set; }
@@ -28,10 +28,9 @@ namespace ivivuApp
             public long price { get; set; }
             public string description { get; set; }
             public int availableCount { get; set; }
-            public bool isChosen { get; set; }
         }
 
-        private List<RoomStatus> _roomsStatus = new List<RoomStatus>();
+        private List<RoomType> _roomTypes = new List<RoomType>();
 
         public CheckRoomStatus()
         {
@@ -53,7 +52,6 @@ namespace ivivuApp
                         long price;
                         string description;
                         int availableCount;
-                        bool isChosen = false;
 
                         while (reader.Read())
                         {
@@ -64,11 +62,11 @@ namespace ivivuApp
                             description = reader.IsDBNull(4) ? "" : reader.GetString(4);
                             availableCount = reader.IsDBNull(5) ? -1 : reader.GetInt32(5);
 
-                            _roomsStatus.Add(new RoomStatus() { roomTypeId = roomTypeId, roomTypeName = roomTypeName, hotelId = hotelId, price = price, description = description, availableCount = availableCount, isChosen = isChosen });
+                            _roomTypes.Add(new RoomType() { roomTypeId = roomTypeId, roomTypeName = roomTypeName, hotelId = hotelId, price = price, description = description, availableCount = availableCount });
                         }
                     }
                 }
-                lvRoomsStatus.ItemsSource = _roomsStatus;
+                lvRoomTypes.ItemsSource = _roomTypes;
             }
             else
             {
@@ -81,18 +79,21 @@ namespace ivivuApp
 
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void BtCheck_Click(object sender, RoutedEventArgs e)
         {
-            RadioButton bt = (RadioButton)sender;
-            int curentId = ((RoomStatus)bt.DataContext).roomTypeId;
-
-            for (int i = 0; i < _roomsStatus.Count; i++)
+            if (dpDate.SelectedDate == null)
             {
-                if (_roomsStatus[i].isChosen == true && _roomsStatus[i].roomTypeId != curentId)
-                _roomsStatus[i].isChosen = false;
+                MessageBox.Show("Vui lòng chọn ngày để kiểm tra");
+                return;
             }
+            else
+            {
+                DateTime date = (DateTime)dpDate.SelectedDate;
+                var roomTypeId = ((RoomType)lvRoomTypes.SelectedItem).roomTypeId;
 
-            lvRoomsStatus.Items.Refresh();
+                var listRooms = new ListRooms(roomTypeId, date);
+                listRooms.ShowDialog();
+            }
         }
     }
 }

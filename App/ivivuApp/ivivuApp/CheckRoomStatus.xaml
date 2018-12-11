@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <ListView
           Margin="10"
-          Name="lvRoomsStatus"
+          Name="lvRoomTypes"
           Grid.Row="0">
             <ListView.View>
                 <GridView AllowsColumnReorder="False">
@@ -26,19 +26,12 @@
                     <GridViewColumn Header="Đơn giá" Width="100" DisplayMemberBinding="{Binding price}" />
                     <GridViewColumn Header="Mô tả" Width="250" DisplayMemberBinding="{Binding description}"/>
                     <GridViewColumn Header="Số lượng trống" Width="150" DisplayMemberBinding="{Binding availableCount}"/>
-                    <GridViewColumn Header="Chọn" Width="80" >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <RadioButton IsChecked="{Binding isChosen}" Checked="RadioButton_Checked"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
         <DatePicker
             Grid.Row="1"
-            Name="dpStartDate"        
+            Name="dpDate"        
             Width="150"
             materialDesign:HintAssist.Hint="Ngày nhận phòng"
             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
@@ -47,7 +40,7 @@
             Style="{StaticResource MaterialDesignRaisedButton}"
             Width="150"
             ToolTip="Resource name: MaterialDesignRaisedButton"
-            Name="btCheck">
+            Name="btCheck" Click="BtCheck_Click">
             Kiểm tra
         </Button>
     </Grid>
