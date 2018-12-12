@@ -73,6 +73,10 @@ BEGIN
 				WHERE DP.maDP = @maDatPhong)
 	)
 		RETURN 0
+	ELSE IF(EXISTS (SELECT HD.maDP
+					FROM HoaDon HD
+					WHERE HD.maDP = @maDatPhong))
+		RETURN 1
 	ELSE
 		BEGIN
 			INSERT INTO dbo.HoaDon( ngayThanhToan, maDP )
@@ -85,12 +89,13 @@ BEGIN
 													WHERE DP.maDP = @maDatPhong
 											) AS DATE_PRICE
 									   )
-			RETURN 1
+			RETURN 2
 		END
 	
 END
 GO
 
-
---EXEC  proc_setBill 3
---GO
+DECLARE @TEST INT 
+EXEC  @TEST = proc_setBill 0
+PRINT @TEST
+GO
