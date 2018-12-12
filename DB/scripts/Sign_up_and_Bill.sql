@@ -72,7 +72,7 @@ BEGIN
 				FROM DatPhong DP
 				WHERE DP.maDP = @maDatPhong)
 	)
-		RETURN 0;
+		RETURN 0
 	ELSE
 		BEGIN
 			INSERT INTO dbo.HoaDon( ngayThanhToan, maDP )
@@ -85,7 +85,7 @@ BEGIN
 													WHERE DP.maDP = @maDatPhong
 											) AS DATE_PRICE
 									   )
-			RETURN 1;
+			RETURN 1
 		END
 	
 END
