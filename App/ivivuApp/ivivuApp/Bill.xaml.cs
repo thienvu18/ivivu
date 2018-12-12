@@ -39,71 +39,73 @@ namespace ivivuApp
 
         private void btn_pre_bill_Click(object sender, RoutedEventArgs e)
         {
-
             SqlCommand cmd = new SqlCommand("proc_SetBill", Database.connection);
 
             // Kiểu của Command là StoredProcedure
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add(new SqlParameter("@maDatPhong", ID_book.Text));
-            
+
             SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
             returnParameter.Direction = ParameterDirection.ReturnValue;
             cmd.ExecuteNonQuery();
             int id = (int)returnParameter.Value;
 
-            if(id == 0)
+            if (id == 0)
             {
                 MessageBox.Show("Mã đặt phòng không tồn tại!");
             }
             else
             {
-                
+                Load_bill();
+                //show bill
+                canv_bill_detail.Visibility = Visibility.Visible;
             }
-
-            //show bill
-            canv_bill_detail.Visibility = Visibility.Visible;
         }
 
-        private void Load_bill(object sender, RoutedEventArgs e)
+        private BillInfo _bill;
+        private void Load_bill()
         {
             string sqlHD = "SELECT HoaDon.maHD, HoaDon.ngayThanhToan, HoaDon.TongTien FROM HoaDon WHERE HoaDon.maDP = @maDatPhong";
             using (SqlCommand commandHD = new SqlCommand(sqlHD, Database.connection))
             {
-                using(SqlDataReader readerHD = commandHD.ExecuteReader())
+                using (SqlDataReader readerHD = commandHD.ExecuteReader())
                 {
-                    int _idBill;
-                    string _dateCreat;
-                    int _total;
-
-                    while(readerHD.Read())
-                    {
-                        _idBill = readerHD.GetInt32(0);
-                        _dateCreat = readerHD.GetString(1);
-                        _total = readerHD.GetInt32(2);
-                    }
-
-                }
-            
-
-            string sql = "SELECT LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, DATEDIFF(DAY, DatPhong.ngayTraPhong, DatPhong.ngayBatDau) AS numDay FROM HoaDon, LoaiPhong, DatPhong WHERE maHD = 1 AND HoaDon.maDP = DatPhong.maDP AND DatPhong.maLoaiPhong = LoaiPhong.maLoaiPhong";
-            using (SqlCommand command = new SqlCommand(sql, Database.connection))
-            {
-                using (SqlDataReader reader = command.ExecuteReader())
-                { 
-                    int _price;
-                    string _typeRoom;
-                    int _days;
                     
 
-                    while (reader.Read())
+                    while (readerHD.Read())
                     {
-                        _price = reader.GetInt32(1);
-                        _typeRoom = reader.GetString(0);
-                        _days = reader.GetInt32(2);
+                       _bill.billID  = readerHD.GetInt32(0);
+                       _bill.dateCreat = readerHD.GetString(1);
+                       _bill.total= readerHD.GetInt32(2);
                     }
+
+                    txt_ID_bill.Text = _bill.billID.ToString();
+                    txt_total_price.Text = _bill.total.ToString();
+                    txt_date_create.Text = _bill.dateCreat;
+
                 }
+
+                string sql = "SELECT LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, DATEDIFF(DAY, DatPhong.ngayTraPhong, DatPhong.ngayBatDau) AS numDay FROM HoaDon, LoaiPhong, DatPhong WHERE DatPhong.maDP = " + ID_book.Text + " DatPhong.maDP = HoaDon.maDP AND DatPhong.maLoaiPhong = LoaiPhong.maLoaiPhong" ;
+                using (SqlCommand command = new SqlCommand(sql, Database.connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                      
+                        while (reader.Read())
+                        {
+                            _bill.price = reader.GetInt32(1);
+                            _bill.typeRoom = reader.GetString(0);
+                            _bill.days = reader.GetInt32(2);
+                        }
+
+                        txt_price.Text = _bill.price.ToString();
+                        txt_num_day.Text = _bill.days.ToString();
+                        txt_ID_room.Text = _bill.typeRoom;
+                    }
+                } 
             }
         }
     }
+
 }
