@@ -80,7 +80,7 @@ BEGIN
 	ELSE
 		BEGIN
 			INSERT INTO dbo.HoaDon( ngayThanhToan, maDP )
-			VALUES  ( GETDATE(), -- ngayThanhToan - date
+			VALUES  (convert(varchar,getdate(), 102), -- ngayThanhToan - date
 					   @maDatPhong  -- maDP - int
 	        )
 			UPDATE dbo.HoaDon SET tongTien = (	SELECT (DATEDIFF(DAY, DATE_PRICE.NTP, DATE_PRICE.NBD) * DATE_PRICE.GIA) AS N'Tổng Tiền'
