@@ -100,4 +100,8 @@ from HoaDon hd
 where hd.maDP = 3
 go
 
+SELECT LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, DATEDIFF(DAY, DatPhong.ngayTraPhong, DatPhong.ngayBatDau) AS numDay
+FROM HoaDon, LoaiPhong, DatPhong
+WHERE maHD = 1 AND HoaDon.maDP = DatPhong.maDP AND DatPhong.maLoaiPhong = LoaiPhong.maLoaiPhong
+
 	

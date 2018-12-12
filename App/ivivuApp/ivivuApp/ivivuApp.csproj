@@ -130,7 +130,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportStatusRoom.rpt</DependentUpon>
       <SubType>Component</SubType>
-          </Compile>
+    </Compile>
     <Compile Include="ListRooms.xaml.cs">
       <DependentUpon>ListRooms.xaml</DependentUpon>
     </Compile>
@@ -282,9 +282,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
