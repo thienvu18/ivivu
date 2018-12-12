@@ -35,8 +35,6 @@
                             </Canvas>
                         </StackPanel>
                     </Border>
-                    <Button x:Name="btn_save_bill" Content="Lưu" Width="60" Height="30" FontSize="15" Canvas.Left="357" Canvas.Top="264"></Button>
-                    <Button x:Name="btn_not_save_bill" Content="Thoát" Width="60" Height="30" FontSize="15" Canvas.Left="269" Canvas.Top="264"></Button>
                 </Canvas>
             </Border>
         </StackPanel>

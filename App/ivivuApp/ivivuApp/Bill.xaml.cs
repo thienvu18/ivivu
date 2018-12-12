@@ -27,9 +27,9 @@ namespace ivivuApp
             public int billID { get; set; }
             public string dateCreat { get; set; }
             public string typeRoom { get; set; }
-            public int price { get; set; }
+            public long price { get; set; }
             public int days { get; set; }
-            public int total { get; set; }
+            public long total { get; set; }
         }
 
         public Bill()
@@ -69,15 +69,15 @@ namespace ivivuApp
 
         private BillInfo _bill = new BillInfo();
         int _idBill;
-        string _dateCreate = "";
-        int _total;
-        int _price;
+        string _dateCreate;
+        long _total;
+        long _price;
         string _typeRoom;
         int _days;
 
         private void Load_bill()
         {
-            string sqlHD = "SELECT HoaDon.maHD, HoaDon.ngayThanhToan, HoaDon.TongTien FROM HoaDon WHERE HoaDon.maDP = " + ID_book.Text;
+            string sqlHD = "SELECT HoaDon.maHD, HoaDon.TongTien FROM HoaDon WHERE HoaDon.maDP = " + ID_book.Text;
             using (SqlCommand commandHD = new SqlCommand(sqlHD, Database.connection))
             {
                 using (SqlDataReader readerHD = commandHD.ExecuteReader())
@@ -85,17 +85,17 @@ namespace ivivuApp
                     while (readerHD.Read())
                     {
                        _idBill  = readerHD.GetInt32(0);
-                       _dateCreate = readerHD.GetString(1).ToString();
-                       _total= readerHD.GetInt32(2);
+                       _total= readerHD.GetInt64(1);
                     }
 
+                    _dateCreate = DateTime.Now.ToString();
                     _bill.total = _total;
                     _bill.dateCreat = _dateCreate;
                     _bill.billID = _idBill;
 
                 }
 
-                string sql = "SELECT DISTINCT LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, DATEDIFF(DAY, DatPhong.ngayTraPhong, DatPhong.ngayBatDau) AS numDay FROM HoaDon, LoaiPhong, DatPhong WHERE DatPhong.maDP = " + ID_book.Text + " DatPhong.maDP = HoaDon.maDP AND DatPhong.maLoaiPhong = LoaiPhong.maLoaiPhong";
+                string sql = "SELECT DISTINCT LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, DATEDIFF(DAY, DatPhong.ngayTraPhong, DatPhong.ngayBatDau) AS numDay FROM HoaDon, LoaiPhong, DatPhong WHERE DatPhong.maDP = " + ID_book.Text + " AND DatPhong.maDP = HoaDon.maDP AND DatPhong.maLoaiPhong = LoaiPhong.maLoaiPhong";
                 using (SqlCommand command = new SqlCommand(sql, Database.connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -103,7 +103,7 @@ namespace ivivuApp
                       
                         while (reader.Read())
                         {
-                            _price = reader.GetInt32(1);
+                            _price = reader.GetInt64(1);
                             _typeRoom = reader.GetString(0);
                             _days = reader.GetInt32(2);
                         }
