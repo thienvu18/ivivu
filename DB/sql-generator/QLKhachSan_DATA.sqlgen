@@ -19,7 +19,7 @@ Version:4.1.0.1596-->
       <TableType>Generated</TableType>
       <PopulationDetails version="2" type="PopulationDetails">
         <PopulationType>RowCount</PopulationType>
-        <RowCount>6000000</RowCount>
+        <RowCount>1000</RowCount>
         <ProportionTableExists>False</ProportionTableExists>
         <Proportion>0</Proportion>
         <TimeToPopulate>0</TimeToPopulate>
@@ -376,7 +376,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">9223372036854775807</value>
+                <value type="string">9223</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -660,7 +660,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">9223372036854775807</value>
+                <value type="string">9223372036</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -1433,7 +1433,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">9223372036854775</value>
+                <value type="string">9223372</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -1629,11 +1629,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">-9223372036854775808</value>
+                <value type="string">0</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">9223372036854775807</value>
+                <value type="string">9223372</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
