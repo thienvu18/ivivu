@@ -6,7 +6,7 @@ CREATE PROCEDURE [dbo].[proc_BookRoom] (@MaPhong INT, @MaKhachHang INT, @NgayBat
 AS
 BEGIN
 	DECLARE @err_message nvarchar(255);
-	DECLARE @MaLoaiPhong INT, @DonGia INT;
+	DECLARE @MaLoaiPhong INT, @DonGia BIGINT;
 
 	IF EXISTS (SELECT 1
 				FROM TrangThaiPhong

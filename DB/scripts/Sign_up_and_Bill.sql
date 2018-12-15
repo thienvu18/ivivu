@@ -10,9 +10,6 @@ INPUT:	FullName	NVARCHAR(50),
 		Mail		VARCHAR(20)
 OUTPUT:	Thêm 1 record trong table KhachHang
 */
-
-DROP PROCEDURE proc_signUpUser
-GO
 CREATE PROCEDURE proc_signUpUser
 	@FullName	NVARCHAR(50),
 	@UserName	VARCHAR(50),
@@ -62,8 +59,6 @@ INPUT:	maDatPhong INT
 OUTPUT:	Thêm 1 record trong table HoaDon
 */
 
-drop procedure proc_setBill
-go
 CREATE PROCEDURE proc_setBill
 	@maDatPhong INT
 AS

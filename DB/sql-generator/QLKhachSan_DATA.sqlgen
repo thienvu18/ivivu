@@ -5,7 +5,7 @@ SQL Data Generator
 Version:4.1.0.1596-->
 <Project version="2" type="SDGProject">
   <DataSource version="4" type="LiveDatabaseSource">
-    <ServerName>(local)\SQLEXPRESS</ServerName>
+    <ServerName>(local)</ServerName>
     <DatabaseName>QLKhachSan</DatabaseName>
     <Username />
     <SavePassword>False</SavePassword>
@@ -24,7 +24,7 @@ Version:4.1.0.1596-->
         <Proportion>0</Proportion>
         <TimeToPopulate>0</TimeToPopulate>
       </PopulationDetails>
-      <InvalidRowBehaviour>RaiseError</InvalidRowBehaviour>
+      <InvalidRowBehaviour>SkipRow</InvalidRowBehaviour>
       <Included>True</Included>
       <Append>False</Append>
       <Name>DatPhong</Name>
@@ -150,11 +150,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">636503616000000000</value>
+                <value type="string">615991392000000000</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">637449696000000000</value>
+                <value type="string">694251648000000000</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -170,7 +170,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">10000000</value>
+                <value type="string">3</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -233,11 +233,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">636503616000000000</value>
+                <value type="string">615991392000000000</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">637449696000000000</value>
+                <value type="string">694251648000000000</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -253,7 +253,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">1000000</value>
+                <value type="string">4</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -316,11 +316,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">636503616000000000</value>
+                <value type="string">615991392000000000</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">637449696000000000</value>
+                <value type="string">694251648000000000</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -336,7 +336,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">10000000</value>
+                <value type="string">5</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -372,11 +372,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">100000</value>
+                <value type="string">0</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">10000000</value>
+                <value type="string">9223372036854775807</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -392,7 +392,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">100000000</value>
+                <value type="string">6</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -416,7 +416,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">Mô tả đặt phòng</value>
+                <value type="string">[A-Z0-9]*</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -432,7 +432,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">10000000</value>
+                <value type="string">7</value>
               </element>
               <element>
                 <key type="string">Unique</key>
@@ -460,7 +460,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">(đã xác nhận)|(chưa xác nhận)</value>
+                <value type="string">(Đã xác nhận|Chưa xác nhận)</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -476,7 +476,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">100000000</value>
+                <value type="string">8</value>
               </element>
               <element>
                 <key type="string">Unique</key>
@@ -493,7 +493,7 @@ Version:4.1.0.1596-->
           </Fields>
           <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
           <MaxBuckets>1000</MaxBuckets>
-          <Seed>1000000</Seed>
+          <Seed>0</Seed>
           <MinRepeats>1</MinRepeats>
           <MaxRepeats>10</MaxRepeats>
           <NullsAllowed>False</NullsAllowed>
@@ -505,7 +505,7 @@ Version:4.1.0.1596-->
           </Fields>
           <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
           <MaxBuckets>1000</MaxBuckets>
-          <Seed>1000000</Seed>
+          <Seed>0</Seed>
           <MinRepeats>1</MinRepeats>
           <MaxRepeats>10</MaxRepeats>
           <NullsAllowed>False</NullsAllowed>
@@ -522,7 +522,7 @@ Version:4.1.0.1596-->
         <Proportion>0</Proportion>
         <TimeToPopulate>0</TimeToPopulate>
       </PopulationDetails>
-      <InvalidRowBehaviour>RaiseError</InvalidRowBehaviour>
+      <InvalidRowBehaviour>SkipRow</InvalidRowBehaviour>
       <Included>True</Included>
       <Append>False</Append>
       <Name>HoaDon</Name>
@@ -600,11 +600,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">630822816000000000</value>
+                <value type="string">615991392000000000</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">3155378112000000000</value>
+                <value type="string">694251648000000000</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -620,7 +620,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">10000000</value>
+                <value type="string">1025</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -656,7 +656,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">1000000</value>
+                <value type="string">0</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
@@ -676,7 +676,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">100000000</value>
+                <value type="string">1026</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -713,7 +713,7 @@ Version:4.1.0.1596-->
           </Fields>
           <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
           <MaxBuckets>1000</MaxBuckets>
-          <Seed>1000000</Seed>
+          <Seed>0</Seed>
           <MinRepeats>1</MinRepeats>
           <MaxRepeats>10</MaxRepeats>
           <NullsAllowed>False</NullsAllowed>
@@ -730,7 +730,7 @@ Version:4.1.0.1596-->
         <Proportion>0</Proportion>
         <TimeToPopulate>0</TimeToPopulate>
       </PopulationDetails>
-      <InvalidRowBehaviour>RaiseError</InvalidRowBehaviour>
+      <InvalidRowBehaviour>SkipRow</InvalidRowBehaviour>
       <Included>True</Included>
       <Append>False</Append>
       <Name>KhachHang</Name>
@@ -763,13 +763,13 @@ Version:4.1.0.1596-->
           <DefinedSize>50</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
-            <DisplayName>Regex Generator</DisplayName>
-            <Description>Generates data from a Regular Expression</Description>
-            <CategoryName>Generic</CategoryName>
+            <DisplayName>Full Names</DisplayName>
+            <Description>Emma Smith, John Brown, Andrew Clarke, Tom O'Hare, Claire Harris...</Description>
+            <CategoryName>Personal</CategoryName>
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">($"ho.txt") ($"ten.txt")</value>
+                <value type="string">($"NamesFirst.txt") ($"NamesLast.txt")</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -785,7 +785,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">100000000</value>
+                <value type="string">2049</value>
               </element>
               <element>
                 <key type="string">Unique</key>
@@ -813,7 +813,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">username[0-9]*</value>
+                <value type="string">[a-z0-9]*</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -829,7 +829,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">1000000000</value>
+                <value type="string">2050</value>
               </element>
               <element>
                 <key type="string">Unique</key>
@@ -857,7 +857,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">[A-Z0-9]{6}</value>
+                <value type="string">[A-Z0-9]*</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -865,7 +865,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -873,7 +873,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">2147483647</value>
+                <value type="string">2051</value>
               </element>
               <element>
                 <key type="string">Unique</key>
@@ -895,13 +895,13 @@ Version:4.1.0.1596-->
           <DefinedSize>15</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
-            <DisplayName>Regex Generator</DisplayName>
-            <Description>Generates data from a Regular Expression</Description>
-            <CategoryName>Generic</CategoryName>
+            <DisplayName>Social Security Number</DisplayName>
+            <Description>950-95-8060, 626-39-6597, 763-98-0639...</Description>
+            <CategoryName>Personal</CategoryName>
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">[0-9]{11}</value>
+                <value type="string">[0-9]{3}-[0-9]{2}-[0-9]{4}</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -921,7 +921,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Unique</key>
-                <value type="string">True</value>
+                <value type="string">False</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -939,13 +939,13 @@ Version:4.1.0.1596-->
           <DefinedSize>50</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
-            <DisplayName>Regex Generator</DisplayName>
-            <Description>Generates data from a Regular Expression</Description>
-            <CategoryName>Generic</CategoryName>
+            <DisplayName>Address Line (street number)</DisplayName>
+            <Description>123 West Second Way, 6 Fabien Boulevard, 567 Hague St., 11 Oak Drive... </Description>
+            <CategoryName>Geographical</CategoryName>
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">[0-9]{1,4} Lý Thường Kiệt, P.[0-9]{1}, Q.[0-9]{1}, TP.HCM</value>
+                <value type="string">([1-9][0-9][0-9]?) (North |East |West |South |||||||||||)(Green |White |Rocky ||||)(Nobel|Fabien|Hague|Oak|Second|First|Cowley|Clarendon|New|Old|Milton) (Way|Street|St.|Avenue|Road|Parkway|Freeway|Drive|Boulevard|Blvd.)</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -953,7 +953,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -983,13 +983,13 @@ Version:4.1.0.1596-->
           <DefinedSize>15</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
-            <DisplayName>Regex Generator</DisplayName>
-            <Description>Generates data from a Regular Expression</Description>
-            <CategoryName>Generic</CategoryName>
+            <DisplayName>Phone Number</DisplayName>
+            <Description>(476) 391-0239, 114-479-4304, (829) 310-4824...</Description>
+            <CategoryName>Personal</CategoryName>
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">[0-9]{10}</value>
+                <value type="string">((\([0-9]{3}\) )|([0-9]{3}-))[0-9]{3}-[0-9]{4}</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -997,7 +997,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -1009,7 +1009,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Unique</key>
-                <value type="string">True</value>
+                <value type="string">False</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -1033,7 +1033,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">nội dung mô tả</value>
+                <value type="string">[A-Z0-9]*</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -1041,11 +1041,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
-                <value type="string">1</value>
+                <value type="string">0.01</value>
               </element>
               <element>
                 <key type="string">Seed</key>
@@ -1071,13 +1071,13 @@ Version:4.1.0.1596-->
           <DefinedSize>20</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
-            <DisplayName>Regex Generator</DisplayName>
-            <Description>Generates data from a Regular Expression</Description>
-            <CategoryName>Generic</CategoryName>
+            <DisplayName>Email</DisplayName>
+            <Description>Email Addresses (generated)</Description>
+            <CategoryName>Personal</CategoryName>
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">m[a-z0-9]*@m.vn</value>
+                <value type="string">[a-z]{1,3}([0-9]{0,2}|\.[a-z]{0,2})@?([a-z-]{6})\.(org|com|net)</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -1085,7 +1085,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -1093,7 +1093,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">2147483647</value>
+                <value type="string">2056</value>
               </element>
               <element>
                 <key type="string">Unique</key>
@@ -1109,12 +1109,12 @@ Version:4.1.0.1596-->
       <TableType>Generated</TableType>
       <PopulationDetails version="2" type="PopulationDetails">
         <PopulationType>RowCount</PopulationType>
-        <RowCount>110</RowCount>
+        <RowCount>100</RowCount>
         <ProportionTableExists>False</ProportionTableExists>
         <Proportion>0</Proportion>
         <TimeToPopulate>0</TimeToPopulate>
       </PopulationDetails>
-      <InvalidRowBehaviour>RaiseError</InvalidRowBehaviour>
+      <InvalidRowBehaviour>SkipRow</InvalidRowBehaviour>
       <Included>True</Included>
       <Append>False</Append>
       <Name>KhachSan</Name>
@@ -1147,17 +1147,17 @@ Version:4.1.0.1596-->
           <DefinedSize>50</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.FileListGenerator</GeneratorTypeName>
-            <DisplayName>File List</DisplayName>
-            <Description>Imports values from specified file</Description>
-            <CategoryName>Generic</CategoryName>
+            <DisplayName>US City</DisplayName>
+            <Description>New York, Los Angeles, Chicago...</Description>
+            <CategoryName>Geographical</CategoryName>
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">FileName</key>
-                <value type="string">C:\Users\Robin\Desktop\khachsan.txt</value>
+                <value type="string">USCity.txt</value>
               </element>
               <element>
                 <key type="string">Unique</key>
-                <value type="string">True</value>
+                <value type="string">False</value>
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
@@ -1169,7 +1169,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">120</value>
+                <value type="string">3073</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -1205,7 +1205,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">1</value>
+                <value type="string">0</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
@@ -1217,7 +1217,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">True</value>
+                <value type="string">False</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -1249,7 +1249,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">[0-9]{3}</value>
+                <value type="string">[0-9]{5}</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -1257,7 +1257,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">True</value>
+                <value type="string">False</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -1287,13 +1287,13 @@ Version:4.1.0.1596-->
           <DefinedSize>20</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
-            <DisplayName>Regex Generator</DisplayName>
-            <Description>Generates data from a Regular Expression</Description>
-            <CategoryName>Generic</CategoryName>
+            <DisplayName>Full Names</DisplayName>
+            <Description>Emma Smith, John Brown, Andrew Clarke, Tom O'Hare, Claire Harris...</Description>
+            <CategoryName>Personal</CategoryName>
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">Lý Thường Kiệt</value>
+                <value type="string">($"NamesFirst.txt") ($"NamesLast.txt")</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -1301,7 +1301,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">True</value>
+                <value type="string">False</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -1330,22 +1330,22 @@ Version:4.1.0.1596-->
           <Scale>0</Scale>
           <DefinedSize>20</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
-            <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
-            <DisplayName>Regex Generator</DisplayName>
-            <Description>Generates data from a Regular Expression</Description>
-            <CategoryName>Generic</CategoryName>
+            <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.FileListGenerator</GeneratorTypeName>
+            <DisplayName>UK Town</DisplayName>
+            <Description>Ascot, Ashford, Bangor...</Description>
+            <CategoryName>Geographical</CategoryName>
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
-                <key type="string">Expression</key>
-                <value type="string">[0-9]</value>
+                <key type="string">FileName</key>
+                <value type="string">UKPostTown.txt</value>
               </element>
               <element>
-                <key type="string">UseSequence</key>
+                <key type="string">Unique</key>
                 <value type="string">False</value>
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">True</value>
+                <value type="string">False</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -1354,10 +1354,6 @@ Version:4.1.0.1596-->
               <element>
                 <key type="string">Seed</key>
                 <value type="string">3077</value>
-              </element>
-              <element>
-                <key type="string">Unique</key>
-                <value type="string">False</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -1373,6 +1369,102 @@ Version:4.1.0.1596-->
           <Precision>0</Precision>
           <Scale>0</Scale>
           <DefinedSize>20</DefinedSize>
+          <Generator version="1" type="GeneratorDetails">
+            <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.FileListGenerator</GeneratorTypeName>
+            <DisplayName>US City</DisplayName>
+            <Description>New York, Los Angeles, Chicago...</Description>
+            <CategoryName>Geographical</CategoryName>
+            <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
+              <element>
+                <key type="string">FileName</key>
+                <value type="string">USCity.txt</value>
+              </element>
+              <element>
+                <key type="string">Unique</key>
+                <value type="string">False</value>
+              </element>
+              <element>
+                <key type="string">NullsAllowed</key>
+                <value type="string">False</value>
+              </element>
+              <element>
+                <key type="string">NullProportion</key>
+                <value type="string">0.01</value>
+              </element>
+              <element>
+                <key type="string">Seed</key>
+                <value type="string">3078</value>
+              </element>
+            </GeneratorProperties>
+          </Generator>
+        </value>
+        <value version="1" type="SDGField">
+          <Name>giaTB</Name>
+          <FieldType>Generated</FieldType>
+          <PrimaryKey>False</PrimaryKey>
+          <ForeignKey>False</ForeignKey>
+          <Unique>False</Unique>
+          <AllowsNulls>True</AllowsNulls>
+          <SqlType>Integer64</SqlType>
+          <Precision>19</Precision>
+          <Scale>0</Scale>
+          <DefinedSize>8</DefinedSize>
+          <Generator version="1" type="GeneratorDetails">
+            <GeneratorTypeName>RedGate.SQLDataGenerator.Generators.Number.Int64Generator</GeneratorTypeName>
+            <DisplayName>bigint</DisplayName>
+            <Description>Generates bigint (64-bit) values</Description>
+            <CategoryName>SQL Type</CategoryName>
+            <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
+              <element>
+                <key type="string">Increment</key>
+                <value type="string">1</value>
+              </element>
+              <element>
+                <key type="string">UseSequence</key>
+                <value type="string">False</value>
+              </element>
+              <element>
+                <key type="string">Unique</key>
+                <value type="string">False</value>
+              </element>
+              <element>
+                <key type="string">MinValue</key>
+                <value type="string">0</value>
+              </element>
+              <element>
+                <key type="string">MaxValue</key>
+                <value type="string">9223372036854775</value>
+              </element>
+              <element>
+                <key type="string">UseColumnOffset</key>
+                <value type="string">False</value>
+              </element>
+              <element>
+                <key type="string">NullsAllowed</key>
+                <value type="string">False</value>
+              </element>
+              <element>
+                <key type="string">NullProportion</key>
+                <value type="string">0.01</value>
+              </element>
+              <element>
+                <key type="string">Seed</key>
+                <value type="string">3079</value>
+              </element>
+            </GeneratorProperties>
+          </Generator>
+        </value>
+        <value version="1" type="SDGField">
+          <Name>moTa</Name>
+          <FieldType>Generated</FieldType>
+          <PrimaryKey>False</PrimaryKey>
+          <ForeignKey>False</ForeignKey>
+          <Unique>False</Unique>
+          <AllowsNulls>True</AllowsNulls>
+          <SqlType>NVarchar</SqlType>
+          <Precision>0</Precision>
+          <Scale>0</Scale>
+          <DefinedSize>100</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
             <DisplayName>Regex Generator</DisplayName>
@@ -1406,106 +1498,6 @@ Version:4.1.0.1596-->
             </GeneratorProperties>
           </Generator>
         </value>
-        <value version="1" type="SDGField">
-          <Name>giaTB</Name>
-          <FieldType>Generated</FieldType>
-          <PrimaryKey>False</PrimaryKey>
-          <ForeignKey>False</ForeignKey>
-          <Unique>False</Unique>
-          <AllowsNulls>True</AllowsNulls>
-          <SqlType>Integer64</SqlType>
-          <Precision>19</Precision>
-          <Scale>0</Scale>
-          <DefinedSize>8</DefinedSize>
-          <Generator version="1" type="GeneratorDetails">
-            <GeneratorTypeName>RedGate.SQLDataGenerator.Generators.Number.Int64Generator</GeneratorTypeName>
-            <DisplayName>bigint</DisplayName>
-            <Description>Generates bigint (64-bit) values</Description>
-            <CategoryName>SQL Type</CategoryName>
-            <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
-              <element>
-                <key type="string">Increment</key>
-                <value type="string">50000</value>
-              </element>
-              <element>
-                <key type="string">UseSequence</key>
-                <value type="string">True</value>
-              </element>
-              <element>
-                <key type="string">Unique</key>
-                <value type="string">False</value>
-              </element>
-              <element>
-                <key type="string">MinValue</key>
-                <value type="string">100000</value>
-              </element>
-              <element>
-                <key type="string">MaxValue</key>
-                <value type="string">10000000</value>
-              </element>
-              <element>
-                <key type="string">UseColumnOffset</key>
-                <value type="string">False</value>
-              </element>
-              <element>
-                <key type="string">NullsAllowed</key>
-                <value type="string">True</value>
-              </element>
-              <element>
-                <key type="string">NullProportion</key>
-                <value type="string">0.01</value>
-              </element>
-              <element>
-                <key type="string">Seed</key>
-                <value type="string">3078</value>
-              </element>
-            </GeneratorProperties>
-          </Generator>
-        </value>
-        <value version="1" type="SDGField">
-          <Name>moTa</Name>
-          <FieldType>Generated</FieldType>
-          <PrimaryKey>False</PrimaryKey>
-          <ForeignKey>False</ForeignKey>
-          <Unique>False</Unique>
-          <AllowsNulls>True</AllowsNulls>
-          <SqlType>NVarchar</SqlType>
-          <Precision>0</Precision>
-          <Scale>0</Scale>
-          <DefinedSize>100</DefinedSize>
-          <Generator version="1" type="GeneratorDetails">
-            <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
-            <DisplayName>Regex Generator</DisplayName>
-            <Description>Generates data from a Regular Expression</Description>
-            <CategoryName>Generic</CategoryName>
-            <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
-              <element>
-                <key type="string">Expression</key>
-                <value type="string">Khách sạn chất lượng tốt, giá cả hợp lý</value>
-              </element>
-              <element>
-                <key type="string">UseSequence</key>
-                <value type="string">False</value>
-              </element>
-              <element>
-                <key type="string">NullsAllowed</key>
-                <value type="string">True</value>
-              </element>
-              <element>
-                <key type="string">NullProportion</key>
-                <value type="string">0.01</value>
-              </element>
-              <element>
-                <key type="string">Seed</key>
-                <value type="string">3079</value>
-              </element>
-              <element>
-                <key type="string">Unique</key>
-                <value type="string">False</value>
-              </element>
-            </GeneratorProperties>
-          </Generator>
-        </value>
       </Fields>
       <ForeignKeyProperties type="List&lt;ForeignKeyProperty&gt;" version="1" />
     </value>
@@ -1513,12 +1505,12 @@ Version:4.1.0.1596-->
       <TableType>Generated</TableType>
       <PopulationDetails version="2" type="PopulationDetails">
         <PopulationType>RowCount</PopulationType>
-        <RowCount>2020</RowCount>
+        <RowCount>2000</RowCount>
         <ProportionTableExists>False</ProportionTableExists>
         <Proportion>0</Proportion>
         <TimeToPopulate>0</TimeToPopulate>
       </PopulationDetails>
-      <InvalidRowBehaviour>RaiseError</InvalidRowBehaviour>
+      <InvalidRowBehaviour>SkipRow</InvalidRowBehaviour>
       <Included>True</Included>
       <Append>False</Append>
       <Name>LoaiPhong</Name>
@@ -1557,7 +1549,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">(Phòng Tiêu Chuẩn/ Standard)|(Phong Superior giường đôi)|(Phong Superior 2 giường đơn)|(Phòng Gia Đình/ Family)|(Superior Triple)|(Phòng Loại 1)|(Phòng Loại 2)|(Phòng Loại 3)</value>
+                <value type="string">[A-Z0-9]*</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -1565,7 +1557,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -1573,7 +1565,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">2147483647</value>
+                <value type="string">4097</value>
               </element>
               <element>
                 <key type="string">Unique</key>
@@ -1637,11 +1629,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">0</value>
+                <value type="string">-9223372036854775808</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">1000000000</value>
+                <value type="string">9223372036854775807</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -1681,7 +1673,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">Mô tả loại phòng</value>
+                <value type="string">[A-Z0-9]*</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -1737,11 +1729,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">0</value>
+                <value type="string">-2147483648</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">50</value>
+                <value type="string">2147483647</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -1770,10 +1762,10 @@ Version:4.1.0.1596-->
           </Fields>
           <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
           <MaxBuckets>1000</MaxBuckets>
-          <Seed>5000</Seed>
+          <Seed>0</Seed>
           <MinRepeats>1</MinRepeats>
           <MaxRepeats>10</MaxRepeats>
-          <NullsAllowed>False</NullsAllowed>
+          <NullsAllowed>True</NullsAllowed>
           <NullProportion>0.01</NullProportion>
         </value>
       </ForeignKeyProperties>
@@ -1782,12 +1774,12 @@ Version:4.1.0.1596-->
       <TableType>Generated</TableType>
       <PopulationDetails version="2" type="PopulationDetails">
         <PopulationType>RowCount</PopulationType>
-        <RowCount>500</RowCount>
+        <RowCount>1000</RowCount>
         <ProportionTableExists>False</ProportionTableExists>
         <Proportion>0</Proportion>
         <TimeToPopulate>0</TimeToPopulate>
       </PopulationDetails>
-      <InvalidRowBehaviour>RaiseError</InvalidRowBehaviour>
+      <InvalidRowBehaviour>SkipRow</InvalidRowBehaviour>
       <Included>True</Included>
       <Append>False</Append>
       <Name>NhanVien</Name>
@@ -1820,13 +1812,13 @@ Version:4.1.0.1596-->
           <DefinedSize>50</DefinedSize>
           <Generator version="1" type="GeneratorDetails">
             <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
-            <DisplayName>Regex Generator</DisplayName>
-            <Description>Generates data from a Regular Expression</Description>
-            <CategoryName>Generic</CategoryName>
+            <DisplayName>Full Names</DisplayName>
+            <Description>Emma Smith, John Brown, Andrew Clarke, Tom O'Hare, Claire Harris...</Description>
+            <CategoryName>Personal</CategoryName>
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">($"ho.txt") ($"ten.txt")</value>
+                <value type="string">($"NamesFirst.txt") ($"NamesLast.txt")</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -1834,7 +1826,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">True</value>
+                <value type="string">False</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -1870,7 +1862,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">username[a-z][0-9]*</value>
+                <value type="string">[A-Z0-9]*</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -1878,7 +1870,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">True</value>
+                <value type="string">False</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -1890,7 +1882,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Unique</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -1914,7 +1906,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">[a-z0-9]{6,}</value>
+                <value type="string">[A-Z0-9]*</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -1971,10 +1963,10 @@ Version:4.1.0.1596-->
           </Fields>
           <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
           <MaxBuckets>1000</MaxBuckets>
-          <Seed>10000</Seed>
+          <Seed>0</Seed>
           <MinRepeats>1</MinRepeats>
           <MaxRepeats>10</MaxRepeats>
-          <NullsAllowed>False</NullsAllowed>
+          <NullsAllowed>True</NullsAllowed>
           <NullProportion>0.01</NullProportion>
         </value>
       </ForeignKeyProperties>
@@ -1988,7 +1980,7 @@ Version:4.1.0.1596-->
         <Proportion>0</Proportion>
         <TimeToPopulate>0</TimeToPopulate>
       </PopulationDetails>
-      <InvalidRowBehaviour>RaiseError</InvalidRowBehaviour>
+      <InvalidRowBehaviour>SkipRow</InvalidRowBehaviour>
       <Included>True</Included>
       <Append>False</Append>
       <Name>Phong</Name>
@@ -2051,7 +2043,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">SO[0-9]{1,}</value>
+                <value type="string">[A-Z0-9]*</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -2059,7 +2051,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">NullsAllowed</key>
-                <value type="string">False</value>
+                <value type="string">True</value>
               </element>
               <element>
                 <key type="string">NullProportion</key>
@@ -2067,11 +2059,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">2147483647</value>
+                <value type="string">6146</value>
               </element>
               <element>
                 <key type="string">Unique</key>
-                <value type="string">True</value>
+                <value type="string">False</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -2084,7 +2076,7 @@ Version:4.1.0.1596-->
           </Fields>
           <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
           <MaxBuckets>1000</MaxBuckets>
-          <Seed>1000000</Seed>
+          <Seed>0</Seed>
           <MinRepeats>1</MinRepeats>
           <MaxRepeats>10</MaxRepeats>
           <NullsAllowed>False</NullsAllowed>
@@ -2101,7 +2093,7 @@ Version:4.1.0.1596-->
         <Proportion>0</Proportion>
         <TimeToPopulate>0</TimeToPopulate>
       </PopulationDetails>
-      <InvalidRowBehaviour>RaiseError</InvalidRowBehaviour>
+      <InvalidRowBehaviour>SkipRow</InvalidRowBehaviour>
       <Included>True</Included>
       <Append>False</Append>
       <Name>TrangThaiPhong</Name>
@@ -2191,11 +2183,11 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">636503616000000000</value>
+                <value type="string">599266080000000000</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">3155073120000000000</value>
+                <value type="string">3155378112000000000</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
@@ -2211,7 +2203,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">1000000000</value>
+                <value type="string">7169</value>
               </element>
             </GeneratorProperties>
           </Generator>
@@ -2235,7 +2227,7 @@ Version:4.1.0.1596-->
             <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
               <element>
                 <key type="string">Expression</key>
-                <value type="string">(đang sử dụng)|(đang bảo trì)|(còn trống)</value>
+                <value type="string">(Đang sử dung|Đang bảo trì|Còn trống)</value>
               </element>
               <element>
                 <key type="string">UseSequence</key>
@@ -2251,7 +2243,7 @@ Version:4.1.0.1596-->
               </element>
               <element>
                 <key type="string">Seed</key>
-                <value type="string">100000000</value>
+                <value type="string">7170</value>
               </element>
               <element>
                 <key type="string">Unique</key>
@@ -2268,7 +2260,7 @@ Version:4.1.0.1596-->
           </Fields>
           <ForeignKeyFillMethod>RepeatForever</ForeignKeyFillMethod>
           <MaxBuckets>1000</MaxBuckets>
-          <Seed>1000000</Seed>
+          <Seed>0</Seed>
           <MinRepeats>1</MinRepeats>
           <MaxRepeats>10</MaxRepeats>
           <NullsAllowed>False</NullsAllowed>
