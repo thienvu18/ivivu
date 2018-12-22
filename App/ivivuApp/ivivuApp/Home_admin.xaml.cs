@@ -45,5 +45,12 @@ namespace ivivuApp
             this.Close();
             window.ShowDialog();
         }
+
+        private void BtnSearchBill_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new SearchBill();
+            this.Close();
+            window.ShowDialog();
+        }
     }
 }
