@@ -58,7 +58,7 @@
 
         </StackPanel>
         <DatePicker 
-                x:Name="ngaylap"
+                x:Name="ngaylap"           
                 Height="35"
                  Width="130"
                 HorizontalAlignment="Right"
@@ -93,34 +93,34 @@
                 </Style>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
-            <DataGridTextColumn
+                <DataGridTextColumn
                 Header="Mã hóa đơn" 
                 Width="100"
                 Binding="{Binding maHD}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-            </DataGridTextColumn>
+                </DataGridTextColumn>
 
-            <materialDesign:MaterialDataGridTextColumn
+                <materialDesign:MaterialDataGridTextColumn
                 Header="Ngày thanh toán" 
                 Width="160"
                 Binding="{Binding date}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-            </materialDesign:MaterialDataGridTextColumn>
+                </materialDesign:MaterialDataGridTextColumn>
 
-            <materialDesign:MaterialDataGridTextColumn  
+                <materialDesign:MaterialDataGridTextColumn  
                 Header="Thành tiền"
                 Width="100"
                 Binding="{Binding tongTien}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-            </materialDesign:MaterialDataGridTextColumn>
+                </materialDesign:MaterialDataGridTextColumn>
 
-            <materialDesign:MaterialDataGridTextColumn  
+                <materialDesign:MaterialDataGridTextColumn  
  
                 Header="Mã đặt phòng"
                 Width="110"                                 
                 Binding="{Binding maDP}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-            </materialDesign:MaterialDataGridTextColumn>
+                </materialDesign:MaterialDataGridTextColumn>
                 <materialDesign:MaterialDataGridTextColumn  
  
                 Header="Mã khách hàng"
@@ -149,7 +149,7 @@
             Margin="50,35,100,240" 
             Height="35"
             Width="100" Click="bttimkiem_Click"/>
-       
+
         <Menu 
             HorizontalAlignment="Right" 
             Height="30" 
@@ -168,8 +168,11 @@
                 FontWeight="Bold" 
                 FontSize="20">
                 <MenuItem
-                Header="Home" 
+                Header="Home chức năng" 
                     Click="home_click"/>
+                <MenuItem
+                Header="Home Tìm kiếm" 
+                    Click="homesearch_click"/>
                 <MenuItem
                 Header="Đăng nhập" 
                     Click="dangnhap_click"/>
@@ -190,7 +193,14 @@
 
         </Menu>
 
-
+        <Label
+            x:Name="lbdate"
+            Content="(Tháng/Ngày/Năm)"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Width="120"
+            Height="30" 
+            Margin="0,70,70,0"/>
 
     </Grid>
 </Window>

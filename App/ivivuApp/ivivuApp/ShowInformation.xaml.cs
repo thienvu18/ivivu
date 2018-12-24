@@ -23,7 +23,7 @@ namespace ivivuApp
     /// </summary>
     public partial class ShowInformation : Window
     {
-        public int maks {  get; set; }
+        public int maks { get; set; }
         public ShowInformation(int value)
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace ivivuApp
                 txmaks.Text = sqlReader.GetInt32(0).ToString();
                 txtenks.Text = sqlReader.GetString(1);
                 sosao.Value = sqlReader.GetInt32(2);
-               txdiachi.Text = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
+                txdiachi.Text = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
                 txgia.Text = sqlReader.GetInt64(7).ToString();
                 txtmota.Text = sqlReader.GetString(8);
 
@@ -59,5 +59,5 @@ namespace ivivuApp
             window.ShowDialog();
         }
     }
-    
+
 }

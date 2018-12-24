@@ -8,7 +8,7 @@ namespace ivivuApp
 {
     class HoaDon
     {
-       
+
         public int maHD { get; set; }
         public DateTime ngayThanhToan { get; set; }
         public Int64 tongTien { get; set; }

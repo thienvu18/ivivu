@@ -18,8 +18,8 @@ namespace ivivuApp
         public string diaChi { get; set; }
         public Int64 giaTB { get; set; }
         public string moTa { get; set; }
-      
+
     }
 
-    
+
 }

@@ -77,12 +77,14 @@
       <DependentUpon>ChooseRoom.xaml</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="HoaDon.cs" />
     <Compile Include="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="Home_admin.xaml.cs">
       <DependentUpon>Home_admin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KhachSan.cs" />
     <Compile Include="Report.xaml.cs">
       <DependentUpon>Report.xaml</DependentUpon>
     </Compile>
@@ -142,6 +144,15 @@
     </Compile>
     <Compile Include="Search.xaml.cs">
       <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchBill.xaml.cs">
+      <DependentUpon>SearchBill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowInformation.xaml.cs">
+      <DependentUpon>ShowInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowInformationBill.xaml.cs">
+      <DependentUpon>ShowInformationBill.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
@@ -229,6 +240,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Search.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchBill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowInformationBill.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

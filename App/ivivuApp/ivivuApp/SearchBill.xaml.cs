@@ -26,7 +26,7 @@ namespace ivivuApp
     public partial class SearchBill : Window
     {
         ObservableCollection<HoaDon> listHD = new ObservableCollection<HoaDon>();
-        
+
         public SearchBill()
         {
             InitializeComponent();
@@ -47,12 +47,12 @@ namespace ivivuApp
                 HoaDon hd = new HoaDon();
                 hd.maHD = sqlReader.GetInt32(0);
                 hd.ngayThanhToan = sqlReader.GetDateTime(1);
-                hd.tongTien= sqlReader.GetInt64(2);
+                hd.tongTien = sqlReader.GetInt64(2);
                 hd.maDP = sqlReader.GetInt32(3);
                 hd.maKH = sqlReader.GetInt32(4);
 
                 string date1 = hd.ngayThanhToan.ToString();
-                for (int i = 0; i<date1.Length;i++)
+                for (int i = 0; i < date1.Length; i++)
                 {
                     if (date1[i] == ' ')
                     {
@@ -63,7 +63,7 @@ namespace ivivuApp
                 if (hd != null)
                 {
                     listHD.Add(hd);
-                   
+
                 }
 
 
@@ -79,7 +79,7 @@ namespace ivivuApp
             DataGridRow row = DataGridRow.GetRowContainingElement(myCell);
 
             HoaDon temp = row.Item as HoaDon;
-         
+
             try
             {
 
@@ -118,7 +118,7 @@ namespace ivivuApp
 
             }
         }
-        
+
         private void resetTxtMakh_Click(object sender, RoutedEventArgs e)
         {
             txtmakh.Text = "";
@@ -127,10 +127,10 @@ namespace ivivuApp
         private void txtthanhtien_TextChanged(object sender, TextChangedEventArgs e)
         {
             resetTxtThanhtien.Visibility = Visibility.Visible;
-            if (txtthanhtien.Text== "")
+            if (txtthanhtien.Text == "")
             {
                 resetTxtThanhtien.Visibility = Visibility.Collapsed;
-               
+
 
             }
         }
@@ -144,7 +144,7 @@ namespace ivivuApp
         private void bttimkiem_Click(object sender, RoutedEventArgs e)
         {
             //================================================
-            if (txtthanhtien.Text == "" && ngaylap.Text == "" && txtmakh.Text !="")
+            if (txtthanhtien.Text == "" && ngaylap.Text == "" && txtmakh.Text != "")
             {
                 SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_MaKH", Database.connection);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -176,8 +176,8 @@ namespace ivivuApp
                             dttimkiemhoadon.ItemsSource = null;
                             listHD.Add(hd);
 
-                        }                       
-        
+                        }
+
                     }
                     sqlReader.Close();
                     dttimkiemhoadon.ItemsSource = listHD;
@@ -474,18 +474,18 @@ namespace ivivuApp
 
         private void home_click(object sender, RoutedEventArgs e)
         {
-            listHD.Clear();
-            getData();
-            dttimkiemhoadon.ItemsSource = listHD;
+            var window = new Home_admin();
+            this.Close();
+            window.ShowDialog();
         }
 
         private void dangnhap_click(object sender, RoutedEventArgs e)
         {
-           if( Auth.employee.maNV != 0)
+            if (Auth.employee.maNV != 0)
             {
                 MessageBox.Show("Bạn đã đăng nhập rồi!");
             }
-           else
+            else
             {
                 var window = new Login_user();
                 this.Close();
@@ -510,9 +510,16 @@ namespace ivivuApp
 
         private void exit_click(object sender, RoutedEventArgs e)
         {
-            
+
             this.Close();
-           
+
+        }
+
+        private void homesearch_click(object sender, RoutedEventArgs e)
+        {
+            listHD.Clear();
+            getData();
+            dttimkiemhoadon.ItemsSource = listHD;
         }
     }
 }

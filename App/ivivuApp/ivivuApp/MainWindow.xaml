@@ -1,7 +1,15 @@
 ﻿<Window x:Class="ivivuApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}">
     <Canvas>
         <Button x:Name="admin_login" Width="125" Height="40" Content="Đăng nhập nhân viên" Click="login_admin_Click" Canvas.Left="35" Canvas.Top="130"/>
         <Button x:Name="search" Width="108" Height="40" Content="Tìm kiếm phòng" Click="search_Click" Canvas.Left="201" Canvas.Top="130"/>

@@ -27,29 +27,29 @@ namespace ivivuApp
     public partial class Search : Window
     {
 
-        
+
         ObservableCollection<KhachSan> listKS1 = new ObservableCollection<KhachSan>();
         ObservableCollection<KhachSan> listKSSearch1 = new ObservableCollection<KhachSan>();
         ObservableCollection<KhachSan> listKS2 = new ObservableCollection<KhachSan>();
         ObservableCollection<KhachSan> listKSSearch2 = new ObservableCollection<KhachSan>();
         public Search()
         {
-           
+
             InitializeComponent();
             getData();
             dttimkiem2.ItemsSource = listKS2;
             dttimkiem1.ItemsSource = listKS1;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(dttimkiem2.ItemsSource);
-           
+
 
         }
-       
 
-       
+
+
         // ---------------hiện thị danh sách khách sạn trên datagrid------------
         public void getData()
         {
-            
+
             SqlCommand command = new SqlCommand("select * from KhachSan", Database.connection);
             SqlDataReader sqlReader = command.ExecuteReader();
             while (sqlReader.Read())
@@ -60,7 +60,7 @@ namespace ivivuApp
                 sp.thanhPho = sqlReader.GetString(6);
                 sp.giaTB = sqlReader.GetInt64(7);
                 sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
-             
+
                 if (sp != null)
                 {
                     listKS1.Add(sp);
@@ -73,8 +73,8 @@ namespace ivivuApp
             sqlReader.Close();
 
         }
- 
-       
+
+
         //==========TÌM KIẾM THEO GIÁ TRUNG BÌNH==============  
 
 
@@ -151,10 +151,10 @@ namespace ivivuApp
         {
 
             resetTxtSearch_gia.Visibility = Visibility.Visible;
-            if (txtgia.Text== "")
+            if (txtgia.Text == "")
             {
                 resetTxtSearch.Visibility = Visibility.Collapsed;
-               
+
 
             }
 
@@ -162,11 +162,11 @@ namespace ivivuApp
 
         }
 
-            //-------buton tìm kiếm theo giá
-            private void timkiemtab1_Click(object sender, RoutedEventArgs e)
+        //-------buton tìm kiếm theo giá
+        private void timkiemtab1_Click(object sender, RoutedEventArgs e)
         {
 
-            if (txtgia.Text =="" && txtenthanhpho1.Text =="")
+            if (txtgia.Text == "" && txtenthanhpho1.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập thông tin cần tìm");
             }
@@ -188,7 +188,7 @@ namespace ivivuApp
                         sp.tenKS = sqlReader.GetString(1);
                         sp.giaTB = sqlReader.GetInt64(7);
                         sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
-                       
+
                         if (sp != null)
                         {
 
@@ -202,19 +202,19 @@ namespace ivivuApp
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy khách sạn nằm trong thành phố "+ txtenthanhpho1.Text);
+                    MessageBox.Show("Không tìm thấy khách sạn nằm trong thành phố " + txtenthanhpho1.Text);
                     sqlReader.Close();
                 }
 
             }
             else
-            
+
                 if (txtenthanhpho1.Text == "" && txtgia.Text != "")
-                {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE giaTB = @giaTB", Database.connection);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
-                    SqlDataReader sqlReader = cmd.ExecuteReader();
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE giaTB = @giaTB", Database.connection);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
+                SqlDataReader sqlReader = cmd.ExecuteReader();
                 if (sqlReader.HasRows)
                 {
                     listKS1.Clear();
@@ -223,7 +223,7 @@ namespace ivivuApp
                         KhachSan sp = new KhachSan();
                         sp.maKS = Convert.ToInt16(sqlReader.GetValue(0));
                         sp.tenKS = sqlReader.GetString(1);
-                        sp.giaTB =sqlReader.GetInt64(7);
+                        sp.giaTB = sqlReader.GetInt64(7);
                         sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
 
                         if (sp != null)
@@ -241,55 +241,55 @@ namespace ivivuApp
 
                 else
                 {
-                    MessageBox.Show("Không tìm thấy khách sạn có  giá trung bình là: "+ txtgia.Text );
+                    MessageBox.Show("Không tìm thấy khách sạn có  giá trung bình là: " + txtgia.Text);
                     sqlReader.Close();
                 }
-                }
-                    
+            }
 
-              
-                if (txtgia.Text != "" && txtenthanhpho1.Text != "")
+
+
+            if (txtgia.Text != "" && txtenthanhpho1.Text != "")
+            {
+                SqlCommand cmd = new SqlCommand("usp_timKiemThongTinhKS_giaCa_Tp", Database.connection);
+
+                // Kiểu của Command là StoredProcedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@thanhPhoTimKiem", txtenthanhpho1.Text));
+                cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
+
+                SqlDataReader sqlReader = cmd.ExecuteReader();
+
+                if (sqlReader.HasRows)
                 {
-                    SqlCommand cmd = new SqlCommand("usp_timKiemThongTinhKS_giaCa_Tp", Database.connection);
-
-                    // Kiểu của Command là StoredProcedure
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.Add(new SqlParameter("@thanhPhoTimKiem", txtenthanhpho1.Text));
-                    cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
-
-                    SqlDataReader sqlReader = cmd.ExecuteReader();
-
-                    if (sqlReader.HasRows)
+                    listKS1.Clear();
+                    while (sqlReader.Read())
                     {
-                        listKS1.Clear();
-                        while (sqlReader.Read())
+                        KhachSan sp = new KhachSan();
+                        sp.maKS = sqlReader.GetInt32(0);
+                        sp.tenKS = sqlReader.GetString(1);
+                        sp.giaTB = sqlReader.GetInt64(2);
+                        sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
+
+                        if (sp != null)
                         {
-                            KhachSan sp = new KhachSan();
-                            sp.maKS = sqlReader.GetInt32(0);
-                            sp.tenKS = sqlReader.GetString(1);
-                            sp.giaTB = sqlReader.GetInt64(2);
-                            sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
-                            
-                            if (sp != null)
-                            {
 
-                                dttimkiem1.ItemsSource = null;
-                                listKS1.Add(sp);
-                            }
-
+                            dttimkiem1.ItemsSource = null;
+                            listKS1.Add(sp);
                         }
+
+                    }
                     sqlReader.Close();
                     dttimkiem1.ItemsSource = listKS1;
-                    }
-                    else
-                    {
-                    sqlReader.Close();
-                    MessageBox.Show("Không tìm thấy khách sạn nằm trong thành phố "+txtenthanhpho1.Text +" và có giá là: " +txtgia.Text);
-                    }
-
-
                 }
+                else
+                {
+                    sqlReader.Close();
+                    MessageBox.Show("Không tìm thấy khách sạn nằm trong thành phố " + txtenthanhpho1.Text + " và có giá là: " + txtgia.Text);
+                }
+
+
+            }
 
         }
 
@@ -371,7 +371,7 @@ namespace ivivuApp
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy khách sạn nằm trong thành phố " + txtenthanhpho.Text);
+                    MessageBox.Show("Không tìm thấy khách sạn có số sao là: " + sosao.Value);
                     sqlReader.Close();
                 }
             }
@@ -415,10 +415,10 @@ namespace ivivuApp
                     sqlReader.Close();
                 }
             }
-           
-            
-            
-            
+
+
+
+
         }
 
         //-------
