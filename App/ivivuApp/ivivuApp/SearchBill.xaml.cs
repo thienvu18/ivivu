@@ -481,7 +481,7 @@ namespace ivivuApp
 
         private void dangnhap_click(object sender, RoutedEventArgs e)
         {
-           if( Auth.employee.maKS != 0)
+           if( Auth.employee.maNV != 0)
             {
                 MessageBox.Show("Bạn đã đăng nhập rồi!");
             }
@@ -496,7 +496,7 @@ namespace ivivuApp
         private void dangxuat_click(object sender, RoutedEventArgs e)
         {
 
-            if (Auth.employee.maKS == 0)
+            if (Auth.employee.maNV == 0)
             {
                 MessageBox.Show("Bạn chưa đăng nhập!");
             }
