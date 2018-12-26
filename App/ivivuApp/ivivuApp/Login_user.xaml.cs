@@ -54,7 +54,7 @@ namespace ivivuApp
 
                         while (reader.Read())
                         {
-                            Auth.user.maKH = Convert.ToInt16(reader.GetValue(0));
+                            Auth.user.maKH = Convert.ToInt32(reader.GetValue(0));
                             Auth.user.hoTen = reader.GetValue(1).ToString();
                             Auth.user.tenDangNhap = reader.GetValue(2).ToString();
                             Auth.user.matKhau = reader.GetValue(3).ToString();

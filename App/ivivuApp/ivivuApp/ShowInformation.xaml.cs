@@ -54,7 +54,7 @@ namespace ivivuApp
         private void click_datphong(object sender, RoutedEventArgs e)
         {
             Auth.employee.maKS = maks;
-            var window = new ListRooms();
+            var window = new ChooseRoom(maks);
             this.Close();
             window.ShowDialog();
         }

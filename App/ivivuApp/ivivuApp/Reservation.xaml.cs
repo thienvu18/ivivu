@@ -122,11 +122,6 @@ namespace ivivuApp
                         }
                     }
                 }
-                else
-                {
-                    var chooseRoom = new ChooseRoom(_hotelId);
-                    chooseRoom.ShowDialog();
-                }
             }
         }
 

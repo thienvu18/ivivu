@@ -21,7 +21,7 @@ namespace ivivuApp
     /// </summary>
     public partial class ChooseRoom : Window
     {
-        public class Room
+        private class Room
         {
             public int roomId { get; set; }
             public string roomNumber { get; set; }
@@ -73,37 +73,61 @@ namespace ivivuApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string sql = "SELECT Phong.maPhong, Phong.soPhong , LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, LoaiPhong.moTa FROM Phong JOIN LoaiPhong on Phong.loaiPhong = LoaiPhong.maLoaiPhong WHERE LoaiPhong.maKS = " + _hotelId.ToString();
-            using (SqlCommand command = new SqlCommand(sql, Database.connection))
+            if (Auth.isCustomerLogged == false)
             {
-                using (SqlDataReader reader = command.ExecuteReader())
+                var loginWindows = new Login_user();
+
+                MessageBox.Show("Vui lòng đăng nhập để sử dụng tính năng này");
+                this.Close();
+                loginWindows.ShowDialog();
+            }
+            else
+            {
+                string sql = "SELECT Phong.maPhong, Phong.soPhong , LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, LoaiPhong.moTa FROM Phong JOIN LoaiPhong on Phong.loaiPhong = LoaiPhong.maLoaiPhong WHERE LoaiPhong.maKS = " + _hotelId.ToString();
+                using (SqlCommand command = new SqlCommand(sql, Database.connection))
                 {
-                    int roomId;
-                    string roomNumber;
-                    string roomType;
-                    long price;
-                    string description;
-
-                    while (reader.Read())
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        roomId = reader.GetInt32(0);
-                        roomNumber = reader.GetString(1);
-                        roomType = reader.GetString(2);
-                        price = reader.GetInt64(3);
-                        description = reader.GetString(4);
+                        int roomId;
+                        string roomNumber;
+                        string roomType;
+                        long price;
+                        string description;
 
-                        _rooms.Add(new Room() { roomId = roomId, roomNumber = roomNumber, roomType = roomType, price = price, description = description, isChosen = false });
+                        while (reader.Read())
+                        {
+                            roomId = reader.IsDBNull(0) ? -1 : reader.GetInt32(0);
+                            roomNumber = reader.IsDBNull(1) ? "" : reader.GetString(1);
+                            roomType = reader.IsDBNull(2) ? "" : reader.GetString(2);
+                            price = reader.IsDBNull(3) ? -1 : reader.GetInt64(3);
+                            description = reader.IsDBNull(4) ? "" : reader.GetString(4);
+
+                            _rooms.Add(new Room() { roomId = roomId, roomNumber = roomNumber, roomType = roomType, price = price, description = description, isChosen = false });
+                        }
                     }
                 }
+                lvRooms.ItemsSource = _rooms;
             }
-            lvRooms.ItemsSource = _rooms;
         }
 
         private void BtDone_Click(object sender, RoutedEventArgs e)
         {
+            DateTime startDate;
+            DateTime endDate;
             List<int> failRooms = new List<int>();
-            DateTime startDate = dpStartDate.DisplayDate;
-            DateTime endDate = dpEndDate.DisplayDate;
+            if (dpStartDate.SelectedDate == null)
+            {
+                MessageBox.Show("Vui lòng chọn ngày nhận phòng");
+                return;
+            }
+            startDate = (DateTime)dpStartDate.SelectedDate;
+
+            if (dpEndDate.SelectedDate == null)
+            {
+                MessageBox.Show("Vui lòng chọn ngày trả phòng");
+                return;
+            }
+            endDate = (DateTime)dpEndDate.SelectedDate;
 
             for (int i = 0; i < _rooms.Count; i++)
             {
