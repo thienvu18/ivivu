@@ -72,7 +72,7 @@ namespace ivivuApp
             {
                 var loginWindows = new Login_admin();
 
-                MessageBox.Show("Vui lòng đăng nhập để sử dụng tính năng này");
+                MessageBox.Show("Vui lòng đăng nhập với tư cách nhân viên để sử dụng tính năng này");
                 this.Close();
                 loginWindows.ShowDialog();
             }
