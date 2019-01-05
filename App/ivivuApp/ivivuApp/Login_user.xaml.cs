@@ -68,7 +68,7 @@ namespace ivivuApp
 
                     }
                 }
-                var window = new Home();
+                var window = new Search();
                 Auth.isCustomerLogged = true;
                     this.Close();
                 window.ShowDialog();
