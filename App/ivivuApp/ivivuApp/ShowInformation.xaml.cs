@@ -57,15 +57,25 @@ namespace ivivuApp
                 var loginWindows = new Login_user();
 
                 MessageBox.Show("Vui lòng đăng nhập để sử dụng tính năng này");
-                loginWindows.ShowDialog();
+                loginWindows.Show();
                 this.Close();
             }
             else
             {
+                var left = Application.Current.MainWindow.Left;
+                var top = Application.Current.MainWindow.Top;
+                var height = Application.Current.MainWindow.Height;
+                var width = Application.Current.MainWindow.Width;
 
                 var window = new ChooseRoom(maks);
-                window.ShowDialog();
-                this.Close();
+
+                window.Left = left;
+                window.Top = top;
+                window.Width = width;
+                window.Height = height;
+
+                window.Show();
+                
             }
         }
     }

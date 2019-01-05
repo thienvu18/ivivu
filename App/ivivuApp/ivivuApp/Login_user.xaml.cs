@@ -68,11 +68,9 @@ namespace ivivuApp
 
                     }
                 }
-                var left = Application.Current.MainWindow.Left;
-                var top = Application.Current.MainWindow.Top;
                 var window = new Search();
                 Auth.isCustomerLogged = true;
-                    this.Close();
+                this.Close();
                 window.ShowDialog();
             }
             else

@@ -322,8 +322,6 @@ namespace ivivuApp
                 MessageBox.Show("Error");
             }
 
-
-
             if (temp != null)
             {
                 ShowInformation window = new ShowInformation(temp.maKS);
