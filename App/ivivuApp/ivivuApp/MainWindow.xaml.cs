@@ -22,6 +22,8 @@ namespace ivivuApp
     {
         public MainWindow()
         {
+            this.Height = 600;
+            this.Width = 800;
             InitializeComponent();
             Database.init();
         }
@@ -45,9 +47,18 @@ namespace ivivuApp
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
+            var left = Application.Current.MainWindow.Left;
+            var top = Application.Current.MainWindow.Top;
+            var height = Application.Current.MainWindow.Height;
+            var width = Application.Current.MainWindow.Width;
 
             var window = new Search();
-            this.Close();
+            window.Left = left;
+            window.Top = top;
+            window.Width = width;
+            window.Height = height;
+
+            //this.Close();
             window.ShowDialog();
         }
     }
