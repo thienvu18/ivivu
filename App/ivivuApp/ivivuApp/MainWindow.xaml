@@ -10,33 +10,6 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
-    <!--<materialDesign:DrawerHost>
-        <materialDesign:DrawerHost.LeftDrawerContent>
-            <StackPanel
-                Margin="16">
-                <TextBlock
-                    Margin="4"
-                    HorizontalAlignment="Center">
-                    LEFT FIELD
-                </TextBlock>
-                <Button
-                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                    CommandParameter="{x:Static Dock.Left}"
-                    Margin="4"
-                    HorizontalAlignment="Center"
-                    Style="{DynamicResource MaterialDesignFlatButton}">
-                    CLOSE THIS
-                </Button>
-                <Button
-                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                    Margin="4"
-                    HorizontalAlignment="Center"
-                    Style="{DynamicResource MaterialDesignFlatButton}">
-                    CLOSE ALL
-                </Button>
-            </StackPanel>
-        </materialDesign:DrawerHost.LeftDrawerContent>
-    </materialDesign:DrawerHost>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="265*"></ColumnDefinition>
@@ -51,13 +24,13 @@
                             <TextBlock Text="Tìm kiếm" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="login_admin" Height="45" Padding="0" PreviewMouseDown="login_admin_Click" Cursor="Hand">
+                    <ListViewItem x:Name="login_user" Height="45" Padding="0" PreviewMouseDown="login_user_Click" Cursor="Hand">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock Text="Đăng nhập khách hàng" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="login_user" Height="45" Padding="0" PreviewMouseDown="login_user_Click">
+                    <ListViewItem x:Name="login_admin" Height="45" Padding="0" PreviewMouseDown="login_admin_Click">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="Worker" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock Text="Đăng nhập nhân viên" Margin="10"/>

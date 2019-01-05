@@ -75,7 +75,6 @@ namespace ivivuApp
                 window.Height = height;
 
                 window.Show();
-                
             }
         }
     }
