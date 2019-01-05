@@ -73,8 +73,8 @@ namespace ivivuApp
                 var loginWindows = new Login_admin();
 
                 MessageBox.Show("Vui lòng đăng nhập với tư cách nhân viên để sử dụng tính năng này");
+                loginWindows.Show();
                 this.Close();
-                loginWindows.ShowDialog();
             }
 
         }
@@ -90,10 +90,74 @@ namespace ivivuApp
             {
                 DateTime date = (DateTime)dpDate.SelectedDate;
                 var roomTypeId = ((RoomType)lvRoomTypes.SelectedItem).roomTypeId;
+                var left = Application.Current.MainWindow.Left;
+                var top = Application.Current.MainWindow.Top;
+                var height = Application.Current.MainWindow.Height;
+                var width = Application.Current.MainWindow.Width;
 
                 var listRooms = new ListRooms(roomTypeId, date);
+
+                listRooms.Left = left;
+                listRooms.Top = top;
+                listRooms.Width = width;
+                listRooms.Height = height;
+
                 listRooms.ShowDialog();
             }
+        }
+
+        private void ListViewItem_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var left = Application.Current.MainWindow.Left;
+            var top = Application.Current.MainWindow.Top;
+            var height = Application.Current.MainWindow.Height;
+            var width = Application.Current.MainWindow.Width;
+
+            var window = new Bill();
+
+            window.Left = left;
+            window.Top = top;
+            window.Width = width;
+            window.Height = height;
+
+            window.Show();
+            this.Close();
+        }
+
+        private void ListViewItem_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            var left = Application.Current.MainWindow.Left;
+            var top = Application.Current.MainWindow.Top;
+            var height = Application.Current.MainWindow.Height;
+            var width = Application.Current.MainWindow.Width;
+
+            var window = new Report();
+
+            window.Left = left;
+            window.Top = top;
+            window.Width = width;
+            window.Height = height;
+
+            window.Show();
+            this.Close();
+        }
+
+        private void ListViewItem_PreviewMouseDown_2(object sender, MouseButtonEventArgs e)
+        {
+            var left = Application.Current.MainWindow.Left;
+            var top = Application.Current.MainWindow.Top;
+            var height = Application.Current.MainWindow.Height;
+            var width = Application.Current.MainWindow.Width;
+
+            var window = new SearchBill();
+
+            window.Left = left;
+            window.Top = top;
+            window.Width = width;
+            window.Height = height;
+
+            window.Show();
+            this.Close();
         }
     }
 }

@@ -6,42 +6,78 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ivivuApp"
         mc:Ignorable="d"
-        Title="CheckRoomStatus" Height="450" Width="800"
+        Title="Kiểm tra tình trạng phòng" Height="600" Width="800"
         Loaded="Window_Loaded">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-        </Grid.RowDefinitions>
-        <ListView
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="265*"></ColumnDefinition>
+            <ColumnDefinition Width="529*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Background="GhostWhite" BorderBrush="Silver" BorderThickness="0,0,1,0" Grid.Column="0">
+            <StackPanel>
+                <ListView Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18">
+                    <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Search" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Lập hóa đơn" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_1" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Thống Kê" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0" IsSelected="True">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Worker" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Kiểm tra tình trạng phòng" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_2">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Worker" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Tìm kiếm hóa đơn" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ListView
           Margin="10"
           Name="lvRoomTypes"
           Grid.Row="0">
-            <ListView.View>
-                <GridView AllowsColumnReorder="False">
-                    <GridViewColumn Header="Mã loại phòng" Width="100" DisplayMemberBinding="{Binding roomTypeId}" />
-                    <GridViewColumn Header="Loại phòng" Width="70" DisplayMemberBinding="{Binding roomTypeName}" />
-                    <GridViewColumn Header="Mã khách sạn" Width="70" DisplayMemberBinding="{Binding hotelId}" />
-                    <GridViewColumn Header="Đơn giá" Width="100" DisplayMemberBinding="{Binding price}" />
-                    <GridViewColumn Header="Mô tả" Width="250" DisplayMemberBinding="{Binding description}"/>
-                    <GridViewColumn Header="Số lượng trống" Width="150" DisplayMemberBinding="{Binding availableCount}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <DatePicker
+                <ListView.View>
+                    <GridView AllowsColumnReorder="False">
+                        <GridViewColumn Header="Mã loại phòng" Width="100" DisplayMemberBinding="{Binding roomTypeId}" />
+                        <GridViewColumn Header="Loại phòng" Width="70" DisplayMemberBinding="{Binding roomTypeName}" />
+                        <GridViewColumn Header="Mã khách sạn" Width="70" DisplayMemberBinding="{Binding hotelId}" />
+                        <GridViewColumn Header="Đơn giá" Width="100" DisplayMemberBinding="{Binding price}" />
+                        <GridViewColumn Header="Mô tả" Width="250" DisplayMemberBinding="{Binding description}"/>
+                        <GridViewColumn Header="Số lượng trống" Width="150" DisplayMemberBinding="{Binding availableCount}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <DatePicker
             Grid.Row="1"
             Name="dpDate"        
             Width="150"
             materialDesign:HintAssist.Hint="Ngày nhận phòng"
             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-        <Button
+            <Button
           Grid.Row="2"
             Style="{StaticResource MaterialDesignRaisedButton}"
             Width="150"
             ToolTip="Resource name: MaterialDesignRaisedButton"
             Name="btCheck" Click="BtCheck_Click">
-            Kiểm tra
-        </Button>
+                Kiểm tra
+            </Button>
+        </Grid>
     </Grid>
 </Window>

@@ -30,10 +30,20 @@ namespace ivivuApp
 
         private void login_admin_Click(object sender, RoutedEventArgs e)
         {
+            var left = Application.Current.MainWindow.Left;
+            var top = Application.Current.MainWindow.Top;
+            var height = Application.Current.MainWindow.Height;
+            var width = Application.Current.MainWindow.Width;
 
             var window = new Login_admin();
+
+            window.Left = left;
+            window.Top = top;
+            window.Width = width;
+            window.Height = height;
+            
+            window.Show();
             this.Close();
-            window.ShowDialog();
         }
 
         private void login_user_Click(object sender, RoutedEventArgs e)

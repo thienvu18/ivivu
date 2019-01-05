@@ -60,8 +60,18 @@ namespace ivivuApp
                         }
                     }
                 }
+                var left = Application.Current.MainWindow.Left;
+                var top = Application.Current.MainWindow.Top;
+                var height = Application.Current.MainWindow.Height;
+                var width = Application.Current.MainWindow.Width;
 
                 var window = new Home_admin();
+
+                window.Left = left;
+                window.Top = top;
+                window.Width = width;
+                window.Height = height;
+                
                 Auth.isEmployeeLogged = true;
                 this.Close();
                 window.ShowDialog();

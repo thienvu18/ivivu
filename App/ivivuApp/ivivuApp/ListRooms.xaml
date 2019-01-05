@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ivivuApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="ListRooms" Height="450" Width="800"
+        Title="Danh sách phòng" Height="450" Width="800"
         Loaded="Window_Loaded">
     <Grid
         ShowGridLines="False">

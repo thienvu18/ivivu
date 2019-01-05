@@ -35,18 +35,26 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <DockPanel Grid.Row="1">
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <DatePicker
                 Name="dpStartDate"        
                 Width="150"
                 materialDesign:HintAssist.Hint="Ngày nhận phòng"
-                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Grid.Column="0"/>
             <DatePicker
                 Name="dpEndDate"
                 Width="150"
                 materialDesign:HintAssist.Hint="Ngày trả phòng"
-                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-        </DockPanel>
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Grid.Column="1"/>
+        </Grid>
         <Button
           Grid.Row="2"
             Style="{StaticResource MaterialDesignRaisedButton}"
