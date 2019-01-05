@@ -44,8 +44,6 @@ namespace ivivuApp
                 txdiachi.Text = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
                 txgia.Text = sqlReader.GetInt64(7).ToString();
                 txtmota.Text = sqlReader.GetString(8);
-
-
             }
             sqlReader.Close();
 
@@ -60,13 +58,14 @@ namespace ivivuApp
 
                 MessageBox.Show("Vui lòng đăng nhập để sử dụng tính năng này");
                 loginWindows.ShowDialog();
+                this.Close();
             }
             else
             {
 
                 var window = new ChooseRoom(maks);
-                this.Close();
                 window.ShowDialog();
+                this.Close();
             }
         }
     }

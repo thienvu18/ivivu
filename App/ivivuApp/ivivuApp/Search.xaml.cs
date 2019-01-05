@@ -328,6 +328,10 @@ namespace ivivuApp
             {
                 ShowInformation window = new ShowInformation(temp.maKS);
                 window.ShowDialog();
+                if (Auth.isCustomerLogged == false)
+                {
+                    this.Close();
+                }
             }
 
         }
