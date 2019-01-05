@@ -73,16 +73,7 @@ namespace ivivuApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (Auth.isCustomerLogged == false)
-            {
-                var loginWindows = new Login_user();
 
-                MessageBox.Show("Vui lòng đăng nhập để sử dụng tính năng này");
-                this.Close();
-                loginWindows.ShowDialog();
-            }
-            else
-            {
                 string sql = "SELECT Phong.maPhong, Phong.soPhong , LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, LoaiPhong.moTa FROM Phong JOIN LoaiPhong on Phong.loaiPhong = LoaiPhong.maLoaiPhong WHERE LoaiPhong.maKS = " + _hotelId.ToString();
                 using (SqlCommand command = new SqlCommand(sql, Database.connection))
                 {
@@ -107,7 +98,7 @@ namespace ivivuApp
                     }
                 }
                 lvRooms.ItemsSource = _rooms;
-            }
+            
         }
 
         private void BtDone_Click(object sender, RoutedEventArgs e)

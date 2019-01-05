@@ -53,13 +53,14 @@ namespace ivivuApp
             var width = Application.Current.MainWindow.Width;
 
             var window = new Search();
+
             window.Left = left;
             window.Top = top;
             window.Width = width;
             window.Height = height;
-
-            //this.Close();
             window.ShowDialog();
+
+            this.Close();
         }
     }
 }

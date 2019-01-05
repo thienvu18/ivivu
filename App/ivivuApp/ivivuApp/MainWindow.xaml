@@ -10,33 +10,6 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
-    <!--<materialDesign:DrawerHost>
-        <materialDesign:DrawerHost.LeftDrawerContent>
-            <StackPanel
-                Margin="16">
-                <TextBlock
-                    Margin="4"
-                    HorizontalAlignment="Center">
-                    LEFT FIELD
-                </TextBlock>
-                <Button
-                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                    CommandParameter="{x:Static Dock.Left}"
-                    Margin="4"
-                    HorizontalAlignment="Center"
-                    Style="{DynamicResource MaterialDesignFlatButton}">
-                    CLOSE THIS
-                </Button>
-                <Button
-                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                    Margin="4"
-                    HorizontalAlignment="Center"
-                    Style="{DynamicResource MaterialDesignFlatButton}">
-                    CLOSE ALL
-                </Button>
-            </StackPanel>
-        </materialDesign:DrawerHost.LeftDrawerContent>
-    </materialDesign:DrawerHost>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="265*"></ColumnDefinition>

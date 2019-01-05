@@ -54,9 +54,20 @@ namespace ivivuApp
         private void click_datphong(object sender, RoutedEventArgs e)
         {
             Auth.employee.maKS = maks;
-            var window = new ChooseRoom(maks);
-            this.Close();
-            window.ShowDialog();
+            if (Auth.isCustomerLogged == false)
+            {
+                var loginWindows = new Login_user();
+
+                MessageBox.Show("Vui lòng đăng nhập để sử dụng tính năng này");
+                loginWindows.ShowDialog();
+            }
+            else
+            {
+
+                var window = new ChooseRoom(maks);
+                this.Close();
+                window.ShowDialog();
+            }
         }
     }
 
