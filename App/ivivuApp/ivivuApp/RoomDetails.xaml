@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ivivuApp"
         mc:Ignorable="d"
-        Title="RoomDetails" Height="151.4" Width="373.2"
+        Title="Chi tiết phòng" Height="151.4" Width="373.2"
         Loaded="Window_Loaded">
     <DockPanel>
-        <StackPanel Margin="0,0,0,-0.4" Width="120">
+        <StackPanel Margin="5,0,0,0" Width="120" HorizontalAlignment="Left">
             <TextBlock Name="tbRoomNumber">Số phòng</TextBlock>
             <TextBlock Name="tbRoomType">Loại phòng</TextBlock>
             <TextBlock Name="tbHotelName">Tên khách sạn</TextBlock>
             <TextBlock Name="tbPrice">Đơn giá</TextBlock>
             <TextBlock Name="tbAddress">Địa chỉ</TextBlock>
         </StackPanel>
-        <StackPanel Margin="0,0,0,-0.4" Width="163" Height="122" VerticalAlignment="Top">
+        <StackPanel Margin="0,0,0,-0.4" Width="167" Height="122" RenderTransformOrigin="0.865,0.492" HorizontalAlignment="Right">
             <TextBlock Name="tbEmployeeId">Mã nhân viên</TextBlock>
             <TextBlock Name="tbEmployeeName">Họ tên</TextBlock>
         </StackPanel>
