@@ -5,13 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ivivuApp"
         mc:Ignorable="d"
-        Title="Report" Height="400" Width="600">
+        Title="Thống kê" Height="600" Width="1000"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="280"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Background="GhostWhite" BorderBrush="Silver" BorderThickness="0,0,1,0" Grid.Column="0">
+            <ListView Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18">
+                <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="FileDocumentOutline" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Lập hóa đơn" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_1" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="ChartLineStacked" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Thống Kê" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_5">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="ClipboardCheckOutline" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Kiểm tra tình trạng phòng" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_2">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="TableSearch" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Tìm kiếm hóa đơn" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <Separator />
+                <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_3" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="Logout" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Đăng xuất" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem  Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_4">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="ExitToApp" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Thoát" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+        </Border>
+    <Grid Grid.Column="1" Margin="63,10,139,-10">
         <Button x:Name="button" Content="Báo cáo doanh thu theo tháng" HorizontalAlignment="Left" Click="button_Click1" Margin="146,45,0,0" VerticalAlignment="Top" Width="298"/>
         <Button x:Name="button_Copy" Content="Báo cáo doanh thu theo năm" HorizontalAlignment="Left"  Click="button_Click2" Margin="146,101,0,0" VerticalAlignment="Top" Width="298"/>
         <Button x:Name="button_Copy1" Content="Báo cáo doanh thu theo từng loại phòng" HorizontalAlignment="Left"  Click="button_Click3" Margin="146,156,0,0" VerticalAlignment="Top" Width="298"/>
         <Button x:Name="button_Copy2" Content="Thống kê tình trạng phòng" HorizontalAlignment="Left" Click="button_Click4" Margin="146,215,0,0" VerticalAlignment="Top" Width="298"/>
         <Button x:Name="button_Copy3" Content="Thống kê số lượng phòng trống" HorizontalAlignment="Left" Click="button_Click5" Margin="146,269,0,0" VerticalAlignment="Top" Width="298"/>
-
+        </Grid>
     </Grid>
 </Window>
