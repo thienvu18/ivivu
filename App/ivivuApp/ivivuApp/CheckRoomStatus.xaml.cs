@@ -90,6 +90,7 @@ namespace ivivuApp
             {
                 DateTime date = (DateTime)dpDate.SelectedDate;
                 var roomTypeId = ((RoomType)lvRoomTypes.SelectedItem).roomTypeId;
+
                 var left = this.Left;
                 var top = this.Top;
                 var height = this.Height;
@@ -162,6 +163,31 @@ namespace ivivuApp
 
             window.Show();
             this.Close();
+        }
+
+        private void ListViewItem_PreviewMouseDown_3(object sender, MouseButtonEventArgs e)
+        {
+            //đăng xuất
+            if (Auth.isCustomerLogged == false && Auth.isEmployeeLogged == false)
+            {
+                MessageBox.Show("Bạn chưa đăng nhập!");
+            }
+            else
+            {
+                Auth.isEmployeeLogged = false;
+                Auth.isCustomerLogged = false;
+
+                var window = new MainWindow();
+
+                window.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void ListViewItem_PreviewMouseDown_4(object sender, MouseButtonEventArgs e)
+        {
+            //thoát
+            Application.Current.Shutdown();
         }
     }
 }

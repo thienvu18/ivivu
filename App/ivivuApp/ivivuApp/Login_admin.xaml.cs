@@ -87,8 +87,6 @@ namespace ivivuApp
             {
                 MessageBox.Show(exception.ToString());
             }
-
-
         }
     }
 }
