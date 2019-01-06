@@ -89,6 +89,12 @@ namespace ivivuApp
             else
             {
                 DateTime date = (DateTime)dpDate.SelectedDate;
+                if (lvRoomTypes.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn một loại phòng để kiểm tra");
+                    return;
+                }
+
                 var roomTypeId = ((RoomType)lvRoomTypes.SelectedItem).roomTypeId;
 
                 var left = this.Left;
