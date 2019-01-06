@@ -50,10 +50,21 @@ namespace ivivuApp
         private void login_user_Click(object sender, RoutedEventArgs e)
         {
 
-            var window = new Login_user();
-            this.Close();
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
+            var window = new Login_user
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
             window.ShowDialog();
-            
+            this.Close();
+
+
         }
 
         private void search_Click(object sender, RoutedEventArgs e)
