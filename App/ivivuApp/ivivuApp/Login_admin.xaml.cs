@@ -90,5 +90,64 @@ namespace ivivuApp
 
 
         }
+
+        private void login_admin_Click(object sender, RoutedEventArgs e)
+        {
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
+
+            var window = new Login_admin
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
+
+            window.Show();
+            this.Close();
+        }
+
+        private void login_user_Click(object sender, RoutedEventArgs e)
+        {
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
+            var window = new Login_user
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
+            window.Show();
+            this.Close();
+
+        }
+
+        private void search_Click(object sender, RoutedEventArgs e)
+        {
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
+
+            var window = new Search
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
+
+            window.Show();
+            this.Close();
+
+        }
+
+
     }
 }

@@ -18,7 +18,7 @@
         <Border Background="GhostWhite" BorderBrush="Silver" BorderThickness="0,0,1,0">
             <StackPanel>
                 <ListView Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18">
-                    <ListViewItem x:Name="search" Height="45" Padding="0" PreviewMouseDown="search_Click">
+                    <ListViewItem x:Name="search" Height="45" Padding="0" PreviewMouseDown="search_Click" Cursor="Hand">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="Search" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock Text="Tìm kiếm" Margin="10"/>
@@ -30,7 +30,7 @@
                             <TextBlock Text="Đăng nhập khách hàng" Margin="10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="login_admin" Height="45" Padding="0" PreviewMouseDown="login_admin_Click">
+                    <ListViewItem x:Name="login_admin" Height="45" Padding="0" PreviewMouseDown="login_admin_Click" Cursor="Hand">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="Worker" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock Text="Đăng nhập nhân viên" Margin="10"/>
