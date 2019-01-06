@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Resources;
 using System.Data.Common;
 using System.Collections.ObjectModel; // 
 
@@ -56,11 +56,11 @@ namespace ivivuApp
             {
                 KhachSan sp = new KhachSan
                 {
-                    maKS = sqlReader.GetInt32(0),
-                    tenKS = sqlReader.GetString(1),
-                    thanhPho = sqlReader.GetString(6),
-                    giaTB = sqlReader.GetInt64(7),
-                    diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+                    maKS = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
+                    tenKS = sqlReader.IsDBNull(1) ? "" : sqlReader.GetString(1),
+                    thanhPho = sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6),
+                    giaTB = sqlReader.IsDBNull(7) ? -1 : sqlReader.GetInt64(7),
+                    diaChi = (sqlReader.IsDBNull(3) ? "" : sqlReader.GetString(3)) + ',' + (sqlReader.IsDBNull(4) ? "" : sqlReader.GetString(4)) + ',' + (sqlReader.IsDBNull(5) ? "" : sqlReader.GetString(5)) + ',' + (sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6))
                 };
 
                 if (sp != null)
@@ -189,10 +189,12 @@ namespace ivivuApp
                     {
                         KhachSan sp = new KhachSan
                         {
-                            maKS = sqlReader.GetInt32(0),
-                            tenKS = sqlReader.GetString(1),
-                            giaTB = sqlReader.GetInt64(7),
-                            diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+
+                            maKS = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
+                            tenKS = sqlReader.IsDBNull(1) ? "" : sqlReader.GetString(1),
+                            giaTB = sqlReader.IsDBNull(7) ? -1 : sqlReader.GetInt64(7),
+                            diaChi = (sqlReader.IsDBNull(3) ? "" : sqlReader.GetString(3)) + ',' + (sqlReader.IsDBNull(4) ? "" : sqlReader.GetString(4)) + ',' + (sqlReader.IsDBNull(5) ? "" : sqlReader.GetString(5)) + ',' + (sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6))
+
                         };
 
                         if (sp != null)
@@ -216,45 +218,46 @@ namespace ivivuApp
             else
 
                 if (txtenthanhpho1.Text == "" && txtgia.Text != "")
-            {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE giaTB = @giaTB", Database.connection)
                 {
-                    CommandType = CommandType.Text
-                };
-                cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
-                SqlDataReader sqlReader = cmd.ExecuteReader();
-                if (sqlReader.HasRows)
-                {
-                    listKS1.Clear();
-                    while (sqlReader.Read())
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE giaTB = @giaTB", Database.connection)
                     {
-                        KhachSan sp = new KhachSan
+                        CommandType = CommandType.Text
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
+                    SqlDataReader sqlReader = cmd.ExecuteReader();
+                    if (sqlReader.HasRows)
+                    {
+                        listKS1.Clear();
+                        while (sqlReader.Read())
                         {
-                            maKS = Convert.ToInt16(sqlReader.GetValue(0)),
-                            tenKS = sqlReader.GetString(1),
-                            giaTB = sqlReader.GetInt64(7),
-                            diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
-                        };
+                            KhachSan sp = new KhachSan
+                            {
+                                maKS = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
+                                tenKS = sqlReader.IsDBNull(1) ? "" : sqlReader.GetString(1),
+                                giaTB = sqlReader.IsDBNull(7) ? -1 : sqlReader.GetInt64(7),
+                                diaChi = (sqlReader.IsDBNull(3) ? "" : sqlReader.GetString(3)) + ',' + (sqlReader.IsDBNull(4) ? "" : sqlReader.GetString(4)) + ',' + (sqlReader.IsDBNull(5) ? "" : sqlReader.GetString(5)) + ',' + (sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6))
 
-                        if (sp != null)
-                        {
+                            };
 
-                            dttimkiem1.ItemsSource = null;
-                            listKS1.Add(sp);
+                            if (sp != null)
+                            {
+
+                                dttimkiem1.ItemsSource = null;
+                                listKS1.Add(sp);
+                            }
+
                         }
-
+                        dttimkiem1.ItemsSource = listKS1;
+                        sqlReader.Close();
                     }
-                    dttimkiem1.ItemsSource = listKS1;
-                    sqlReader.Close();
-                }
 
 
-                else
-                {
-                    MessageBox.Show("Không tìm thấy khách sạn có  giá trung bình là: " + txtgia.Text);
-                    sqlReader.Close();
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy khách sạn có  giá trung bình là: " + txtgia.Text);
+                        sqlReader.Close();
+                    }
                 }
-            }
 
 
 
@@ -279,10 +282,11 @@ namespace ivivuApp
                     {
                         KhachSan sp = new KhachSan
                         {
-                            maKS = sqlReader.GetInt32(0),
-                            tenKS = sqlReader.GetString(1),
-                            giaTB = sqlReader.GetInt64(2),
-                            diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+                            maKS = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
+                            tenKS = sqlReader.IsDBNull(1) ? "" : sqlReader.GetString(1),
+                            giaTB = sqlReader.IsDBNull(7) ? -1 : sqlReader.GetInt64(7),
+                            diaChi = (sqlReader.IsDBNull(3) ? "" : sqlReader.GetString(3)) + ',' + (sqlReader.IsDBNull(4) ? "" : sqlReader.GetString(4)) + ',' + (sqlReader.IsDBNull(5) ? "" : sqlReader.GetString(5)) + ',' + (sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6))
+
                         };
 
                         if (sp != null)
@@ -372,10 +376,11 @@ namespace ivivuApp
                     {
                         KhachSan sp = new KhachSan
                         {
-                            maKS = Convert.ToInt16(sqlReader.GetValue(0)),
-                            tenKS = sqlReader.GetString(1),
-                            giaTB = sqlReader.GetInt64(7),
-                            diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+                            maKS = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
+                            tenKS = sqlReader.IsDBNull(1) ? "" : sqlReader.GetString(1),
+                            giaTB = sqlReader.IsDBNull(7) ? -1 : sqlReader.GetInt64(7),
+                            diaChi = (sqlReader.IsDBNull(3) ? "" : sqlReader.GetString(3)) + ',' + (sqlReader.IsDBNull(4) ? "" : sqlReader.GetString(4)) + ',' + (sqlReader.IsDBNull(5) ? "" : sqlReader.GetString(5)) + ',' + (sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6))
+
                         };
 
                         if (sp != null)
@@ -416,10 +421,11 @@ namespace ivivuApp
                     {
                         KhachSan sp = new KhachSan
                         {
-                            maKS = sqlReader.GetInt32(0),
-                            tenKS = sqlReader.GetString(1),
-                            giaTB = sqlReader.GetInt64(2),
-                            diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+                            maKS = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
+                            tenKS = sqlReader.IsDBNull(1) ? "" : sqlReader.GetString(1),
+                            giaTB = sqlReader.IsDBNull(7) ? -1 : sqlReader.GetInt64(7),
+                            diaChi = (sqlReader.IsDBNull(3) ? "" : sqlReader.GetString(3)) + ',' + (sqlReader.IsDBNull(4) ? "" : sqlReader.GetString(4)) + ',' + (sqlReader.IsDBNull(5) ? "" : sqlReader.GetString(5)) + ',' + (sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6))
+
                         };
 
                         if (sp != null)
@@ -545,33 +551,56 @@ namespace ivivuApp
             txtenthanhpho.Text = "";
         }
 
-        private void home_click(object sender, RoutedEventArgs e)
+
+        private void ListViewItem_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            listKS1.Clear();
-            listKS2.Clear();
-            getData();
-            dttimkiem1.ItemsSource = listKS1;
-            dttimkiem2.ItemsSource = listKS2;
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
+
+            var window = new Search
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
+
+            window.Show();
+            this.Close();
         }
 
-        private void dangnhap_click(object sender, RoutedEventArgs e)
+        private void ListViewItem_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
         {
             if (Auth.user.maKH != 0)
             {
-                MessageBox.Show("Bạn đã đăng nhập rồi!");
+                MessageBox.Show("Bạn đã đăng nhập!");
             }
             else
             {
-                var window = new Login_user();
+                var left = this.Left;
+                var top = this.Top;
+                var height = this.Height;
+                var width = this.Width;
+
+                var window = new Login_user
+                {
+                    Left = left,
+                    Top = top,
+                    Width = width,
+                    Height = height
+                };
+
+                window.Show();
                 this.Close();
-                window.ShowDialog();
             }
+
         }
-
-        private void dangxuat_click(object sender, RoutedEventArgs e)
+        private void ListViewItem_PreviewMouseDown_3(object sender, MouseButtonEventArgs e)
         {
-
-            if (Auth.isCustomerLogged == false || Auth.isEmployeeLogged == false)
+            //đăng xuất
+            if (Auth.user.maKH == 0)
             {
                 MessageBox.Show("Bạn chưa đăng nhập!");
             }
@@ -580,23 +609,29 @@ namespace ivivuApp
                 Auth.isEmployeeLogged = false;
                 Auth.isCustomerLogged = false;
 
-                var window = new MainWindow();
-                
-                window.ShowDialog();
+                var left = this.Left;
+                var top = this.Top;
+                var height = this.Height;
+                var width = this.Width;
+
+                var window = new MainWindow
+                {
+                    Left = left,
+                    Top = top,
+                    Width = width,
+                    Height = height
+                };
+
+                window.Show();
                 this.Close();
             }
         }
 
-        private void exit_click(object sender, RoutedEventArgs e)
+        private void ListViewItem_PreviewMouseDown_4(object sender, MouseButtonEventArgs e)
         {
+            //thoát
             Application.Current.Shutdown();
         }
+
     }
 }
-
-
-
-
-
-
-

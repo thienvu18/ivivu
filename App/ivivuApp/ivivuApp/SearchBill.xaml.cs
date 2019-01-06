@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
-
+ 
 using System.Data.Common;
 using System.Collections.ObjectModel;
 
@@ -46,11 +46,11 @@ namespace ivivuApp
             {
                 HoaDon hd = new HoaDon
                 {
-                    maHD = sqlReader.GetInt32(0),
+                    maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
                     ngayThanhToan = sqlReader.GetDateTime(1),
-                    tongTien = sqlReader.GetInt64(2),
-                    maDP = sqlReader.GetInt32(3),
-                    maKH = sqlReader.GetInt32(4)
+                    tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
+                    maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
+                    maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
                 };
 
                 string date1 = hd.ngayThanhToan.ToString();
@@ -162,11 +162,12 @@ namespace ivivuApp
                     {
                         HoaDon hd = new HoaDon
                         {
-                            maHD = sqlReader.GetInt32(0),
+
+                            maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
                             ngayThanhToan = sqlReader.GetDateTime(1),
-                            tongTien = sqlReader.GetInt64(2),
-                            maDP = sqlReader.GetInt32(3),
-                            maKH = sqlReader.GetInt32(4)
+                            tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
+                            maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
+                            maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
                         };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
@@ -212,11 +213,11 @@ namespace ivivuApp
                     {
                         HoaDon hd = new HoaDon
                         {
-                            maHD = sqlReader.GetInt32(0),
+                            maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
                             ngayThanhToan = sqlReader.GetDateTime(1),
-                            tongTien = sqlReader.GetInt64(2),
-                            maDP = sqlReader.GetInt32(3),
-                            maKH = sqlReader.GetInt32(4)
+                            tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
+                            maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
+                            maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
                         };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
@@ -262,11 +263,11 @@ namespace ivivuApp
                     {
                         HoaDon hd = new HoaDon
                         {
-                            maHD = sqlReader.GetInt32(0),
+                            maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
                             ngayThanhToan = sqlReader.GetDateTime(1),
-                            tongTien = sqlReader.GetInt64(2),
-                            maDP = sqlReader.GetInt32(3),
-                            maKH = sqlReader.GetInt32(4)
+                            tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
+                            maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
+                            maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
                         };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
@@ -313,11 +314,11 @@ namespace ivivuApp
                     {
                         HoaDon hd = new HoaDon
                         {
-                            maHD = sqlReader.GetInt32(0),
+                            maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
                             ngayThanhToan = sqlReader.GetDateTime(1),
-                            tongTien = sqlReader.GetInt64(2),
-                            maDP = sqlReader.GetInt32(3),
-                            maKH = sqlReader.GetInt32(4)
+                            tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
+                            maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
+                            maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
                         };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
@@ -364,11 +365,11 @@ namespace ivivuApp
                     {
                         HoaDon hd = new HoaDon
                         {
-                            maHD = sqlReader.GetInt32(0),
+                            maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
                             ngayThanhToan = sqlReader.GetDateTime(1),
-                            tongTien = sqlReader.GetInt64(2),
-                            maDP = sqlReader.GetInt32(3),
-                            maKH = sqlReader.GetInt32(4)
+                            tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
+                            maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
+                            maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
                         };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
@@ -413,11 +414,11 @@ namespace ivivuApp
                     {
                         HoaDon hd = new HoaDon
                         {
-                            maHD = sqlReader.GetInt32(0),
+                            maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
                             ngayThanhToan = sqlReader.GetDateTime(1),
-                            tongTien = sqlReader.GetInt64(2),
-                            maDP = sqlReader.GetInt32(3),
-                            maKH = sqlReader.GetInt32(4)
+                            tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
+                            maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
+                            maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
                         };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
@@ -464,11 +465,11 @@ namespace ivivuApp
                     {
                         HoaDon hd = new HoaDon
                         {
-                            maHD = sqlReader.GetInt32(0),
+                            maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
                             ngayThanhToan = sqlReader.GetDateTime(1),
-                            tongTien = sqlReader.GetInt64(2),
-                            maDP = sqlReader.GetInt32(3),
-                            maKH = sqlReader.GetInt32(4)
+                            tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
+                            maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
+                            maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
                         };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
@@ -502,54 +503,94 @@ namespace ivivuApp
             }
         }
 
-        private void home_click(object sender, RoutedEventArgs e)
+
+
+
+
+
+
+
+
+        private void ListViewItem_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var window = new Home_admin();
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
+
+            var window = new Bill
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
+
+            window.Show();
             this.Close();
-            window.ShowDialog();
         }
 
-        private void dangnhap_click(object sender, RoutedEventArgs e)
+        private void ListViewItem_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (Auth.employee.maNV != 0)
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
+
+            var window = new Report
             {
-                MessageBox.Show("Bạn đã đăng nhập rồi!");
-            }
-            else
-            {
-                var window = new Login_user();
-                this.Close();
-                window.ShowDialog();
-            }
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
+
+            window.Show();
+            this.Close();
         }
 
-        private void dangxuat_click(object sender, RoutedEventArgs e)
+        private void ListViewItem_PreviewMouseDown_2(object sender, MouseButtonEventArgs e)
         {
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
 
-            if (Auth.employee.maNV == 0)
+            var window = new SearchBill
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
+
+            window.Show();
+            this.Close();
+        }
+
+        private void ListViewItem_PreviewMouseDown_3(object sender, MouseButtonEventArgs e)
+        {
+            //đăng xuất
+            if (Auth.isCustomerLogged == false && Auth.isEmployeeLogged == false)
             {
                 MessageBox.Show("Bạn chưa đăng nhập!");
             }
             else
             {
+                Auth.isEmployeeLogged = false;
+                Auth.isCustomerLogged = false;
+
                 var window = new MainWindow();
+
+                window.Show();
                 this.Close();
-                window.ShowDialog();
             }
         }
 
-        private void exit_click(object sender, RoutedEventArgs e)
+        private void ListViewItem_PreviewMouseDown_4(object sender, MouseButtonEventArgs e)
         {
-
-            this.Close();
-
-        }
-
-        private void homesearch_click(object sender, RoutedEventArgs e)
-        {
-            listHD.Clear();
-            getData();
-            dttimkiemhoadon.ItemsSource = listHD;
+            //thoát
+            Application.Current.Shutdown();
         }
     }
 }

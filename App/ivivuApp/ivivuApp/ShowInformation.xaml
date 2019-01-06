@@ -20,7 +20,7 @@
             Margin="95,30,20,260" 
             TextWrapping="Wrap" 
             Name="txmaks"
-            Width="50"/>
+            Width="50" IsReadOnlyCaretVisible="True"/>
         <Label Name="lbtenks"
                Content=" Khách Sạn" 
                HorizontalAlignment="Right" 
@@ -33,7 +33,7 @@
             Margin="0,30,250,260" 
             TextWrapping="Wrap" 
             Name="txtenks"
-            Width="100"/>
+            Width="100" IsReadOnlyCaretVisible="True"/>
         <Label x:Name="lbsoao" 
             Content="Số Sao" 
             HorizontalAlignment="Left" 
@@ -60,7 +60,7 @@
             Margin="95,0,20,60" 
             TextWrapping="Wrap" 
             Name="txdiachi"
-            Width="300"/>
+            Width="300" IsReadOnlyCaretVisible="True"/>
         <Label x:Name="lbgia" 
             Content="Giá TB" 
             HorizontalAlignment="Left" 
@@ -74,7 +74,7 @@
             Margin="95,10,230,160" 
             TextWrapping="Wrap" 
             Name="txgia"
-            Width="80"/>
+            Width="80" IsReadOnlyCaretVisible="True"/>
         <Label Name="lbmota"
                Content="Mô tả" 
                HorizontalAlignment="Left" 
@@ -83,11 +83,11 @@
                Margin="30,40,20,0" FontWeight="Bold"/>
         <TextBox 
             HorizontalAlignment="Left" 
-            Height="60"
-            Margin="95,30,20,6" 
+            Height="70"
+            Margin="95,50,20,6" 
             TextWrapping="Wrap" 
             Name="txtmota"
-            Width="300"/>
+            Width="300" IsReadOnlyCaretVisible="True"/>
         <Button
             Content="ĐẶT PHÒNG"
             HorizontalAlignment="Right" 

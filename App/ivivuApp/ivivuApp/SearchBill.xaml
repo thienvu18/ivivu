@@ -6,14 +6,61 @@
         xmlns:local="clr-namespace:ivivuApp"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="SearchBill" Height="465.56" Width="709.091">
+        Title="SearchBill" Height="600" Width="800">
+
     <Grid Margin="0,0,2,0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"></ColumnDefinition>
+                <ColumnDefinition Width="39*"></ColumnDefinition>
+                <ColumnDefinition Width="131*"/>
+            </Grid.ColumnDefinitions>
+            <Border Background="GhostWhite" BorderBrush="Silver" BorderThickness="0,0,1,0" Grid.Column="0">
+                <ListView Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18">
+                    <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="FileDocumentOutline" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Lập hóa đơn" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_1" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="ChartLineStacked" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Thống Kê" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0" IsSelected="True">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="ClipboardCheckOutline" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Kiểm tra tình trạng phòng" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_2">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="TableSearch" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Tìm kiếm hóa đơn" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <Separator />
+                    <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_3" Cursor="Hand">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Logout" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Đăng xuất" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem  Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_4">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="ExitToApp" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Thoát" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </Border>
+        </Grid>
         <StackPanel Orientation="Horizontal" 
-                    HorizontalAlignment="Center" 
-                    Grid.ColumnSpan="2"
-                    Margin="0,0,0,0" 
-                    Width="250"
-                    Grid.RowSpan="2" >
+                    HorizontalAlignment="Center"
+                    Margin="446,0,94,0" 
+                    Width="250" >
             <TextBox 
                  x:Name="txtmakh"
                 HorizontalAlignment="Left" 
@@ -34,11 +81,9 @@
         </StackPanel>
         <StackPanel 
                 Orientation="Horizontal" 
-                HorizontalAlignment="Left" 
-                Grid.ColumnSpan="2"
-                Margin="0,0,0,0" 
-                Width="250"
-                Grid.RowSpan="2" >
+                HorizontalAlignment="Left"
+                Margin="272,0,0,0" 
+                Width="250" >
             <TextBox
                 x:Name="txtthanhtien"
                 HorizontalAlignment="Center" 
@@ -50,7 +95,7 @@
                 Width="150" 
                 TextChanged="txtthanhtien_TextChanged" FontStyle="Italic" FontWeight="Bold"/>
             <Button 
-               Name="resetTxtThanhtien"
+               x:Name="resetTxtThanhtien"
                 Height="35"
                 Visibility="Collapsed"
                 Content="{materialDesign:PackIcon Close}"
@@ -60,9 +105,9 @@
         <DatePicker 
                 x:Name="ngaylap"           
                 Height="35"
-                 Width="130"
+                 Width="120"
                 HorizontalAlignment="Right"
-                Margin="0,35,80,100" 
+                Margin="0,36,10,0" 
                 VerticalAlignment="Top"/>
         <DataGrid
             x:Name="dttimkiemhoadon"                            
@@ -72,8 +117,8 @@
             AutoGenerateColumns="False"
             ScrollViewer.CanContentScroll="False"
             HorizontalAlignment="Left" 
-            Margin="50,142,0,-30" 
-            Width="599" GridLinesVisibility="Vertical" Height="283" VerticalAlignment="Top" >
+            Margin="290,177,0,0" 
+            Width="492" GridLinesVisibility="Vertical" Height="382" VerticalAlignment="Top" >
 
             <DataGrid.Resources>
                 <Style
@@ -94,37 +139,37 @@
             </DataGrid.CellStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn
-                Header="Mã hóa đơn" 
-                Width="100"
+                Header="Mã HĐ" 
+                Width="70"
                 Binding="{Binding maHD}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                 </DataGridTextColumn>
 
                 <materialDesign:MaterialDataGridTextColumn
                 Header="Ngày thanh toán" 
-                Width="160"
+                Width="130"
                 Binding="{Binding date}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                 </materialDesign:MaterialDataGridTextColumn>
 
                 <materialDesign:MaterialDataGridTextColumn  
                 Header="Thành tiền"
-                Width="100"
+                Width="120"
                 Binding="{Binding tongTien}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                 </materialDesign:MaterialDataGridTextColumn>
 
                 <materialDesign:MaterialDataGridTextColumn  
  
-                Header="Mã đặt phòng"
-                Width="110"                                 
+                Header="Mã ĐP"
+                Width="80"                                 
                 Binding="{Binding maDP}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                 </materialDesign:MaterialDataGridTextColumn>
                 <materialDesign:MaterialDataGridTextColumn  
  
-                Header="Mã khách hàng"
-                Width="120"                                 
+                Header="Mã KH"
+                Width="80"                                 
                 Binding="{Binding maKH}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                 </materialDesign:MaterialDataGridTextColumn>
@@ -146,52 +191,10 @@
             x:Name="bttimkiem"
             Content="TÌM KIẾM"
             HorizontalAlignment="Center"
-            Margin="50,35,100,240" 
+            Margin="478,106,212,427" 
             Height="35"
             Width="100" Click="bttimkiem_Click"/>
 
-        <Menu 
-            HorizontalAlignment="Right" 
-            Height="30" 
-            Margin="10,5,5,0" 
-            VerticalAlignment="Top" 
-            Width="70"
-            Name="_File"
-            IsMainMenu="True" FontSize="22">
-            <MenuItem
-                Background="#FFB383D4"
-                HorizontalAlignment="Right" 
-                Header="..."
-                 Width="70"
-                 Height="30" 
-                Margin="0,0,0,0" 
-                FontWeight="Bold" 
-                FontSize="20">
-                <MenuItem
-                Header="Home chức năng" 
-                    Click="home_click"/>
-                <MenuItem
-                Header="Home Tìm kiếm" 
-                    Click="homesearch_click"/>
-                <MenuItem
-                Header="Đăng nhập" 
-                    Click="dangnhap_click"/>
-                <MenuItem
-                Header="Đăng xuất"
-                    Click="dangxuat_click"/>
-                <MenuItem
-                Header="Exit"
-                InputGestureText="Ctrl+E"
-                Click="exit_click" >
-                    <MenuItem.Icon>
-                        <materialDesign:PackIcon
-                           Kind="ExitToApp" />
-                    </MenuItem.Icon>
-                </MenuItem>
-
-            </MenuItem>
-
-        </Menu>
 
         <Label
             x:Name="lbdate"
@@ -200,7 +203,7 @@
             VerticalAlignment="Top"
             Width="120"
             Height="30" 
-            Margin="0,70,70,0"/>
+            Margin="0,76,8,0"/>
 
     </Grid>
 </Window>

@@ -21,33 +21,81 @@ namespace ivivuApp
     /// </summary>
     public partial class ShowInformation_Bill : Window
     {
+        public class BillInfo
+        {
+            public int billID { get; set; }
+            public string dateCreat { get; set; }
+            public string typeRoom { get; set; }
+            public long price { get; set; }
+            public int days { get; set; }
+            public long total { get; set; }
+        }
         public ShowInformation_Bill(int ma)
         {
             InitializeComponent();
             getData(ma);
 
         }
+        private BillInfo _bill = new BillInfo();
+        int _idBill;
+        string _dateCreate;
+        long _total;
+        long _price;
+        string _typeRoom;
+        int _days;
+
         public void getData(int ma)
         {
-
-            SqlCommand command = new SqlCommand("select HoaDon.maHD, HoaDon.ngayThanhToan,HoaDon.tongTien,HoaDon.madp,DatPhong.maKH,DatPhong.ngayBatDau,DatPhong.ngayTraPhong  from HoaDon JOIN DatPhong ON HoaDon.maDP = DatPhong.maDP where HoaDon.maHD =" + ma, Database.connection);
-            SqlDataReader sqlReader = command.ExecuteReader();
-            if (sqlReader.Read())
+            string sqlHD = "SELECT HoaDon.maHD, HoaDon.TongTien FROM HoaDon WHERE HoaDon.maDP = " + ma;
+            using (SqlCommand commandHD = new SqlCommand(sqlHD, Database.connection))
             {
+                using (SqlDataReader readerHD = commandHD.ExecuteReader())
+                {
+                    while (readerHD.Read())
+                    {
+                        _idBill = readerHD.GetInt32(0);
+                        _total = readerHD.GetInt64(1);
+                    }
 
-                txtmaHD.Text = sqlReader.GetInt32(0).ToString();
-                txtngaylap.Text = sqlReader.GetDateTime(1).ToShortDateString();
-                txttongtien.Text = sqlReader.GetInt64(2).ToString();
-                txtmaDP.Text = sqlReader.GetInt32(3).ToString();
-                txtmaKH.Text = sqlReader.GetInt32(4).ToString();
-                txtngaybatdau.Text = sqlReader.GetDateTime(5).ToShortDateString();
-                txtngayketthuc.Text = sqlReader.GetDateTime(6).ToShortDateString();
+                    _dateCreate = DateTime.Now.ToString();
+                    _bill.total = _total;
+                    _bill.dateCreat = _dateCreate;
+                    _bill.billID = _idBill;
 
+                }
 
+                string sql = "SELECT DISTINCT LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, DATEDIFF(DAY, DatPhong.ngayTraPhong, DatPhong.ngayBatDau) AS numDay FROM HoaDon, LoaiPhong, DatPhong WHERE DatPhong.maDP = " + ma + " AND DatPhong.maDP = HoaDon.maDP AND DatPhong.maLoaiPhong = LoaiPhong.maLoaiPhong";
+                using (SqlCommand command1 = new SqlCommand(sql, Database.connection))
+                {
+                    using (SqlDataReader reader = command1.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            _price = reader.GetInt64(1);
+                            _typeRoom = reader.GetString(0);
+                            _days = reader.GetInt32(2);
+                        }
+
+                        _bill.price = _price;
+                        _bill.typeRoom = _typeRoom;
+                        _bill.days = _days;
+                    }
+                }
             }
-            sqlReader.Close();
+            txt_price.Text = _bill.price.ToString();
+            txt_num_day.Text = _bill.days.ToString();
+            txt_ID_room.Text = _bill.typeRoom;
+            txt_ID_bill.Text = _bill.billID.ToString();
+            txt_total_price.Text = _bill.total.ToString();
+            txt_date_create.Text = _bill.dateCreat;
+
 
         }
+
+
+
+
         private void click_in(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Chức năng chưa được hỗ trợ!");

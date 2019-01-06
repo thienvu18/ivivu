@@ -11,145 +11,42 @@
         <Grid.ColumnDefinitions>
 
         </Grid.ColumnDefinitions>
-        <Label Name="lbmaks"
-               Content=" Mã HD" 
-               HorizontalAlignment="Left" 
-               Width="60"
-               Height="30"
-               Margin="30,84,0,305" FontWeight="Bold"/>
-        <TextBox 
-            HorizontalAlignment="Left" 
-            Height="30"
-            Margin="95,80,0,309" 
-            TextWrapping="Wrap" 
-            Name="txtmaHD"
-            Width="50"/>
-        <Label Name="lbngaylap"
-               Content="Ngày lập" 
-               HorizontalAlignment="Left" 
-               Width="80"
-               Height="30"
-               Margin="200,87,0,305" FontWeight="Bold"/>
-        <TextBox 
-            HorizontalAlignment="Right" 
-            Height="30"
-            Margin="276,80,140,309" 
-            TextWrapping="Wrap" 
-            Name="txtngaylap"
-            Width="100"/>
-        <Label x:Name="lbmadp" 
-            Content="Mã đặt phòng" 
-            HorizontalAlignment="Left" 
-           Margin="200,130,0,180"  
-            Width="100"
-            Height="30" FontWeight="Bold"
-              />
-        <TextBox 
-            HorizontalAlignment="Right" 
-            Height="30"
-            Margin="250,120,150,180" 
-            TextWrapping="Wrap" 
-            Name="txtmaDP"
-            Width="70"/>
-        <Label Name="makh"
-               Content="Mã KH" 
-               HorizontalAlignment="Left" 
-               Width="60"
-               Height="30"
-               Margin="30,170,0,219" FontWeight="Bold"/>
-        <TextBox 
-            HorizontalAlignment="Left" 
-            Height="30"
-            Margin="95,164,0,225" 
-            TextWrapping="Wrap" 
-            Name="txtmaKH"
-            Width="70"/>
-        <Label x:Name="lbgia" 
-            Content="Tổng tiền"
-            HorizontalAlignment="Left" 
-           Margin="30,124,0,260"  
-            Width="80"
-            Height="30" FontWeight="Bold"
-              />
-        <TextBox 
-            HorizontalAlignment="Left" 
-            Height="30"
-            Margin="120,120,0,269" 
-            TextWrapping="Wrap" 
-            Name="txttongtien"
-            Width="100"/>
-        <Label Name="lbmota"
-               Content="Ngày bắt đầu" 
-               HorizontalAlignment="Left" 
-               Width="90"
-               Height="30"
-               Margin="30,214,0,175" FontWeight="Bold"/>
-        <TextBox 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Bottom"
-            Height="30"
-            Margin="130,06,0,165" 
-            TextWrapping="Wrap" 
-            Name="txtngayketthuc"
-            Width="100"/>
-        <Label Name="lbngaykt"
-               Content="Ngày kết thúc" 
-               HorizontalAlignment="Left" 
-               VerticalAlignment="Bottom"
-               Width="90"
-               Height="30"
-               Margin="30,14,0,155" FontWeight="Bold"/>
-        <TextBox 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Bottom"
-            Height="30"
-            Margin="120,06,0,120" 
-            TextWrapping="Wrap" 
-            Name="txttencty"
-            Width="130"/>
-        <Label Name="lbtencty"
-               Content="Tên công ty" 
-               HorizontalAlignment="Left" 
-               VerticalAlignment="Bottom"
-               Width="90"
-               Height="30"
-               Margin="30,14,0,110"
-               FontWeight="Bold"/>
-        <TextBox 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Bottom"
-            Height="30"
-            Margin="120,06,0,75" 
-            TextWrapping="Wrap" 
-            Name="txtmasothue"
-            Width="130"/>
-        <Label Name="lbmasothue"
-               Content="Mã số thuế" 
-               HorizontalAlignment="Left" 
-               VerticalAlignment="Bottom"
-               Width="90"
-               Height="30"
-               Margin="30,14,0,70"
-               FontWeight="Bold"/>
-        <TextBox 
-            HorizontalAlignment="Left" 
-            Height="30"
-            Margin="130,206,0,183" 
-            TextWrapping="Wrap" 
-            Name="txtngaybatdau"
-            Width="100"/>
+        <Label Content="Thông tin hóa đơn"/>
+        <Border Width="463" BorderBrush="DarkGray" BorderThickness="1" Margin="32,42,32,84">
+            <Canvas x:Name="canv_bill_detail" Visibility="Hidden">
+                <Border Width="450" Height="250" BorderBrush="LightGray" BorderThickness="1" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Tên khách sạn" FontSize="15" HorizontalAlignment="Center" Margin="0 10 0 0"/>
+                        <TextBlock Text="*****" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Hóa đơn" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 10 0 10"/>
+                        <Canvas>
+                            <Label Content="Mã hóa đơn: " Canvas.Left="29" Canvas.Top="3"/>
+                            <TextBlock x:Name="txt_ID_bill" Text="ID_bill" Canvas.Left="114" Canvas.Top="8"></TextBlock>
+                            <Label Content="Ngày lập: " Canvas.Top="3" Canvas.Left="275" />
+                            <TextBlock x:Name="txt_date_create" Text="dd/mm/yyyy" Canvas.Left="343" Canvas.Top="8"></TextBlock>
+                            <Label Content="Loại phòng: " Canvas.Left="29" Canvas.Top="34"/>
+                            <TextBlock x:Name="txt_ID_room" Text="Tên loại phòng" Canvas.Left="114" Canvas.Top="39"></TextBlock>
+                            <Label Content="Đơn giá: " Canvas.Top="34" Canvas.Left="275" />
+                            <TextBlock x:Name="txt_price" Text="000.000.000đ" Canvas.Left="343" Canvas.Top="39"></TextBlock>
+                            <Label Content="Thời gian thuê: " Canvas.Top="68" Canvas.Left="29" />
+                            <TextBlock x:Name="txt_num_day" Text="XX Ngày" Canvas.Left="135" Canvas.Top="73"></TextBlock>
+                            <Label Content="Thành tiền: " Canvas.Top="65" Canvas.Left="275"></Label>
+                            <TextBlock x:Name="txt_total_price" Text="000.000.000đ" Canvas.Left="347" Canvas.Top="70"></TextBlock>
+                            <Label Content="Khách hàng" Canvas.Top="99" Canvas.Left="70"></Label>
+                            <Label Content="(Ký và ghi rõ họ tên)" Canvas.Top="116" Canvas.Left="58" FontSize="10"></Label>
+                        </Canvas>
+                    </StackPanel>
+                </Border>
+            </Canvas>
+        </Border>
         <Button
             Content="IN"
             HorizontalAlignment="Right" 
-            Margin="0,310,50,59" 
+            Margin="0,389,32,29" 
             Width="50"
             Height="50"
-            Click="click_in" Grid.ColumnSpan="2"/>
-        <Label 
-            Content="THÔNG TIN HÓA ĐƠN"
-            HorizontalAlignment="Left" 
-            Margin="180,40,0,0" 
-            VerticalAlignment="Top" FontWeight="Bold"/>
+            Click="click_in"/>
+
 
     </Grid>
 </Window>
