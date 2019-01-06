@@ -39,10 +39,12 @@ namespace ivivuApp
 
         private void btn_pre_bill_Click(object sender, RoutedEventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("proc_setBill", Database.connection);
+            SqlCommand cmd = new SqlCommand("proc_setBill", Database.connection)
+            {
 
-            // Kiểu của Command là StoredProcedure
-            cmd.CommandType = CommandType.StoredProcedure;
+                // Kiểu của Command là StoredProcedure
+                CommandType = CommandType.StoredProcedure
+            };
 
             cmd.Parameters.Add(new SqlParameter("@maDatPhong", ID_book.Text));
 

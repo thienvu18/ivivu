@@ -54,12 +54,14 @@ namespace ivivuApp
             SqlDataReader sqlReader = command.ExecuteReader();
             while (sqlReader.Read())
             {
-                KhachSan sp = new KhachSan();
-                sp.maKS = sqlReader.GetInt32(0);
-                sp.tenKS = sqlReader.GetString(1);
-                sp.thanhPho = sqlReader.GetString(6);
-                sp.giaTB = sqlReader.GetInt64(7);
-                sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
+                KhachSan sp = new KhachSan
+                {
+                    maKS = sqlReader.GetInt32(0),
+                    tenKS = sqlReader.GetString(1),
+                    thanhPho = sqlReader.GetString(6),
+                    giaTB = sqlReader.GetInt64(7),
+                    diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+                };
 
                 if (sp != null)
                 {
@@ -173,8 +175,10 @@ namespace ivivuApp
 
             if (txtgia.Text == "" && txtenthanhpho1.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE thanhPho = @thanhPhoTimKiem", Database.connection);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE thanhPho = @thanhPhoTimKiem", Database.connection)
+                {
+                    CommandType = CommandType.Text
+                };
                 cmd.Parameters.Add(new SqlParameter("@thanhPhoTimKiem", txtenthanhpho1.Text));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
 
@@ -183,11 +187,13 @@ namespace ivivuApp
                     listKS1.Clear();
                     while (sqlReader.Read())
                     {
-                        KhachSan sp = new KhachSan();
-                        sp.maKS = sqlReader.GetInt32(0);
-                        sp.tenKS = sqlReader.GetString(1);
-                        sp.giaTB = sqlReader.GetInt64(7);
-                        sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
+                        KhachSan sp = new KhachSan
+                        {
+                            maKS = sqlReader.GetInt32(0),
+                            tenKS = sqlReader.GetString(1),
+                            giaTB = sqlReader.GetInt64(7),
+                            diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+                        };
 
                         if (sp != null)
                         {
@@ -211,8 +217,10 @@ namespace ivivuApp
 
                 if (txtenthanhpho1.Text == "" && txtgia.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE giaTB = @giaTB", Database.connection);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE giaTB = @giaTB", Database.connection)
+                {
+                    CommandType = CommandType.Text
+                };
                 cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
                 if (sqlReader.HasRows)
@@ -220,11 +228,13 @@ namespace ivivuApp
                     listKS1.Clear();
                     while (sqlReader.Read())
                     {
-                        KhachSan sp = new KhachSan();
-                        sp.maKS = Convert.ToInt16(sqlReader.GetValue(0));
-                        sp.tenKS = sqlReader.GetString(1);
-                        sp.giaTB = sqlReader.GetInt64(7);
-                        sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
+                        KhachSan sp = new KhachSan
+                        {
+                            maKS = Convert.ToInt16(sqlReader.GetValue(0)),
+                            tenKS = sqlReader.GetString(1),
+                            giaTB = sqlReader.GetInt64(7),
+                            diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+                        };
 
                         if (sp != null)
                         {
@@ -250,10 +260,12 @@ namespace ivivuApp
 
             if (txtgia.Text != "" && txtenthanhpho1.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("usp_timKiemThongTinhKS_giaCa_Tp", Database.connection);
+                SqlCommand cmd = new SqlCommand("usp_timKiemThongTinhKS_giaCa_Tp", Database.connection)
+                {
 
-                // Kiểu của Command là StoredProcedure
-                cmd.CommandType = CommandType.StoredProcedure;
+                    // Kiểu của Command là StoredProcedure
+                    CommandType = CommandType.StoredProcedure
+                };
 
                 cmd.Parameters.Add(new SqlParameter("@thanhPhoTimKiem", txtenthanhpho1.Text));
                 cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
@@ -265,11 +277,13 @@ namespace ivivuApp
                     listKS1.Clear();
                     while (sqlReader.Read())
                     {
-                        KhachSan sp = new KhachSan();
-                        sp.maKS = sqlReader.GetInt32(0);
-                        sp.tenKS = sqlReader.GetString(1);
-                        sp.giaTB = sqlReader.GetInt64(2);
-                        sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
+                        KhachSan sp = new KhachSan
+                        {
+                            maKS = sqlReader.GetInt32(0),
+                            tenKS = sqlReader.GetString(1),
+                            giaTB = sqlReader.GetInt64(2),
+                            diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+                        };
 
                         if (sp != null)
                         {
@@ -344,8 +358,10 @@ namespace ivivuApp
         {
             if (txtenthanhpho.Text == "")
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE soSao = @soSao", Database.connection);
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE soSao = @soSao", Database.connection)
+                {
+                    CommandType = CommandType.Text
+                };
                 cmd.Parameters.Add(new SqlParameter("@soSao", sosao.Value));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
 
@@ -354,11 +370,13 @@ namespace ivivuApp
                     listKS2.Clear();
                     while (sqlReader.Read())
                     {
-                        KhachSan sp = new KhachSan();
-                        sp.maKS = Convert.ToInt16(sqlReader.GetValue(0));
-                        sp.tenKS = sqlReader.GetString(1);
-                        sp.giaTB = sqlReader.GetInt64(7);
-                        sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
+                        KhachSan sp = new KhachSan
+                        {
+                            maKS = Convert.ToInt16(sqlReader.GetValue(0)),
+                            tenKS = sqlReader.GetString(1),
+                            giaTB = sqlReader.GetInt64(7),
+                            diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+                        };
 
                         if (sp != null)
                         {
@@ -380,10 +398,12 @@ namespace ivivuApp
 
             if (txtenthanhpho.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("usp_timKiemThongTinhKS_sao_Tp", Database.connection);
+                SqlCommand cmd = new SqlCommand("usp_timKiemThongTinhKS_sao_Tp", Database.connection)
+                {
 
-                // Kiểu của Command là StoredProcedure
-                cmd.CommandType = CommandType.StoredProcedure;
+                    // Kiểu của Command là StoredProcedure
+                    CommandType = CommandType.StoredProcedure
+                };
 
                 cmd.Parameters.Add(new SqlParameter("@thanhPhoTimKiem", txtenthanhpho.Text));
                 cmd.Parameters.Add(new SqlParameter("@soSaoTimKiem", sosao.Value));
@@ -394,11 +414,13 @@ namespace ivivuApp
                     listKS2.Clear();
                     while (sqlReader.Read())
                     {
-                        KhachSan sp = new KhachSan();
-                        sp.maKS = sqlReader.GetInt32(0);
-                        sp.tenKS = sqlReader.GetString(1);
-                        sp.giaTB = sqlReader.GetInt64(2);
-                        sp.diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6);
+                        KhachSan sp = new KhachSan
+                        {
+                            maKS = sqlReader.GetInt32(0),
+                            tenKS = sqlReader.GetString(1),
+                            giaTB = sqlReader.GetInt64(2),
+                            diaChi = sqlReader.GetString(3) + ',' + sqlReader.GetString(4) + ',' + sqlReader.GetString(5) + ',' + sqlReader.GetString(6)
+                        };
 
                         if (sp != null)
                         {

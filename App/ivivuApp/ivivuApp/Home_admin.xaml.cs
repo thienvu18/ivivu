@@ -41,17 +41,18 @@ namespace ivivuApp
 
         private void BtnCheckRoomStatus_Click(object sender, RoutedEventArgs e)
         {
-            var left = Application.Current.MainWindow.Left;
-            var top = Application.Current.MainWindow.Top;
-            var height = Application.Current.MainWindow.Height;
-            var width = Application.Current.MainWindow.Width;
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
 
-            var window = new CheckRoomStatus();
-
-            window.Left = left;
-            window.Top = top;
-            window.Width = width;
-            window.Height = height;
+            var window = new CheckRoomStatus
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
 
             window.Show();
             this.Close();

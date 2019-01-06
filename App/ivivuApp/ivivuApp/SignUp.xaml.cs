@@ -57,9 +57,10 @@ namespace ivivuApp
 
             if (checkinput)
             {
-                SqlCommand cmd = new SqlCommand("proc_signUpUser", Database.connection);
-
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("proc_signUpUser", Database.connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
 
                 cmd.Parameters.Add(new SqlParameter("@FullName", txt_fullname.Text));
                 cmd.Parameters.Add(new SqlParameter("@UserName", txt_username.Text));

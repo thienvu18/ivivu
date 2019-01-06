@@ -44,12 +44,14 @@ namespace ivivuApp
             SqlDataReader sqlReader = command.ExecuteReader();
             while (sqlReader.Read())
             {
-                HoaDon hd = new HoaDon();
-                hd.maHD = sqlReader.GetInt32(0);
-                hd.ngayThanhToan = sqlReader.GetDateTime(1);
-                hd.tongTien = sqlReader.GetInt64(2);
-                hd.maDP = sqlReader.GetInt32(3);
-                hd.maKH = sqlReader.GetInt32(4);
+                HoaDon hd = new HoaDon
+                {
+                    maHD = sqlReader.GetInt32(0),
+                    ngayThanhToan = sqlReader.GetDateTime(1),
+                    tongTien = sqlReader.GetInt64(2),
+                    maDP = sqlReader.GetInt32(3),
+                    maKH = sqlReader.GetInt32(4)
+                };
 
                 string date1 = hd.ngayThanhToan.ToString();
                 for (int i = 0; i < date1.Length; i++)
@@ -146,8 +148,10 @@ namespace ivivuApp
             //================================================
             if (txtthanhtien.Text == "" && ngaylap.Text == "" && txtmakh.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_MaKH", Database.connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_MaKH", Database.connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.Add(new SqlParameter("@maKH", txtmakh.Text));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
 
@@ -156,12 +160,14 @@ namespace ivivuApp
                     listHD.Clear();
                     while (sqlReader.Read())
                     {
-                        HoaDon hd = new HoaDon();
-                        hd.maHD = sqlReader.GetInt32(0);
-                        hd.ngayThanhToan = sqlReader.GetDateTime(1);
-                        hd.tongTien = sqlReader.GetInt64(2);
-                        hd.maDP = sqlReader.GetInt32(3);
-                        hd.maKH = sqlReader.GetInt32(4);
+                        HoaDon hd = new HoaDon
+                        {
+                            maHD = sqlReader.GetInt32(0),
+                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            tongTien = sqlReader.GetInt64(2),
+                            maDP = sqlReader.GetInt32(3),
+                            maKH = sqlReader.GetInt32(4)
+                        };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
                         {
@@ -192,8 +198,10 @@ namespace ivivuApp
             //===================================
             if (txtthanhtien.Text != "" && ngaylap.Text == "" && txtmakh.Text == "")
             {
-                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_ThanhTien", Database.connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_ThanhTien", Database.connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.Add(new SqlParameter("@thanhtien", txtthanhtien.Text));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
 
@@ -202,12 +210,14 @@ namespace ivivuApp
                     listHD.Clear();
                     while (sqlReader.Read())
                     {
-                        HoaDon hd = new HoaDon();
-                        hd.maHD = sqlReader.GetInt32(0);
-                        hd.ngayThanhToan = sqlReader.GetDateTime(1);
-                        hd.tongTien = sqlReader.GetInt64(2);
-                        hd.maDP = sqlReader.GetInt32(3);
-                        hd.maKH = sqlReader.GetInt32(4);
+                        HoaDon hd = new HoaDon
+                        {
+                            maHD = sqlReader.GetInt32(0),
+                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            tongTien = sqlReader.GetInt64(2),
+                            maDP = sqlReader.GetInt32(3),
+                            maKH = sqlReader.GetInt32(4)
+                        };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
                         {
@@ -238,8 +248,10 @@ namespace ivivuApp
             //=====================================
             if (txtthanhtien.Text == "" && ngaylap.Text != "" && txtmakh.Text == "")
             {
-                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_NgayLap", Database.connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_NgayLap", Database.connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.Add(new SqlParameter("@ngayThanhToan", ngaylap.Text));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
 
@@ -248,12 +260,14 @@ namespace ivivuApp
                     listHD.Clear();
                     while (sqlReader.Read())
                     {
-                        HoaDon hd = new HoaDon();
-                        hd.maHD = sqlReader.GetInt32(0);
-                        hd.ngayThanhToan = sqlReader.GetDateTime(1);
-                        hd.tongTien = sqlReader.GetInt64(2);
-                        hd.maDP = sqlReader.GetInt32(3);
-                        hd.maKH = sqlReader.GetInt32(4);
+                        HoaDon hd = new HoaDon
+                        {
+                            maHD = sqlReader.GetInt32(0),
+                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            tongTien = sqlReader.GetInt64(2),
+                            maDP = sqlReader.GetInt32(3),
+                            maKH = sqlReader.GetInt32(4)
+                        };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
                         {
@@ -284,8 +298,10 @@ namespace ivivuApp
             //=====================================
             if (txtthanhtien.Text != "" && ngaylap.Text != "" && txtmakh.Text == "")
             {
-                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_ngaylap_tongtien", Database.connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_ngaylap_tongtien", Database.connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.Add(new SqlParameter("@ngayLap", ngaylap.Text));
                 cmd.Parameters.Add(new SqlParameter("@thanhTien", txtthanhtien.Text));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
@@ -295,12 +311,14 @@ namespace ivivuApp
                     listHD.Clear();
                     while (sqlReader.Read())
                     {
-                        HoaDon hd = new HoaDon();
-                        hd.maHD = sqlReader.GetInt32(0);
-                        hd.ngayThanhToan = sqlReader.GetDateTime(1);
-                        hd.tongTien = sqlReader.GetInt64(2);
-                        hd.maDP = sqlReader.GetInt32(3);
-                        hd.maKH = sqlReader.GetInt32(4);
+                        HoaDon hd = new HoaDon
+                        {
+                            maHD = sqlReader.GetInt32(0),
+                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            tongTien = sqlReader.GetInt64(2),
+                            maDP = sqlReader.GetInt32(3),
+                            maKH = sqlReader.GetInt32(4)
+                        };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
                         {
@@ -331,8 +349,10 @@ namespace ivivuApp
             //=====================================
             if (txtthanhtien.Text != "" && ngaylap.Text == "" && txtmakh.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_maKH_ThanhTien", Database.connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_maKH_ThanhTien", Database.connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.Add(new SqlParameter("@maKH", txtmakh.Text));
                 cmd.Parameters.Add(new SqlParameter("@thanhTien", txtthanhtien.Text));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
@@ -342,12 +362,14 @@ namespace ivivuApp
                     listHD.Clear();
                     while (sqlReader.Read())
                     {
-                        HoaDon hd = new HoaDon();
-                        hd.maHD = sqlReader.GetInt32(0);
-                        hd.ngayThanhToan = sqlReader.GetDateTime(1);
-                        hd.tongTien = sqlReader.GetInt64(2);
-                        hd.maDP = sqlReader.GetInt32(3);
-                        hd.maKH = sqlReader.GetInt32(4);
+                        HoaDon hd = new HoaDon
+                        {
+                            maHD = sqlReader.GetInt32(0),
+                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            tongTien = sqlReader.GetInt64(2),
+                            maDP = sqlReader.GetInt32(3),
+                            maKH = sqlReader.GetInt32(4)
+                        };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
                         {
@@ -376,8 +398,10 @@ namespace ivivuApp
             }
             if (txtthanhtien.Text == "" && ngaylap.Text != "" && txtmakh.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_maKH_ngaylap", Database.connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_maKH_ngaylap", Database.connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.Add(new SqlParameter("@maKH", txtmakh.Text));
                 cmd.Parameters.Add(new SqlParameter("@ngayLap", ngaylap.Text));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
@@ -387,12 +411,14 @@ namespace ivivuApp
                     listHD.Clear();
                     while (sqlReader.Read())
                     {
-                        HoaDon hd = new HoaDon();
-                        hd.maHD = sqlReader.GetInt32(0);
-                        hd.ngayThanhToan = sqlReader.GetDateTime(1);
-                        hd.tongTien = sqlReader.GetInt64(2);
-                        hd.maDP = sqlReader.GetInt32(3);
-                        hd.maKH = sqlReader.GetInt32(4);
+                        HoaDon hd = new HoaDon
+                        {
+                            maHD = sqlReader.GetInt32(0),
+                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            tongTien = sqlReader.GetInt64(2),
+                            maDP = sqlReader.GetInt32(3),
+                            maKH = sqlReader.GetInt32(4)
+                        };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
                         {
@@ -422,8 +448,10 @@ namespace ivivuApp
 
             if (txtthanhtien.Text != "" && ngaylap.Text != "" && txtmakh.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_MaKH_NgayLap_ThanhTien", Database.connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_MaKH_NgayLap_ThanhTien", Database.connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.Add(new SqlParameter("@maKH", txtmakh.Text));
                 cmd.Parameters.Add(new SqlParameter("@ngayThanhToan", ngaylap.Text));
                 cmd.Parameters.Add(new SqlParameter("@thanhTien", txtthanhtien.Text));
@@ -434,12 +462,14 @@ namespace ivivuApp
                     listHD.Clear();
                     while (sqlReader.Read())
                     {
-                        HoaDon hd = new HoaDon();
-                        hd.maHD = sqlReader.GetInt32(0);
-                        hd.ngayThanhToan = sqlReader.GetDateTime(1);
-                        hd.tongTien = sqlReader.GetInt64(2);
-                        hd.maDP = sqlReader.GetInt32(3);
-                        hd.maKH = sqlReader.GetInt32(4);
+                        HoaDon hd = new HoaDon
+                        {
+                            maHD = sqlReader.GetInt32(0),
+                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            tongTien = sqlReader.GetInt64(2),
+                            maDP = sqlReader.GetInt32(3),
+                            maKH = sqlReader.GetInt32(4)
+                        };
                         string date1 = hd.ngayThanhToan.ToString();
                         for (int i = 0; i < date1.Length; i++)
                         {

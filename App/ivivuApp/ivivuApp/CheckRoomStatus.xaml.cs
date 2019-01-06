@@ -90,17 +90,18 @@ namespace ivivuApp
             {
                 DateTime date = (DateTime)dpDate.SelectedDate;
                 var roomTypeId = ((RoomType)lvRoomTypes.SelectedItem).roomTypeId;
-                var left = Application.Current.MainWindow.Left;
-                var top = Application.Current.MainWindow.Top;
-                var height = Application.Current.MainWindow.Height;
-                var width = Application.Current.MainWindow.Width;
+                var left = this.Left;
+                var top = this.Top;
+                var height = this.Height;
+                var width = this.Width;
 
-                var listRooms = new ListRooms(roomTypeId, date);
-
-                listRooms.Left = left;
-                listRooms.Top = top;
-                listRooms.Width = width;
-                listRooms.Height = height;
+                var listRooms = new ListRooms(roomTypeId, date)
+                {
+                    Left = left,
+                    Top = top,
+                    Width = width,
+                    Height = height
+                };
 
                 listRooms.ShowDialog();
             }
@@ -108,17 +109,18 @@ namespace ivivuApp
 
         private void ListViewItem_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var left = Application.Current.MainWindow.Left;
-            var top = Application.Current.MainWindow.Top;
-            var height = Application.Current.MainWindow.Height;
-            var width = Application.Current.MainWindow.Width;
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
 
-            var window = new Bill();
-
-            window.Left = left;
-            window.Top = top;
-            window.Width = width;
-            window.Height = height;
+            var window = new Bill
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
 
             window.Show();
             this.Close();
@@ -126,17 +128,18 @@ namespace ivivuApp
 
         private void ListViewItem_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            var left = Application.Current.MainWindow.Left;
-            var top = Application.Current.MainWindow.Top;
-            var height = Application.Current.MainWindow.Height;
-            var width = Application.Current.MainWindow.Width;
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
 
-            var window = new Report();
-
-            window.Left = left;
-            window.Top = top;
-            window.Width = width;
-            window.Height = height;
+            var window = new Report
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
 
             window.Show();
             this.Close();
@@ -144,17 +147,18 @@ namespace ivivuApp
 
         private void ListViewItem_PreviewMouseDown_2(object sender, MouseButtonEventArgs e)
         {
-            var left = Application.Current.MainWindow.Left;
-            var top = Application.Current.MainWindow.Top;
-            var height = Application.Current.MainWindow.Height;
-            var width = Application.Current.MainWindow.Width;
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
 
-            var window = new SearchBill();
-
-            window.Left = left;
-            window.Top = top;
-            window.Width = width;
-            window.Height = height;
+            var window = new SearchBill
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
 
             window.Show();
             this.Close();

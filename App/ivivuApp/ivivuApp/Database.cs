@@ -18,11 +18,13 @@ namespace ivivuApp
         }
         public static void init()
         {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = ConfigurationManager.ConnectionStrings["DataSource"].ConnectionString;   // update me
-            builder.UserID = ConfigurationManager.ConnectionStrings["UserID"].ConnectionString;              // update me
-            builder.Password = ConfigurationManager.ConnectionStrings["Password"].ConnectionString;      // update me
-            builder.InitialCatalog = ConfigurationManager.ConnectionStrings["InitialCatalog"].ConnectionString;
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+            {
+                DataSource = ConfigurationManager.ConnectionStrings["DataSource"].ConnectionString,   // update me
+                UserID = ConfigurationManager.ConnectionStrings["UserID"].ConnectionString,              // update me
+                Password = ConfigurationManager.ConnectionStrings["Password"].ConnectionString,      // update me
+                InitialCatalog = ConfigurationManager.ConnectionStrings["InitialCatalog"].ConnectionString
+            };
 
             // Connect to SQL
             Console.Write("Connecting to SQL Server ... ");

@@ -30,18 +30,19 @@ namespace ivivuApp
 
         private void login_admin_Click(object sender, RoutedEventArgs e)
         {
-            var left = Application.Current.MainWindow.Left;
-            var top = Application.Current.MainWindow.Top;
-            var height = Application.Current.MainWindow.Height;
-            var width = Application.Current.MainWindow.Width;
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
 
-            var window = new Login_admin();
+            var window = new Login_admin
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
 
-            window.Left = left;
-            window.Top = top;
-            window.Width = width;
-            window.Height = height;
-            
             window.Show();
             this.Close();
         }
@@ -57,16 +58,18 @@ namespace ivivuApp
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
-            var left = Application.Current.MainWindow.Left;
-            var top = Application.Current.MainWindow.Top;
-            var height = Application.Current.MainWindow.Height;
-            var width = Application.Current.MainWindow.Width;
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
 
-            var window = new Search();
-            window.Left = left;
-            window.Top = top;
-            window.Width = width;
-            window.Height = height;
+            var window = new Search
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
 
             window.Show();
             this.Close();

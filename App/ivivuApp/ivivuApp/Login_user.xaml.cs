@@ -31,10 +31,12 @@ namespace ivivuApp
         private void btn_login_user_Click(object sender, RoutedEventArgs e)
         {
 
-            SqlCommand cmd = new SqlCommand("proc_LoginCustomer", Database.connection);
+            SqlCommand cmd = new SqlCommand("proc_LoginCustomer", Database.connection)
+            {
 
-            // Kiểu của Command là StoredProcedure
-            cmd.CommandType = CommandType.StoredProcedure;
+                // Kiểu của Command là StoredProcedure
+                CommandType = CommandType.StoredProcedure
+            };
 
             cmd.Parameters.Add(new SqlParameter("@tenDangNhap", username.Text));
             cmd.Parameters.Add(new SqlParameter("@matKhau", passwordBox.Password));

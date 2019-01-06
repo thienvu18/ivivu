@@ -48,9 +48,10 @@ namespace ivivuApp
 
         private int BookRoom(int roomId, int customerId, DateTime startDate, DateTime endDate, string description)
         {
-            SqlCommand cmd = new SqlCommand("proc_BookRoom", Database.connection);
-
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("proc_BookRoom", Database.connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
 
             cmd.Parameters.Add(new SqlParameter("@MaPhong", roomId));
             cmd.Parameters.Add(new SqlParameter("@MaKhachHang", customerId));
