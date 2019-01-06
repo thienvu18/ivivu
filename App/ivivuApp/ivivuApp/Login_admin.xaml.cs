@@ -67,7 +67,7 @@ namespace ivivuApp
                     double height = this.Height;
                     double width = this.Width;
 
-                    Home_admin window = new Home_admin
+                    Bill window = new Bill
                     {
                         Left = left,
                         Top = top,

@@ -124,6 +124,88 @@ namespace ivivuApp
             txt_date_create.Text = _bill.dateCreat;
 
         }
+
+        private void ListViewItem_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
+
+            var window = new CheckRoomStatus
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
+
+            window.Show();
+            this.Close();
+        }
+
+        private void ListViewItem_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
+
+            var window = new Report
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
+
+            window.Show();
+            this.Close();
+        }
+
+        private void ListViewItem_PreviewMouseDown_2(object sender, MouseButtonEventArgs e)
+        {
+            var left = this.Left;
+            var top = this.Top;
+            var height = this.Height;
+            var width = this.Width;
+
+            var window = new SearchBill
+            {
+                Left = left,
+                Top = top,
+                Width = width,
+                Height = height
+            };
+
+            window.Show();
+            this.Close();
+        }
+
+        private void ListViewItem_PreviewMouseDown_3(object sender, MouseButtonEventArgs e)
+        {
+            //đăng xuất
+            if (Auth.isCustomerLogged == false && Auth.isEmployeeLogged == false)
+            {
+                MessageBox.Show("Bạn chưa đăng nhập!");
+            }
+            else
+            {
+                Auth.isEmployeeLogged = false;
+                Auth.isCustomerLogged = false;
+
+                var window = new MainWindow();
+
+                window.Show();
+                this.Close();
+            }
+        }
+
+        private void ListViewItem_PreviewMouseDown_4(object sender, MouseButtonEventArgs e)
+        {
+            //thoát
+            Application.Current.Shutdown();
+        }
     }
 
 }
