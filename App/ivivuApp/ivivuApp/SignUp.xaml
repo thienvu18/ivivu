@@ -75,7 +75,7 @@
                 <TextBox x:Name="txt_email" Height="30"/>
             </StackPanel>
 
-            <Button Content="Xác nhận" Canvas.Top="368" Canvas.Left="195" Width="100" Height="40" FontSize="17" Click="btn_confirm_Click" ></Button>
+            <Button Content="Xác nhận" Canvas.Top="368" Canvas.Left="195" Width="114" Height="40" FontSize="17" Click="btn_confirm_Click" ></Button>
         </Canvas>
     </Grid>
     
