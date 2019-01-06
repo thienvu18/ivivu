@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ivivuApp"
         mc:Ignorable="d"
-        Title="ChooseRoom" Height="450" Width="800"
+        Title="Chọn phòng" Height="450" Width="800"
         Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>

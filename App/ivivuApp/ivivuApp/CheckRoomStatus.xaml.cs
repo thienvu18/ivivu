@@ -185,7 +185,7 @@ namespace ivivuApp
 
                 var window = new MainWindow();
 
-                window.ShowDialog();
+                window.Show();
                 this.Close();
             }
         }
