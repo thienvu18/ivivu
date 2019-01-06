@@ -29,57 +29,66 @@ namespace ivivuApp
 
         private void btn_login_admin_Click(object sender, RoutedEventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("proc_LoginEmployee", Database.connection);
-
-            // Kiểu của Command là StoredProcedure
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.Add(new SqlParameter("@tenDangNhap", username.Text));
-            cmd.Parameters.Add(new SqlParameter("@matKhau", password.Password));
-            SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
-            returnParameter.Direction = ParameterDirection.ReturnValue;
-            cmd.ExecuteNonQuery();
-            int id = (int)returnParameter.Value;
-            if (id == 1)
-            {
-                SqlCommand cmdQuery = new SqlCommand("SELECT * FROM NhanVien WHERE tenDangNhap = @tenDangNhap", Database.connection);
-                cmdQuery.Parameters.AddWithValue("@tenDangNhap", username.Text);
-
-                using (DbDataReader reader = cmdQuery.ExecuteReader())
+            try {
+                SqlCommand cmd = new SqlCommand("proc_LoginEmployee", Database.connection)
                 {
-                    if (reader.HasRows)
+
+                    // Kiểu của Command là StoredProcedure
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                cmd.Parameters.Add(new SqlParameter("@tenDangNhap", username.Text));
+                cmd.Parameters.Add(new SqlParameter("@matKhau", password.Password));
+                SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
+                returnParameter.Direction = ParameterDirection.ReturnValue;
+                cmd.ExecuteNonQuery();
+                int id = (int)returnParameter.Value;
+                if (id == 1)
+                {
+                    SqlCommand cmdQuery = new SqlCommand("SELECT * FROM NhanVien WHERE tenDangNhap = @tenDangNhap", Database.connection);
+                    cmdQuery.Parameters.AddWithValue("@tenDangNhap", username.Text);
+
+                    using (DbDataReader reader = cmdQuery.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            Auth.employee.maNV = Convert.ToInt16(reader.GetValue(0));
-                            Auth.employee.hoTen = reader.GetValue(1).ToString();
-                            Auth.employee.tenDangNhap = reader.GetValue(2).ToString();
-                            Auth.employee.matKhau = reader.GetValue(3).ToString();
-                            Auth.employee.maKS = Convert.ToInt16(reader.GetValue(4));
-                            break;
+                            while (reader.Read())
+                            {
+                                Auth.employee.maNV = Convert.ToInt16(reader.GetValue(0));
+                                Auth.employee.hoTen = reader.GetValue(1).ToString();
+                                Auth.employee.tenDangNhap = reader.GetValue(2).ToString();
+                                Auth.employee.maKS = Convert.ToInt16(reader.GetValue(4));
+                                break;
+                            }
                         }
                     }
+                    double left = this.Left;
+                    double top = this.Top;
+                    double height = this.Height;
+                    double width = this.Width;
+
+                    Home_admin window = new Home_admin
+                    {
+                        Left = left,
+                        Top = top,
+                        Width = width,
+                        Height = height
+                    };
+
+                    Auth.isEmployeeLogged = true;
+                    this.Close();
+                    window.Show();
                 }
-                var left = Application.Current.MainWindow.Left;
-                var top = Application.Current.MainWindow.Top;
-                var height = Application.Current.MainWindow.Height;
-                var width = Application.Current.MainWindow.Width;
-
-                var window = new Home_admin();
-
-                window.Left = left;
-                window.Top = top;
-                window.Width = width;
-                window.Height = height;
-                
-                Auth.isEmployeeLogged = true;
-                this.Close();
-                window.ShowDialog();
-            }
-            else
+                else
+                {
+                    MessageBox.Show("Đăng nhập không thành công");
+                }
+            } catch (Exception exception)
             {
-                MessageBox.Show("Đăng nhập không thành công");
+                MessageBox.Show(exception.ToString());
             }
+
+
         }
     }
 }
