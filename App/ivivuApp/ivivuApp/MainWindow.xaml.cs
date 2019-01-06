@@ -61,7 +61,7 @@ namespace ivivuApp
                 Width = width,
                 Height = height
             };
-            window.ShowDialog();
+            window.Show();
             this.Close();
 
 
