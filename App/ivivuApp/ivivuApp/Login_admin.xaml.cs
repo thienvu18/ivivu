@@ -87,8 +87,6 @@ namespace ivivuApp
             {
                 MessageBox.Show(exception.ToString());
             }
-
-
         }
 
         private void login_admin_Click(object sender, RoutedEventArgs e)

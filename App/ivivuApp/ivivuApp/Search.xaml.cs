@@ -571,23 +571,25 @@ namespace ivivuApp
         private void dangxuat_click(object sender, RoutedEventArgs e)
         {
 
-            if (Auth.user.maKH == 0)
+            if (Auth.isCustomerLogged == false || Auth.isEmployeeLogged == false)
             {
                 MessageBox.Show("Bạn chưa đăng nhập!");
             }
             else
             {
+                Auth.isEmployeeLogged = false;
+                Auth.isCustomerLogged = false;
+
                 var window = new MainWindow();
-                this.Close();
+                
                 window.ShowDialog();
+                this.Close();
             }
         }
 
         private void exit_click(object sender, RoutedEventArgs e)
         {
-
-            this.Close();
-
+            Application.Current.Shutdown();
         }
     }
 }

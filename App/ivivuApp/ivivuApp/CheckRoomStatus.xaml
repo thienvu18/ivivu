@@ -6,42 +6,53 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ivivuApp"
         mc:Ignorable="d"
-        Title="Kiểm tra tình trạng phòng" Height="600" Width="800"
+        Title="Kiểm tra tình trạng phòng" Height="600" Width="1000"
         Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="265*"></ColumnDefinition>
-            <ColumnDefinition Width="529*"></ColumnDefinition>
+            <ColumnDefinition Width="280"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Border Background="GhostWhite" BorderBrush="Silver" BorderThickness="0,0,1,0" Grid.Column="0">
-            <StackPanel>
-                <ListView Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18">
-                    <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Search" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Lập hóa đơn" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_1" Cursor="Hand">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Thống Kê" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="45" Padding="0" IsSelected="True">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Worker" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Kiểm tra tình trạng phòng" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_2">
-                        <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Worker" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Tìm kiếm hóa đơn" Margin="10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
-            </StackPanel>
+            <ListView Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18">
+                <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="FileDocumentOutline" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Lập hóa đơn" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_1" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="ChartLineStacked" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Thống Kê" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="45" Padding="0" IsSelected="True">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="ClipboardCheckOutline" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Kiểm tra tình trạng phòng" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_2">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="TableSearch" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Tìm kiếm hóa đơn" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <Separator />
+                <ListViewItem Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_3" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="Logout" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Đăng xuất" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem  Height="45" Padding="0" PreviewMouseDown="ListViewItem_PreviewMouseDown_4">
+                    <StackPanel Orientation="Horizontal" Margin="10 0">
+                        <materialDesign:PackIcon Kind="ExitToApp" Width="20" Height="20" Foreground="#FFF08033" Margin="5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Thoát" Margin="10"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
         </Border>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
