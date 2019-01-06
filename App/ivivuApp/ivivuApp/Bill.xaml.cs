@@ -117,7 +117,7 @@ namespace ivivuApp
                 } 
             }
             txt_price.Text = _bill.price.ToString();
-            txt_num_day.Text = _bill.days.ToString();
+            txt_num_day.Text = _bill.days.ToString() + " Ngày";
             txt_ID_room.Text = _bill.typeRoom;
             txt_ID_bill.Text = _bill.billID.ToString();
             txt_total_price.Text = _bill.total.ToString();
@@ -208,4 +208,18 @@ namespace ivivuApp
         }
     }
 
+
+
+
+    //query tim ra ma dat phong chua co hoa don
+    /*
+     
+     select DatPhong.maDP
+    from DatPhong
+    where not exists (select hd.maDP
+				from	HoaDon hd
+				where hd.maDP = DatPhong.maDP)
+    go
+     
+     */
 }
