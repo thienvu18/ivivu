@@ -30,6 +30,7 @@ namespace ivivuApp
             public long price { get; set; }
             public int days { get; set; }
             public long total { get; set; }
+            public string namehotel { get; set; }
         }
 
         public Bill()
@@ -76,7 +77,7 @@ namespace ivivuApp
         long _price;
         string _typeRoom;
         int _days;
-
+        string _nameHotel;
         private void Load_bill()
         {
             string sqlHD = "SELECT HoaDon.maHD, HoaDon.TongTien FROM HoaDon WHERE HoaDon.maDP = " + ID_book.Text;
@@ -114,7 +115,23 @@ namespace ivivuApp
                         _bill.typeRoom = _typeRoom;
                         _bill.days = _days;
                     }
-                } 
+                }
+                string sqltenks = "select tenKS from KhachSan, HoaDon where maHD = " + ID_book.Text + " and maKS in (select lp.maKS from LoaiPhong lp join DatPhong dp on dp.maLoaiPhong = lp.maLoaiPhong)";
+
+                using (SqlCommand command1 = new SqlCommand(sqltenks, Database.connection))
+                {
+                    using (SqlDataReader reader1 = command1.ExecuteReader())
+                    {
+
+                        if (reader1.Read())
+                        {
+                            _nameHotel = reader1.GetString(0);
+                        }
+                        reader1.Close();
+                    }
+                    _bill.namehotel = _nameHotel;
+
+                }
             }
             txt_price.Text = _bill.price.ToString();
             txt_num_day.Text = _bill.days.ToString() + " Ngày";
@@ -122,6 +139,7 @@ namespace ivivuApp
             txt_ID_bill.Text = _bill.billID.ToString();
             txt_total_price.Text = _bill.total.ToString();
             txt_date_create.Text = _bill.dateCreat;
+            txtnamehotel.Text = "Khách Sạn "+_bill.namehotel;
 
         }
 

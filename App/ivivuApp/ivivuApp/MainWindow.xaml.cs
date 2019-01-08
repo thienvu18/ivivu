@@ -84,7 +84,14 @@ namespace ivivuApp
 
             window.Show();
             this.Close();
-            
+
         }
+
+        private void exit(object sender, MouseButtonEventArgs e)
+        {
+            //thoát
+            Application.Current.Shutdown();
+        }
+
     }
 }

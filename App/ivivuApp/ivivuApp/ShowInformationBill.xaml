@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ivivuApp"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="ShowInformation_Bill" Height="498" Width="537.844">
+        Title="Thông tin chi tiết hóa đơn" Height="498" Width="537.844">
     <Canvas Margin="15">
 
         <StackPanel Canvas.Top="60" >

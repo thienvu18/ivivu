@@ -574,7 +574,7 @@ namespace ivivuApp
 
         private void ListViewItem_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (Auth.user.maKH != 0)
+            if (Auth.isCustomerLogged)
             {
                 MessageBox.Show("Bạn đã đăng nhập!");
             }
@@ -601,7 +601,7 @@ namespace ivivuApp
         private void ListViewItem_PreviewMouseDown_3(object sender, MouseButtonEventArgs e)
         {
             //đăng xuất
-            if (Auth.user.maKH == 0)
+            if (!Auth.isCustomerLogged)
             {
                 MessageBox.Show("Bạn chưa đăng nhập!");
             }

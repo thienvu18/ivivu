@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ivivuApp"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="ShowInformation" Height="446" Width="614">
+        Title="Thông tin chi tiết khách sạn" Height="446" Width="614">
     <Grid Margin="0,0,-8,0" >
         <Label Name="lbmaks"
                Content=" Mã KS:" 
@@ -47,7 +47,7 @@
 
 
         <materialDesign:RatingBar
-           
+           IsHitTestVisible="False"
              Foreground="#FFF7B70B"
             Value="3"
             x:Name="sosao"

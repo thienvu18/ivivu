@@ -41,6 +41,12 @@ namespace ivivuApp
             InitializeComponent();
         }
 
+        private void exit(object sender, MouseButtonEventArgs e)
+        {
+            //thoát
+            Application.Current.Shutdown();
+        }
+
         private void btn_confirm_Click(object sender, RoutedEventArgs e)
         {
             c_fullname = true;

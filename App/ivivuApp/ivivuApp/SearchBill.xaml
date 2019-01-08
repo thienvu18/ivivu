@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ivivuApp"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="SearchBill" Height="600" Width="1000">
+        Title="Tìm kiếm hóa đơn" Height="600" Width="1000">
 
     <Grid Margin="0,0,2,0">
         <Grid>

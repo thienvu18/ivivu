@@ -28,6 +28,12 @@ namespace ivivuApp
             InitializeComponent();
         }
 
+        private void exit(object sender, MouseButtonEventArgs e)
+        {
+            //thoát
+            Application.Current.Shutdown();
+        }
+
         private void btn_login_user_Click(object sender, RoutedEventArgs e)
         {
 

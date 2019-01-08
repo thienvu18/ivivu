@@ -5,7 +5,7 @@
        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"      
         Height="600" 
         Width="1000"
-        Title="Search">
+        Title="Tìm kiếm khách sạn">
 
     <Canvas Margin="0,10,2,-1">
 
