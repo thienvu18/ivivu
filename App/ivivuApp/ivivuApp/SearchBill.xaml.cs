@@ -144,8 +144,12 @@ namespace ivivuApp
 
         private void bttimkiem_Click(object sender, RoutedEventArgs e)
         {
+            string ngayThanhToan = "";
+            if (ngaylap.SelectedDate != null) {
+                ngayThanhToan = ((DateTime)ngaylap.SelectedDate).ToString("yyyy-MM-dd");
+            }
             //================================================
-            if (txtthanhtien.Text == "" && ngaylap.Text == "" && txtmakh.Text != "")
+            if (txtthanhtien.Text == "" && ngayThanhToan == "" && txtmakh.Text != "")
             {
                 SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_MaKH", Database.connection)
                 {
@@ -196,7 +200,7 @@ namespace ivivuApp
             }
 
             //===================================
-            if (txtthanhtien.Text != "" && ngaylap.Text == "" && txtmakh.Text == "")
+            if (txtthanhtien.Text != "" && ngayThanhToan == "" && txtmakh.Text == "")
             {
                 SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_ThanhTien", Database.connection)
                 {
@@ -246,13 +250,13 @@ namespace ivivuApp
             }
 
             //=====================================
-            if (txtthanhtien.Text == "" && ngaylap.Text != "" && txtmakh.Text == "")
+            if (txtthanhtien.Text == "" && ngayThanhToan != "" && txtmakh.Text == "")
             {
                 SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_NgayLap", Database.connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("@ngayThanhToan", ngaylap.Text));
+                cmd.Parameters.Add(new SqlParameter("@ngayThanhToan", ngayThanhToan));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
 
                 if (sqlReader.HasRows)
@@ -296,13 +300,13 @@ namespace ivivuApp
             }
 
             //=====================================
-            if (txtthanhtien.Text != "" && ngaylap.Text != "" && txtmakh.Text == "")
+            if (txtthanhtien.Text != "" && ngayThanhToan != "" && txtmakh.Text == "")
             {
                 SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_ngaylap_tongtien", Database.connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-                cmd.Parameters.Add(new SqlParameter("@ngayLap", ngaylap.Text));
+                cmd.Parameters.Add(new SqlParameter("@ngayLap", ngayThanhToan));
                 cmd.Parameters.Add(new SqlParameter("@thanhTien", txtthanhtien.Text));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
 
@@ -347,7 +351,7 @@ namespace ivivuApp
             }
 
             //=====================================
-            if (txtthanhtien.Text != "" && ngaylap.Text == "" && txtmakh.Text != "")
+            if (txtthanhtien.Text != "" && ngayThanhToan == "" && txtmakh.Text != "")
             {
                 SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_maKH_ThanhTien", Database.connection)
                 {
@@ -396,14 +400,14 @@ namespace ivivuApp
                     sqlReader.Close();
                 }
             }
-            if (txtthanhtien.Text == "" && ngaylap.Text != "" && txtmakh.Text != "")
+            if (txtthanhtien.Text == "" && ngayThanhToan != "" && txtmakh.Text != "")
             {
                 SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_maKH_ngaylap", Database.connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.Add(new SqlParameter("@maKH", txtmakh.Text));
-                cmd.Parameters.Add(new SqlParameter("@ngayLap", ngaylap.Text));
+                cmd.Parameters.Add(new SqlParameter("@ngayLap", ngayThanhToan));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
 
                 if (sqlReader.HasRows)
@@ -446,14 +450,15 @@ namespace ivivuApp
                 }
             }
 
-            if (txtthanhtien.Text != "" && ngaylap.Text != "" && txtmakh.Text != "")
+            if (txtthanhtien.Text != "" && ngaylap.SelectedDate != null && txtmakh.Text != "")
             {
                 SqlCommand cmd = new SqlCommand("usp_timKiemTTHD_MaKH_NgayLap_ThanhTien", Database.connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+
                 cmd.Parameters.Add(new SqlParameter("@maKH", txtmakh.Text));
-                cmd.Parameters.Add(new SqlParameter("@ngayThanhToan", ngaylap.Text));
+                cmd.Parameters.Add(new SqlParameter("@ngayThanhToan", ngayThanhToan));
                 cmd.Parameters.Add(new SqlParameter("@thanhTien", txtthanhtien.Text));
                 SqlDataReader sqlReader = cmd.ExecuteReader();
 
@@ -496,7 +501,7 @@ namespace ivivuApp
                     sqlReader.Close();
                 }
             }
-            if (txtthanhtien.Text == "" && ngaylap.Text == "" && txtmakh.Text == "")
+            if (txtthanhtien.Text == "" && ngayThanhToan == "" && txtmakh.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập thông tin cần tìm");
             }

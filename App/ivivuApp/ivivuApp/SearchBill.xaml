@@ -190,14 +190,14 @@
             Width="100" Click="bttimkiem_Click"/>
 
 
-        <Label
+        <!--<Label
             x:Name="lbdate"
             Content="(Tháng/Ngày/Năm)"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Width="120"
             Height="30" 
-            Margin="0,76,8,0"/>
+            Margin="0,76,8,0"/>-->
 
     </Grid>
 </Window>
