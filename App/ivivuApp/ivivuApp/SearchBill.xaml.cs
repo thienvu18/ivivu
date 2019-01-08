@@ -30,7 +30,6 @@ namespace ivivuApp
         public SearchBill()
         {
             InitializeComponent();
-            getData();
             dttimkiemhoadon.ItemsSource = listHD;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(dttimkiemhoadon.ItemsSource);
         }
@@ -40,14 +39,14 @@ namespace ivivuApp
         public void getData()
         {
 
-            SqlCommand command = new SqlCommand("select HoaDon.maHD, HoaDon.ngayThanhToan,HoaDon.tongTien,HoaDon.madp,DatPhong.maKH  from HoaDon JOIN DatPhong ON HoaDon.maDP = DatPhong.maDP", Database.connection);
+            SqlCommand command = new SqlCommand("select top (100) HoaDon.maHD, HoaDon.ngayThanhToan,HoaDon.tongTien,HoaDon.madp,DatPhong.maKH  from HoaDon JOIN DatPhong ON HoaDon.maDP = DatPhong.maDP", Database.connection);
             SqlDataReader sqlReader = command.ExecuteReader();
             while (sqlReader.Read())
             {
                 HoaDon hd = new HoaDon
                 {
                     maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
-                    ngayThanhToan = sqlReader.GetDateTime(1),
+                    ngayThanhToan = sqlReader.IsDBNull(1) ? new DateTime() : sqlReader.GetDateTime(1),
                     tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
                     maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
                     maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
@@ -164,7 +163,7 @@ namespace ivivuApp
                         {
 
                             maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
-                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            ngayThanhToan = sqlReader.IsDBNull(1) ? new DateTime(): sqlReader.GetDateTime(1),
                             tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
                             maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
                             maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
@@ -214,7 +213,7 @@ namespace ivivuApp
                         HoaDon hd = new HoaDon
                         {
                             maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
-                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            ngayThanhToan = sqlReader.IsDBNull(1) ? new DateTime() : sqlReader.GetDateTime(1),
                             tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
                             maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
                             maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
@@ -264,7 +263,7 @@ namespace ivivuApp
                         HoaDon hd = new HoaDon
                         {
                             maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
-                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            ngayThanhToan = sqlReader.IsDBNull(1) ? new DateTime() : sqlReader.GetDateTime(1),
                             tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
                             maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
                             maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
@@ -315,7 +314,7 @@ namespace ivivuApp
                         HoaDon hd = new HoaDon
                         {
                             maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
-                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            ngayThanhToan = sqlReader.IsDBNull(1) ? new DateTime() : sqlReader.GetDateTime(1),
                             tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
                             maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
                             maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
@@ -366,7 +365,7 @@ namespace ivivuApp
                         HoaDon hd = new HoaDon
                         {
                             maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
-                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            ngayThanhToan = sqlReader.IsDBNull(1) ? new DateTime() : sqlReader.GetDateTime(1),
                             tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
                             maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
                             maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
@@ -415,7 +414,7 @@ namespace ivivuApp
                         HoaDon hd = new HoaDon
                         {
                             maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
-                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            ngayThanhToan = sqlReader.IsDBNull(1) ? new DateTime() : sqlReader.GetDateTime(1),
                             tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
                             maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
                             maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
@@ -466,7 +465,7 @@ namespace ivivuApp
                         HoaDon hd = new HoaDon
                         {
                             maHD = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
-                            ngayThanhToan = sqlReader.GetDateTime(1),
+                            ngayThanhToan = sqlReader.IsDBNull(1) ? new DateTime() : sqlReader.GetDateTime(1),
                             tongTien = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
                             maDP = sqlReader.IsDBNull(3) ? -1 : sqlReader.GetInt32(3),
                             maKH = sqlReader.IsDBNull(4) ? -1 : sqlReader.GetInt32(4)
@@ -591,6 +590,11 @@ namespace ivivuApp
         {
             //thoát
             Application.Current.Shutdown();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            getData();
         }
     }
 }

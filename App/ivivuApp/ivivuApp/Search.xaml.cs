@@ -50,7 +50,7 @@ namespace ivivuApp
         public void getData()
         {
 
-            SqlCommand command = new SqlCommand("select * from KhachSan", Database.connection);
+            SqlCommand command = new SqlCommand("select top (100) * from KhachSan", Database.connection);
             SqlDataReader sqlReader = command.ExecuteReader();
             while (sqlReader.Read())
             {

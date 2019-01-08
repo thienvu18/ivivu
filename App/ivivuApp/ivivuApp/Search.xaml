@@ -71,7 +71,7 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="15"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.RowSpan="2" Grid.ColumnSpan="3" >
                         <TextBox 
@@ -124,18 +124,18 @@
                            />
 
                     <DataGrid
-                        x:Name="dttimkiem1" 
-                            
-                                 ColumnWidth="*"
-                                CanUserSortColumns="True"
-                                CanUserAddRows="False"
-                                AutoGenerateColumns="False"
-                                RowHeight="40"
-                                ScrollViewer.CanContentScroll="False"
-                              HorizontalAlignment="Left" 
-                              Margin="8,93,0,63" 
-                              Width="690" 
-                              Grid.Row="1" Grid.ColumnSpan="3" >
+                        x:Name="dttimkiem1"         
+                        ColumnWidth="*"
+                        CanUserSortColumns="True"
+                        CanUserAddRows="False"
+                        AutoGenerateColumns="False"
+                        RowHeight="40"
+                        ScrollViewer.CanContentScroll="False"
+                        HorizontalAlignment="Left" 
+                        Margin="8,93,0,63" 
+                        Width="690" 
+                        Grid.Row="1" Grid.ColumnSpan="3" 
+                        VerticalScrollBarVisibility="Visible">
 
                         <DataGrid.Resources>
                             <Style
@@ -215,7 +215,7 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="15"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.RowSpan="2" Grid.ColumnSpan="2" >
                         <TextBox 
@@ -264,7 +264,7 @@
                         CanUserSortColumns="True"
                         CanUserAddRows="False"
                         AutoGenerateColumns="False"
-                        ScrollViewer.CanContentScroll="False"
+                        ScrollViewer.CanContentScroll="True"
                         HorizontalAlignment="Left" 
                         Margin="0,131,0,62" 
                         Width="690" 
