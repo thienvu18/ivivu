@@ -29,11 +29,13 @@ namespace ivivuApp
             public long price { get; set; }
             public int days { get; set; }
             public long total { get; set; }
+            public string nameHotel { get; set; }
         }
-        public ShowInformation_Bill(int ma)
+        public ShowInformation_Bill(int mahd)
         {
             InitializeComponent();
-            getData(ma);
+            load_bill(mahd);
+            canv_bill_detail.Visibility = Visibility.Visible;
 
         }
         private BillInfo _bill = new BillInfo();
@@ -43,31 +45,33 @@ namespace ivivuApp
         long _price;
         string _typeRoom;
         int _days;
+        string _nameHotel;
 
-        public void getData(int ma)
+        private void load_bill(int mahd)
         {
-            string sqlHD = "SELECT HoaDon.maHD, HoaDon.TongTien FROM HoaDon WHERE HoaDon.maDP = " + ma;
+            string sqlHD = "SELECT HoaDon.maHD, HoaDon.TongTien,HoaDon.ngayThanhToan FROM HoaDon WHERE HoaDon.maDP = " + mahd;
             using (SqlCommand commandHD = new SqlCommand(sqlHD, Database.connection))
             {
                 using (SqlDataReader readerHD = commandHD.ExecuteReader())
                 {
-                    while (readerHD.Read())
+                    if (readerHD.Read())
                     {
                         _idBill = readerHD.GetInt32(0);
                         _total = readerHD.GetInt64(1);
+                        _dateCreate = readerHD.GetDateTime(2).ToLongDateString();
                     }
 
-                    _dateCreate = DateTime.Now.ToString();
                     _bill.total = _total;
                     _bill.dateCreat = _dateCreate;
                     _bill.billID = _idBill;
-
+                    readerHD.Close();
                 }
 
-                string sql = "SELECT DISTINCT LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, DATEDIFF(DAY, DatPhong.ngayTraPhong, DatPhong.ngayBatDau) AS numDay FROM HoaDon, LoaiPhong, DatPhong WHERE DatPhong.maDP = " + ma + " AND DatPhong.maDP = HoaDon.maDP AND DatPhong.maLoaiPhong = LoaiPhong.maLoaiPhong";
-                using (SqlCommand command1 = new SqlCommand(sql, Database.connection))
+
+                string sql = "SELECT DISTINCT LoaiPhong.tenLoaiPhong, LoaiPhong.donGia, DATEDIFF(DAY, DatPhong.ngayTraPhong, DatPhong.ngayBatDau) AS numDay FROM HoaDon, LoaiPhong, DatPhong WHERE DatPhong.maDP = " + mahd + " AND DatPhong.maDP = HoaDon.maDP AND DatPhong.maLoaiPhong = LoaiPhong.maLoaiPhong";
+                using (SqlCommand command = new SqlCommand(sql, Database.connection))
                 {
-                    using (SqlDataReader reader = command1.ExecuteReader())
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
 
                         while (reader.Read())
@@ -80,25 +84,41 @@ namespace ivivuApp
                         _bill.price = _price;
                         _bill.typeRoom = _typeRoom;
                         _bill.days = _days;
+                        reader.Close();
                     }
                 }
-            }
-            txt_price.Text = _bill.price.ToString();
-            txt_num_day.Text = _bill.days.ToString();
-            txt_ID_room.Text = _bill.typeRoom;
-            txt_ID_bill.Text = _bill.billID.ToString();
-            txt_total_price.Text = _bill.total.ToString();
-            txt_date_create.Text = _bill.dateCreat;
+                string sqltenks = "select tenKS from KhachSan, HoaDon where maHD = " + mahd + " and maKS in (select lp.maKS from LoaiPhong lp join DatPhong dp on dp.maLoaiPhong = lp.maLoaiPhong)";
 
+                using (SqlCommand command1 = new SqlCommand(sqltenks, Database.connection))
+                {
+                    using (SqlDataReader reader1 = command1.ExecuteReader())
+                    {
+
+                        if (reader1.Read())
+                        {
+                            _nameHotel = reader1.GetString(0);
+                        }
+                        reader1.Close();
+                    }
+                    _bill.nameHotel = _nameHotel;
+
+                }
+                txt_price.Text = _bill.price.ToString();
+                txt_num_day.Text = _bill.days.ToString();
+                txt_ID_room.Text = _bill.typeRoom;
+                txt_ID_bill.Text = _bill.billID.ToString();
+                txt_total_price.Text = _bill.total.ToString();
+                txt_date_create.Text = _bill.dateCreat;
+                txt_namehotel.Text = "Khách sạn " + _bill.nameHotel;
+
+
+            }
 
         }
-
-
-
-
         private void click_in(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Chức năng chưa được hỗ trợ!");
         }
     }
 }
+

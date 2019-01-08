@@ -7,46 +7,44 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="ShowInformation_Bill" Height="498" Width="537.844">
-    <Grid HorizontalAlignment="Left" Width="528" Margin="0,0,0,-1">
-        <Grid.ColumnDefinitions>
+    <Canvas Margin="15">
 
-        </Grid.ColumnDefinitions>
-        <Label Content="Thông tin hóa đơn"/>
-        <Border Width="463" BorderBrush="DarkGray" BorderThickness="1" Margin="32,42,32,84">
-            <Canvas x:Name="canv_bill_detail" Visibility="Hidden">
-                <Border Width="450" Height="250" BorderBrush="LightGray" BorderThickness="1" Margin="5">
-                    <StackPanel>
-                        <TextBlock Text="Tên khách sạn" FontSize="15" HorizontalAlignment="Center" Margin="0 10 0 0"/>
-                        <TextBlock Text="*****" HorizontalAlignment="Center"/>
-                        <TextBlock Text="Hóa đơn" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 10 0 10"/>
-                        <Canvas>
-                            <Label Content="Mã hóa đơn: " Canvas.Left="29" Canvas.Top="3"/>
-                            <TextBlock x:Name="txt_ID_bill" Text="ID_bill" Canvas.Left="114" Canvas.Top="8"></TextBlock>
-                            <Label Content="Ngày lập: " Canvas.Top="3" Canvas.Left="275" />
-                            <TextBlock x:Name="txt_date_create" Text="dd/mm/yyyy" Canvas.Left="343" Canvas.Top="8"></TextBlock>
-                            <Label Content="Loại phòng: " Canvas.Left="29" Canvas.Top="34"/>
-                            <TextBlock x:Name="txt_ID_room" Text="Tên loại phòng" Canvas.Left="114" Canvas.Top="39"></TextBlock>
-                            <Label Content="Đơn giá: " Canvas.Top="34" Canvas.Left="275" />
-                            <TextBlock x:Name="txt_price" Text="000.000.000đ" Canvas.Left="343" Canvas.Top="39"></TextBlock>
-                            <Label Content="Thời gian thuê: " Canvas.Top="68" Canvas.Left="29" />
-                            <TextBlock x:Name="txt_num_day" Text="XX Ngày" Canvas.Left="135" Canvas.Top="73"></TextBlock>
-                            <Label Content="Thành tiền: " Canvas.Top="65" Canvas.Left="275"></Label>
-                            <TextBlock x:Name="txt_total_price" Text="000.000.000đ" Canvas.Left="347" Canvas.Top="70"></TextBlock>
-                            <Label Content="Khách hàng" Canvas.Top="99" Canvas.Left="70"></Label>
-                            <Label Content="(Ký và ghi rõ họ tên)" Canvas.Top="116" Canvas.Left="58" FontSize="10"></Label>
-                        </Canvas>
-                    </StackPanel>
-                </Border>
-            </Canvas>
-        </Border>
+        <StackPanel Canvas.Top="60" >
+            <Label Content="Thông tin hóa đơn"/>
+            <Border Width="500" Height="350" BorderBrush="DarkGray" BorderThickness="1">
+                <Canvas x:Name="canv_bill_detail" Visibility="Hidden">
+                    <Border Width="480" Height="330" BorderBrush="LightGray" BorderThickness="1" Margin="5">
+                        <StackPanel>
+                            <TextBlock x:Name="txt_namehotel" FontSize="15" HorizontalAlignment="Center" Margin="0 10 0 0"/>
+                            <TextBlock Text="*****" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Hóa đơn" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 10 0 10"/>
+                            <Canvas>
+                                <Label Content="Mã hóa đơn: " Canvas.Left="29" Canvas.Top="3"/>
+                                <TextBlock x:Name="txt_ID_bill" Text="ID_bill" Canvas.Left="114" Canvas.Top="8"></TextBlock>
+                                <Label Content="Ngày lập: " Canvas.Top="3" Canvas.Left="240" />
+                                <TextBlock x:Name="txt_date_create" Text="dd/mm/yyyy" Canvas.Left="308" Canvas.Top="8"></TextBlock>
+                                <Label Content="Loại phòng: " Canvas.Left="29" Canvas.Top="34"/>
+                                <TextBlock x:Name="txt_ID_room" Text="Tên loại phòng" Canvas.Left="114" Canvas.Top="39"></TextBlock>
+                                <Label Content="Đơn giá: " Canvas.Top="34" Canvas.Left="240" />
+                                <TextBlock x:Name="txt_price" Text="000.000.000đ" Canvas.Left="308" Canvas.Top="39"></TextBlock>
+                                <Label Content="Thời gian thuê: " Canvas.Top="68" Canvas.Left="29" />
+                                <TextBlock x:Name="txt_num_day" Text="XX Ngày" Canvas.Left="135" Canvas.Top="73"></TextBlock>
+                                <Label Content="Thành tiền: " Canvas.Top="65" Canvas.Left="240"></Label>
+                                <TextBlock x:Name="txt_total_price" Text="000.000.000đ" Canvas.Left="308" Canvas.Top="70"></TextBlock>
+                                <Label Content="Khách hàng" Canvas.Top="99" Canvas.Left="70"></Label>
+                                <Label Content="(Ký và ghi rõ họ tên)" Canvas.Top="116" Canvas.Left="58" FontSize="10"></Label>
+                            </Canvas>
+                        </StackPanel>
+                    </Border>
+                </Canvas>
+            </Border>
+        </StackPanel>
         <Button
-            Content="IN"
-            HorizontalAlignment="Right" 
-            Margin="0,389,32,29" 
+            Content="IN" 
             Width="50"
-            Height="50"
-            Click="click_in"/>
+            Height="30"
+            Click="click_in" Canvas.Left="420" Canvas.Top="26"/>
 
+    </Canvas>
 
-    </Grid>
 </Window>

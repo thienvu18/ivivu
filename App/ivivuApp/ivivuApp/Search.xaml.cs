@@ -218,46 +218,46 @@ namespace ivivuApp
             else
 
                 if (txtenthanhpho1.Text == "" && txtgia.Text != "")
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE giaTB = @giaTB", Database.connection)
                 {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM KhachSan WHERE giaTB = @giaTB", Database.connection)
+                    CommandType = CommandType.Text
+                };
+                cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
+                SqlDataReader sqlReader = cmd.ExecuteReader();
+                if (sqlReader.HasRows)
+                {
+                    listKS1.Clear();
+                    while (sqlReader.Read())
                     {
-                        CommandType = CommandType.Text
-                    };
-                    cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
-                    SqlDataReader sqlReader = cmd.ExecuteReader();
-                    if (sqlReader.HasRows)
-                    {
-                        listKS1.Clear();
-                        while (sqlReader.Read())
+                        KhachSan sp = new KhachSan
                         {
-                            KhachSan sp = new KhachSan
-                            {
-                                maKS = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
-                                tenKS = sqlReader.IsDBNull(1) ? "" : sqlReader.GetString(1),
-                                giaTB = sqlReader.IsDBNull(7) ? -1 : sqlReader.GetInt64(7),
-                                diaChi = (sqlReader.IsDBNull(3) ? "" : sqlReader.GetString(3)) + ',' + (sqlReader.IsDBNull(4) ? "" : sqlReader.GetString(4)) + ',' + (sqlReader.IsDBNull(5) ? "" : sqlReader.GetString(5)) + ',' + (sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6))
+                            maKS = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
+                            tenKS = sqlReader.IsDBNull(1) ? "" : sqlReader.GetString(1),
+                            giaTB = sqlReader.IsDBNull(7) ? -1 : sqlReader.GetInt64(7),
+                            diaChi = (sqlReader.IsDBNull(3) ? "" : sqlReader.GetString(3)) + ',' + (sqlReader.IsDBNull(4) ? "" : sqlReader.GetString(4)) + ',' + (sqlReader.IsDBNull(5) ? "" : sqlReader.GetString(5)) + ',' + (sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6))
 
-                            };
+                        };
 
-                            if (sp != null)
-                            {
+                        if (sp != null)
+                        {
 
-                                dttimkiem1.ItemsSource = null;
-                                listKS1.Add(sp);
-                            }
-
+                            dttimkiem1.ItemsSource = null;
+                            listKS1.Add(sp);
                         }
-                        dttimkiem1.ItemsSource = listKS1;
-                        sqlReader.Close();
-                    }
 
-
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy khách sạn có  giá trung bình là: " + txtgia.Text);
-                        sqlReader.Close();
                     }
+                    dttimkiem1.ItemsSource = listKS1;
+                    sqlReader.Close();
                 }
+
+
+                else
+                {
+                    MessageBox.Show("Không tìm thấy khách sạn có  giá trung bình là: " + txtgia.Text);
+                    sqlReader.Close();
+                }
+            }
 
 
 
@@ -270,7 +270,7 @@ namespace ivivuApp
                     CommandType = CommandType.StoredProcedure
                 };
 
-                cmd.Parameters.Add(new SqlParameter("@thanhPhoTimKiem", txtenthanhpho1.Text));
+                cmd.Parameters.Add(new SqlParameter("@thanhphotimkiem", txtenthanhpho1.Text));
                 cmd.Parameters.Add(new SqlParameter("@giaTB", txtgia.Text));
 
                 SqlDataReader sqlReader = cmd.ExecuteReader();
@@ -284,8 +284,9 @@ namespace ivivuApp
                         {
                             maKS = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
                             tenKS = sqlReader.IsDBNull(1) ? "" : sqlReader.GetString(1),
-                            giaTB = sqlReader.IsDBNull(7) ? -1 : sqlReader.GetInt64(7),
+                            giaTB = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
                             diaChi = (sqlReader.IsDBNull(3) ? "" : sqlReader.GetString(3)) + ',' + (sqlReader.IsDBNull(4) ? "" : sqlReader.GetString(4)) + ',' + (sqlReader.IsDBNull(5) ? "" : sqlReader.GetString(5)) + ',' + (sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6))
+
 
                         };
 
@@ -344,10 +345,10 @@ namespace ivivuApp
             {
                 ShowInformation window = new ShowInformation(temp.maKS);
                 window.ShowDialog();
-                if (Auth.isCustomerLogged == false)
-                {
-                    this.Close();
-                }
+                //if (Auth.isCustomerLogged == false)
+                //{
+                //    this.Close();
+                //}
             }
 
         }
@@ -423,7 +424,7 @@ namespace ivivuApp
                         {
                             maKS = sqlReader.IsDBNull(0) ? -1 : sqlReader.GetInt32(0),
                             tenKS = sqlReader.IsDBNull(1) ? "" : sqlReader.GetString(1),
-                            giaTB = sqlReader.IsDBNull(7) ? -1 : sqlReader.GetInt64(7),
+                            giaTB = sqlReader.IsDBNull(2) ? -1 : sqlReader.GetInt64(2),
                             diaChi = (sqlReader.IsDBNull(3) ? "" : sqlReader.GetString(3)) + ',' + (sqlReader.IsDBNull(4) ? "" : sqlReader.GetString(4)) + ',' + (sqlReader.IsDBNull(5) ? "" : sqlReader.GetString(5)) + ',' + (sqlReader.IsDBNull(6) ? "" : sqlReader.GetString(6))
 
                         };
@@ -635,3 +636,10 @@ namespace ivivuApp
 
     }
 }
+
+
+
+
+
+
+

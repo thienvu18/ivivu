@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ivivuApp"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="SearchBill" Height="600" Width="800">
+        Title="SearchBill" Height="600" Width="1000">
 
     <Grid Margin="0,0,2,0">
         <Grid>
@@ -113,12 +113,16 @@
             x:Name="dttimkiemhoadon"                            
             ColumnWidth="*"
             CanUserSortColumns="True"
-            CanUserAddRows="True"
+            CanUserAddRows="False"
             AutoGenerateColumns="False"
             ScrollViewer.CanContentScroll="False"
             HorizontalAlignment="Left" 
-            Margin="290,177,0,0" 
-            Width="492" GridLinesVisibility="Vertical" Height="382" VerticalAlignment="Top" >
+            Margin="394,177,0,0" 
+            Width="492"           
+            RowHeight="40"
+            Height="382" 
+            VerticalAlignment="Top" FontWeight="Bold"
+            >
 
             <DataGrid.Resources>
                 <Style
@@ -140,7 +144,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn
                 Header="Mã HĐ" 
-                Width="70"
+                Width="80"
                 Binding="{Binding maHD}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                 </DataGridTextColumn>
@@ -173,16 +177,6 @@
                 Binding="{Binding maKH}"
                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
                 </materialDesign:MaterialDataGridTextColumn>
-                <DataGridTemplateColumn 
-                                              
-                    Width="20" 
-                    IsReadOnly="True">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image Width="20" Height="40" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
 
             </DataGrid.Columns>
 

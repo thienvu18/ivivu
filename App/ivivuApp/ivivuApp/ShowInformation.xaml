@@ -9,85 +9,94 @@
         Title="ShowInformation" Height="446" Width="614">
     <Grid Margin="0,0,-8,0" >
         <Label Name="lbmaks"
-               Content=" Mã KS" 
+               Content=" Mã KS:" 
                HorizontalAlignment="Left" 
                Width="50"
                Height="30"
                Margin="30,30,20,250" FontWeight="Bold"/>
-        <TextBox 
+        <TextBlock 
+           TextDecorations="Underline" FontStyle="Italic"
             HorizontalAlignment="Left" 
             Height="30"
-            Margin="95,30,20,260" 
+            Margin="93,82,0,303" 
             TextWrapping="Wrap" 
             Name="txmaks"
-            Width="50" IsReadOnlyCaretVisible="True"/>
+            Width="50" />
         <Label Name="lbtenks"
-               Content=" Khách Sạn" 
+               Content=" Khách Sạn:" 
                HorizontalAlignment="Right" 
                Width="80"
                Height="30"
                Margin="0,30,350,250" FontWeight="Bold"/>
-        <TextBox 
+        <TextBlock 
+            TextDecorations="Underline" FontStyle="Italic"
             HorizontalAlignment="Right" 
             Height="30"
-            Margin="0,30,250,260" 
+            Margin="0,82,250,303" 
             TextWrapping="Wrap" 
             Name="txtenks"
-            Width="100" IsReadOnlyCaretVisible="True"/>
-        <Label x:Name="lbsoao" 
+            Width="100"/>
+        <Label 
+            x:Name="lbsoao" 
             Content="Số Sao" 
             HorizontalAlignment="Left" 
-           Margin="210,10,100,140"  
+           Margin="187,119,0,266"  
             Width="50"
             Height="30" FontWeight="Bold"
               />
+
+
         <materialDesign:RatingBar
+           
              Foreground="#FFF7B70B"
             Value="3"
             x:Name="sosao"
             HorizontalAlignment="Left" 
-            Height="40" Margin="270,10,180,130" 
+            Height="40" Margin="247,119,0,256" 
             />
+
         <Label Name="lbdiachi"
-               Content="Địa chỉ" 
+               Content="Địa chỉ:" 
                HorizontalAlignment="Left" 
                Width="60"
                Height="30"
                Margin="30,0,20,50" FontWeight="Bold"/>
-        <TextBox 
+        <TextBlock  
+            TextDecorations="Underline" FontStyle="Italic"
             HorizontalAlignment="Left" 
             Height="30"
-            Margin="95,0,20,60" 
+            Margin="91,167,0,218" 
             TextWrapping="Wrap" 
             Name="txdiachi"
-            Width="300" IsReadOnlyCaretVisible="True"/>
+            Width="350" />
         <Label x:Name="lbgia" 
-            Content="Giá TB" 
+            Content="Giá TB:" 
             HorizontalAlignment="Left" 
            Margin="30,10,100,150"  
             Width="50"
             Height="30" FontWeight="Bold"
               />
-        <TextBox 
+        <TextBlock 
+           TextDecorations="Underline" FontStyle="Italic"
             HorizontalAlignment="Left" 
             Height="30"
-            Margin="95,10,230,160" 
+            Margin="85,123,0,262" 
             TextWrapping="Wrap" 
             Name="txgia"
-            Width="80" IsReadOnlyCaretVisible="True"/>
+            Width="80" />
         <Label Name="lbmota"
-               Content="Mô tả" 
+               Content="Mô tả:" 
                HorizontalAlignment="Left" 
                Width="60"
                Height="30"
                Margin="30,40,20,0" FontWeight="Bold"/>
-        <TextBox 
+        <TextBlock            
             HorizontalAlignment="Left" 
             Height="70"
-            Margin="95,50,20,6" 
+            Margin="87,215,0,130" 
             TextWrapping="Wrap" 
             Name="txtmota"
-            Width="300" IsReadOnlyCaretVisible="True"/>
+            Width="300" TextDecorations="Underline" FontStyle="Italic" />
         <Button
             Content="ĐẶT PHÒNG"
             HorizontalAlignment="Right" 
