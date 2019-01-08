@@ -54,7 +54,13 @@ namespace ivivuApp
             Auth.employee.maKS = maks;
             if (Auth.isCustomerLogged == false)
             {
-                var loginWindows = new Login_user();
+                var loginWindows = new Login_user()
+                {
+                    Left = 250 ,
+                    Top = 130,
+                    Width = 1000,
+                    Height = 600
+                };
 
                 MessageBox.Show("Vui lòng đăng nhập để sử dụng tính năng này");
                 loginWindows.Show();
